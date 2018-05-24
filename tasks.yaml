@@ -1,0 +1,40 @@
+
+handlers:
+
+- url: /tasks/newsletters
+  login: admin
+  secure: always
+  script: tasks.app
+
+- url: /tasks/birthdays
+  login: admin
+  secure: always
+  script: tasks.app
+
+- url: /tasks/bulksms
+  login: admin
+  secure: always
+  script: tasks.app
+
+- url: /tasks/bulkemail
+  login: admin
+  secure: always
+  script: tasks.app
+
+- url: /tasks/meetings
+  login: admin
+  secure: always
+  script: tasks.app
+
+- url: /tasks/system
+  login: admin
+  secure: always
+  script: tasks.app
+
+- url: /tasks/meetingresponses
+  login: admin
+  secure: always
+  script: tasks.app
+
+
+

@@ -1,0 +1,18 @@
+<ul class="list-group">
+{% for thisArticle in thisArticlesList %}
+    <li class="list-group-item">{{ thisArticle.strArticleTitle }}</li>
+    <li class="list-group-item">{{ thisArticle.strArticle }}</li>
+{% endfor %}
+</ul>
+<div class="form-horizontal">
+    <input type="hidden" class="hidden" id="strTopicID" value="{{ vstrTopicID }}">
+    <input type="hidden" class="hidden" id="vstrForumID" value="{{ vstrForumID }}">
+    <div class="form-group">
+        <div class="col-sm-6">
+            <button type="button" class="btn btn-file btn-toolbar" id="NewArticleButt" title="Note: click on new article twice to ensure that the editor opens"><strong><i class="fa  fa-file-text-o"> </i> New Article </strong></button>
+        </div>
+
+    </div>
+</div>
+<div id="EditArticlesINFDIV"></div>
+<script src="/static/dist/js/pages/admin/forums/articles.js"></script>

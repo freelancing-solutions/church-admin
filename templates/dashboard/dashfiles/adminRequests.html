@@ -1,0 +1,42 @@
+<div class="box box-primary with-border">
+        <div class="box box-header with-border">
+            <h3 class="box-title">Admin Requests</h3>
+        </div>
+    <div class="box box-body with-border">
+        <table id="AdminRequestsTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Names</td>
+                    <td>Surname</td>
+                    <td>ID Number</td>
+                    <td>Cell</td>
+                    <td>Payment Received</td>
+                    <td>Date Request Sent</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for thisAppRequest in thisAppRequestsList %}
+                <tr>
+                    <td><a href="/accounts/request/{{ thisAppRequest.strReference }}">{{ thisAppRequest.strNames }}</a></td>
+                    <td>{{ thisAppRequest.strSurname }}</td>
+                    <td>{{ thisAppRequest.strIDNumber }}</td>
+                    <td>{{ thisAppRequest.strCell }}</td>
+                    <td>{{ thisAppRequest.strPaymentReceived }}</td>
+                    <td>{{ thisAppRequest.strDateRequestSent }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Names</td>
+                    <td>Surname</td>
+                    <td>ID Number</td>
+                    <td>Cell</td>
+                    <td>Payment Received</td>
+                    <td>Date Request Sent</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</div>

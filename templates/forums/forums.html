@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="rkt7iLTBYZuRLjY_Sxg4uDDNusOJnuhHCDIGPwAahtk" />
+  <title>Church Admin-By Blue IT Marketing Pty LTD</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!-- jQuery 2.2.3 -->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <!-- Main Header -->
+   <div id="MainHeaderDiv"></div>
+  <!-- Left side column. contains the logo and sidebar -->
+  <div id="SideBarDiv"></div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Church Administration
+        <small>Church Administration App</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Forums</li>
+      </ol>
+      <div id="ourmanna-verse">Loading...</div>
+      <script src="http://www.ourmanna.com/verses/api/js/" type="text/javascript"></script>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box box-profile with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Forums</h3>
+                    </div>
+                    <div class="box box-body with-border">
+                        <button type="button" class="btn btn-primary btn-block" id="ForumsButt"><strong><i class="fa fa-forumbee"> </i> Public Forums </strong></button>
+                        <button type="button" class="btn btn-primary btn-block" id="CreateForumsButt"><strong><i class="fa fa-forumbee"> </i> Create Forums </strong></button>
+                    </div>
+                    <div class="box box-primary">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">My Forums</h3>
+
+                      <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                      </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                      <ul class="products-list product-list-in-box">
+                       {% for thisForum in thisMyChurchForumsList %}
+                        <li class="item">
+                          <div class="product-img">
+                            <img src="/static/dist/img/forum.jpg" alt="Church Admin Forums">
+                          </div>
+                          <div class="product-info">
+                            <a href="/forums/public/{{ thisForum.strForumID }}" class="product-title">{{ thisForum.strForumName}}
+                              <span class="label label-warning pull-right"></span></a>
+                                <span class="product-description">
+                                  {{ thisForum.strForumDescription }}
+                                </span>
+                          </div>
+                        </li>
+                        {% endfor %}
+                        <!-- /.item -->
+                      </ul>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer text-center">
+                      <a href="/forums" class="uppercase">Refresh Forums</a>
+                    </div>
+                    <!-- /.box-footer -->
+                  </div>
+                    <div class="box box-primary">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Latest Forums</h3>
+
+                      <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                      </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                      <ul class="products-list product-list-in-box">
+                       {% for thisForum in thisLatestForumsList %}
+                        <li class="item">
+                          <div class="product-img">
+                            <img src="/static/dist/img/forum.jpg" alt="Latest Forums">
+                          </div>
+                          <div class="product-info">
+                            <a href="/forums/public/{{ thisForum.strForumID }}" class="product-title">{{ thisForum.strForumName}}
+                              <span class="label label-warning pull-right"></span></a>
+                                <span class="product-description">
+                                  {{ thisForum.strForumDescription }}
+                                </span>
+                          </div>
+                        </li>
+                        {% endfor %}
+                        <!-- /.item -->
+                      </ul>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer text-center">
+                      <a href="/forums" class="uppercase">Refresh Forums</a>
+                    </div>
+                    <!-- /.box-footer -->
+                  </div>
+                    <div class="box box-primary">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Trending Forums</h3>
+
+                      <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                      </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                      <ul class="products-list product-list-in-box">
+                       {% for thisForum in thisTrendingForumsList %}
+                        <li class="item">
+                          <div class="product-img">
+                            <img src="/static/dist/img/forum.jpg" alt="Trending Forums">
+                          </div>
+                          <div class="product-info">
+                            <a href="/forums/public/{{ thisForum.strForumID }}" class="product-title">{{ thisForum.strForumName}}
+                              <span class="label label-warning pull-right"></span></a>
+                                <span class="product-description">
+                                  {{ thisForum.strForumDescription }}
+                                </span>
+                          </div>
+                        </li>
+                        {% endfor %}
+                        <!-- /.item -->
+                      </ul>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer text-center">
+                      <a href="/forums" class="uppercase">Refresh Forums</a>
+                    </div>
+                    <!-- /.box-footer -->
+                  </div>
+                    <div class="box box-footer pull-left with-border">
+                      <a href="https://www.facebook.com/sharer/sharer.php?u=https://church-admins.appspot.com/forums" target="_blank" class="btn btn-block btn-social btn-facebook"><i class="fa fa-facebook"></i> Share on Facebook</a>
+                      <a href="https://plus.google.com/share?url=https://church-admins.appspot.com/forums" target="_blank" class="btn btn-block btn-social btn-google"><i class="fa fa-google-plus"></i>Share on Google Plus </a>
+                      <a href="http://www.twitter.com/share?url=https://church-admins.appspot.com/forums" target="_blank" class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter"></i> Share on Twitter</a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                    <div id="LoadForumsDIVINF">
+                        <div class="box box-body with-border">
+                            <div class="box box-header with-border">
+                                <h3 class="box-title">Church Admins Forums</h3>
+                            </div>
+                            <div class="box box-body">
+                                <h4><strong>Church Admin Forums</strong></h4>
+                                <p><strong>Church Admins Forums</strong> are meant to facilitate open and private communication between churches and members / congregants of those churches
+                                there are two kinds of forums available in church admins,</p>
+                                <h4><strong>Public Forums</strong></h4>
+                                <p>Public Forums are available to all members of church admins, meaning if you create
+                                a public forum a member of church admin from another church will be able to participate in the forum and also view all your contributions.</p>
+                                <p><h4><strong>Private Forums</strong></h4>
+                                    Are available only to the members of your own Church meaning anyone registered within your church can view and participate
+                                in the Forums.</p>
+                                <h5>Both public and private forums are useful for the following:</h5>
+                                <p>as a means of encouraging participation by fellow congregants by allowing them to ask questions on previous church sermons as or if they are made
+                                available in the <strong>Forums</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+  </div>
+ <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/dist/js/pages/admin/forums/forums.js"></script>
+<script type="text/javascript">$(document).ready(function(){$('#MainHeaderDiv').load("/navigation/header")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#SideBarDiv').load("/navigation/sidebar")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#FooterDiv').load("/navigation/footer")});</script>
+</body>
+</html>

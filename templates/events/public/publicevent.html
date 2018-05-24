@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Church Admin-By Blue IT Marketing Pty LTD</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="google-site-verification" content="9CMRMPTCzEL_nLA_deGGFCsKSouKDl_6D_MVBqp5Y-g" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!-- jQuery 2.2.3 -->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <!-- Main Header -->
+   <div id="MainHeaderDiv"></div>
+  <!-- Left side column. contains the logo and sidebar -->
+  <div id="SideBarDiv"></div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Church Administration
+        <small>Church Administration App</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Home</li>
+      </ol>
+      <div id="ourmanna-verse">Loading...</div>
+      <script src="http://www.ourmanna.com/verses/api/js/" type="text/javascript"></script>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+          <div class="col-md-3">
+              <!-- Profile Image -->
+              <div class="box box-primary">
+                  <input type="hidden" class="hidden" id="strEventID" value="{{ thisEvent.strEventID }}">
+                <div class="box-body box-profile">
+                  <img class="profile-user-img img-responsive img-circle" src="../../../static/dist/img/events.png" alt="Church Admin Events">
+                  <h3 class="profile-username text-center">{{ thisEvent.strEventName }}</h3>
+                  <p class="text-muted text-center">{{ thisEvent.strEventType }}</p>
+                  <ul class="list-group list-group-unbordered">
+                    <li class="list-group-item">
+                      <b>Shares</b> <a class="pull-right">{{ thisEvent.strShares }}</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>Likes</b> <a class="pull-right">{{ thisEvent.strLikes }}</a>
+                    </li>
+                  </ul>
+                  <a href="/events" type="button" class="btn btn-primary btn-block margin-bottom"><strong><i class="fa fa-calendar-plus-o"> </i> Events </strong></a>
+                  <a href="#Registor"  class="btn btn-primary btn-block" data-toggle="tab"><strong>Register</strong></a>
+                  <a href="#Surveys"  class="btn btn-primary btn-block" data-toggle="tab"><strong>Surveys</strong></a>
+                      <div class="box box-footer pull-left with-border">
+                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://church-admins.appspot.com/events/public/{{ thisEvent.strEventID }}" target="_blank" class="btn btn-block btn-social btn-facebook"><i class="fa fa-facebook"></i> Share on Facebook</a>
+                          <a href="https://plus.google.com/share?url=https://church-admins.appspot.com/events/public/{{ thisEvent.strEventID }}" target="_blank" class="btn btn-block btn-social btn-google"><i class="fa fa-google-plus"></i>Share on Google Plus </a>
+                          <a href="http://www.twitter.com/share?url=https://church-admins.appspot.com/events/public/{{ thisEvent.strEventID }}" target="_blank" class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter"></i> Share on Twitter</a>
+                      </div>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+              <div class="box box-primary">
+                  <div class="box-header with-border">
+                      <h3 class="box-title">Event Information </h3>
+                  </div>
+                  <a href="#EventPage"  class="btn btn-primary btn-block" data-toggle="tab"><strong title="Description and information about the event">Event Page</strong></a>
+                  <a href="#Agenda"  class="btn btn-primary btn-block" data-toggle="tab"><strong>Agenda</strong></a>
+                  <a href="#Sponsors"  class="btn btn-primary btn-block" data-toggle="tab"><strong>Sponsors</strong></a>
+                  <a href="#Speakers"  class="btn btn-primary btn-block" data-toggle="tab"><strong>Speakers</strong></a>
+                  <a href="#Exhibitors"  class="btn btn-primary btn-block" data-toggle="tab"><strong>Exhibitors</strong></a>
+              </div>
+              <!-- About Me Box -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Event Schedules</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <ul class="list-group list-group-unbordered">
+                      <li class="list-group-item">Start Date :  <a href="#" class="pull-right">{{ thisEvent.strStartDate }}</a></li>
+                      <li class="list-group-item">Start Time :  <a href="#" class="pull-right">{{ thisEvent.strStartTime }}</a></li>
+                      <li class="list-group-item">End Date   :  <a href="#" class="pull-right">{{ thisEvent.strEndDate }}</a></li>
+                      <li class="list-group-item">End Time   :  <a href="#" class="pull-right">{{ thisEvent.strEndTime }}</a></li>
+                  </ul>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+          </div>
+          <div class="col-md-9">
+          <div class="box box-primary with-border">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                    </ul>
+                    <div class="tab-content">
+                      <div class="active tab-pane" id="EventPage">
+                          <div class="box box-body with-border">
+                              <div class="box box-header with-border">
+                                  <h3 class="box-title">Event Page</h3>
+                              </div>
+                              {{ thisEvent.strDescription }}
+                          </div>
+                      </div>
+                      <div class="tab-pane" id="Agenda">
+                          <div class="box box-body with-border">
+                              <div class="box box-header with-border">
+                                  <h3 class="box-title"> Agenda</h3>
+                              </div>
+                              <table id="AgendaTable" class="table table-bordered table-striped">
+                                  <thead>
+                                    <tr>
+                                        <td>Agenda Title</td>
+                                        <td>Description</td>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  {% for thisAgenda in thisEventAgendaList %}
+                                    <tr>
+                                        <td>{{ thisAgenda.strAgendaTitle }}</td>
+                                        <td>{{ thisAgenda.strAgendaDescription }}</td>
+                                    </tr>
+                                  {% endfor %}
+                                  </tbody>
+                                  <tfoot>
+                                    <tr>
+                                        <td>Agenda Title</td>
+                                        <td>Description</td>
+                                    </tr>
+                                  </tfoot>
+                              </table>
+                          </div>
+                      </div>
+                      <div class="tab-pane" id="Sponsors">
+                          <div class="box box-body with-border">
+                              <div class="box box-header with-border">
+                                  <h3 class="box-title">Sponsors </h3>
+                              </div>
+                              <table id="SponsorTable" class="table table-bordered table-striped">
+                                  <thead>
+                                    <tr>
+                                        <td>Names</td>
+                                        <td>Surname</td>
+                                        <td>Cell</td>
+                                        <td>Email</td>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  {% for thisSponsor in thisSponsorList %}
+                                    <tr>
+                                        <td>{{ thisSponsor.strNames }}</td>
+                                        <td>{{ thisSponsor.strSurname }}</td>
+                                        <td>{{ thisSponsor.strCell }}</td>
+                                        <td>{{ thisSponsor.strEmail }}</td>
+                                    </tr>
+                                  {% endfor %}
+                                  </tbody>
+                                  <tfoot>
+                                    <tr>
+                                        <td>Names</td>
+                                        <td>Surname</td>
+                                        <td>Cell</td>
+                                        <td>Email</td>
+                                    </tr>
+                                  </tfoot>
+                              </table>
+                          </div>
+                      </div>
+                      <div class="tab-pane" id="Speakers">
+                          <div class="box box-body with-border">
+                              <div class="box box-header with-border">
+                                  <h3 class="box-title"> Speakers</h3>
+                              </div>
+                              <table id="SpeakerTable" class="table table-bordered table-striped">
+                                  <thead>
+                                    <tr>
+                                        <td>Names</td>
+                                        <td>Surname</td>
+                                        <td>Cell</td>
+                                        <td>Tel</td>
+                                        <td>Email</td>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  {% for   thisSpeaker in thisSpeakersList %}
+                                    <tr>
+                                        <td>{{ thisSpeaker.strNames }}</td>
+                                        <td>{{ thisSpeaker.strSurname }}</td>
+                                        <td>{{ thisSpeaker.strCell }}</td>
+                                        <td>{{ thisSpeaker.strTel }}</td>
+                                        <td>{{ thisSpeaker.strEmail }}</td>
+                                    </tr>
+                                  {% endfor %}
+                                  </tbody>
+                                  <tfoot>
+                                    <tr>
+                                        <td>Names</td>
+                                        <td>Surname</td>
+                                        <td>Cell</td>
+                                        <td>Tel</td>
+                                        <td>Email</td>
+                                    </tr>
+                                  </tfoot>
+                              </table>
+                          </div>
+                      </div>
+                      <div class="tab-pane" id="Exhibitors">
+                          <div class="box box-body with-border">
+                              <div class="box box-header with-border">
+                                  <h3 class="box-title"> Exhibitors</h3>
+                              </div>
+                              <table id="ExhibitorTable" class="table table-bordered table-striped">
+                                  <thead>
+                                    <tr>
+                                        <td>Names</td>
+                                        <td>Surname</td>
+                                        <td>Cell</td>
+                                        <td>Tel</td>
+                                        <td>Email</td>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  {% for thisExhibitor in  thisExhibitorList %}
+                                    <tr>
+                                        <td>{{ thisExhibitor.strNames }}</td>
+                                        <td>{{ thisExhibitor.strSurname }}</td>
+                                        <td>{{ thisExhibitor.strCell }}</td>
+                                        <td>{{ thisExhibitor.strTel }}</td>
+                                        <td>{{ thisExhibitor.strEmail }}</td>
+                                    </tr>
+                                  {% endfor %}
+                                  </tbody>
+                                  <tfoot>
+                                    <tr>
+                                        <td>Names</td>
+                                        <td>Surname</td>
+                                        <td>Cell</td>
+                                        <td>Tel</td>
+                                        <td>Email</td>
+                                    </tr>
+                                  </tfoot>
+                              </table>
+                          </div>
+                      </div>
+                      <div class="tab-pane" id="Registor">
+                          <div class="box box-body with-border">
+                              <div class="box box-header with-border">
+                                  <h3 class="box-title">Event Registrations</h3>
+                              </div>
+                              <form class="form-horizontal">
+                                  <div class="form-group">
+                                      <label for="strNames" class="col-sm-3 control-label pull-left">Names</label>
+                                      <div class="col-sm-6">
+                                          <div class="input-group">
+                                              <div class="input-group-addon">
+                                                  <i class="glyphicon glyphicon-user"> </i>
+                                              </div>
+                                          <input type="text" class="form-control" id="strNames" name="vstrNames">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                                      <div class="col-sm-6">
+                                          <div class="input-group">
+                                              <div class="input-group-addon">
+                                                  <i class="glyphicon glyphicon-user"> </i>
+                                              </div>
+                                            <input type="text" class="form-control" id="strSurname" name="vstrSurname">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="strCell" class="col-sm-3 control-label pull-left">Cell</label>
+                                      <div class="col-sm-6">
+                                          <div class="input-group">
+                                              <div class="input-group-addon">
+                                                  <i class="glyphicon glyphicon-phone"> </i>
+                                              </div>
+                                            <input type="text" class="form-control" id="strCell" name="vstrCell">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="strEmail" class="col-sm-3 control-label pull-left">Email</label>
+                                      <div class="col-sm-6">
+                                          <div class="input-group">
+                                              <div class="input-group-addon">
+                                                  <i class="glyphicon glyphicon-envelope"> </i>
+                                              </div>
+                                            <input type="text" class="form-control" id="strEmail" name="vstrEmail">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-3 control-label pull-left"></label>
+                                      <div class="col-sm-6">
+                                          <button type="button" class="btn btn-primary btn-block" id="UploadSaveButt"><strong><i class="fa fa-cloud"> </i> Register </strong></button>
+                                          <button type="reset" class="btn btn-warning btn-block" ><strong><i class="fa fa-cloud"> </i> Reset </strong></button>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-3 control-label pull-left"></label>
+                                      <div class="col-sm-6">
+                                          <div id="EventRegistrationINFDIV"></div>
+                                      </div>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                      <div class="tab-pane" id="Surveys">
+                          <div class="box box-body with-border">
+                              <div class="box box-header with-border">
+                                  <h3 class="box-title">Surveys</h3>
+                              </div>
+                              <table id="SurveyTable" class="table table-bordered table-striped">
+                                  <thead>
+                                    <tr>
+                                        <td>Names</td>
+                                        <td>Surname</td>
+                                        <td>Cell</td>
+                                        <td>Tel</td>
+                                        <td>Email</td>
+                                        <td>Date</td>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  {% for thisSurvey in thisSurveyList %}
+                                    <tr>
+                                        <td><a href="/events/surveys/{{ thisSurvey.strSurveyID }}">Survey Name</a></td>
+                                        <td>Survey Description</td>
+                                    </tr>
+                                  {% endfor %}
+                                  </tbody>
+                                  <tfoot>
+                                    <tr>
+                                        <td>Names</td>
+                                        <td>Surname</td>
+                                        <td>Cell</td>
+                                        <td>Tel</td>
+                                        <td>Email</td>
+                                        <td>Date</td>
+                                    </tr>
+                                  </tfoot>
+
+                              </table>
+
+
+                          </div>
+                      </div>
+                    </div>
+                </div>
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <!-- Main Footer -->
+ <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/events/publicevent.js"></script>
+<script>$(function () {$('#EventAgendaTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>
+<script>$(function () {$('#AgendaTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>
+<script>$(function () {$('#SponsorTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>
+<script>$(function () {$('#SpeakerTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>
+<script>$(function () {$('#ExhibitorTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>
+<script>$(function () {$('#SurveyTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>
+<script type="text/javascript">$(document).ready(function(){$('#MainHeaderDiv').load("/navigation/header")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#SideBarDiv').load("/navigation/sidebar")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#FooterDiv').load("/navigation/footer")});</script>
+</body>
+</html>

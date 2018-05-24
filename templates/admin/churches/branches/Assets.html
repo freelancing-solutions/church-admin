@@ -1,0 +1,141 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#Asset" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Asset</button></a></li>
+        <li><a href="#AddAsset" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Add Asset </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="Asset">
+            <div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Assets</h3>
+    </div>
+
+    <table id="AssetsTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Asset Code</td>
+                <td>Asset Name</td>
+                <td>Asset Description</td>
+                <td>Purchase Price</td>
+                <td>Depreciation</td>
+                <td>Current Value</td>
+                <td>Asset Type</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for thisAsset in thisAssetsList %}
+            <tr>
+                <td><a href="/assets/{{ thisAsset.strAssetID }}">{{ thisAsset.strAssetCode }}</a></td>
+                <td>{{ thisAsset.strAssetName }}</td>
+                <td>{{ thisAsset.strAssetDescription }}</td>
+                <td>{{ thisAsset.strPurchasePrice }}</td>
+                <td>{{ thisAsset.strDepreciation }}</td>
+                <td>{{ thisAsset.strCurrentValue }}</td>
+                <td>{{ thisAsset.strAssetType }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Asset Code</td>
+                <td>Asset Name</td>
+                <td>Asset Description</td>
+                <td>Purchase Price</td>
+                <td>Depreciation</td>
+                <td>Current Value</td>
+                <td>Asset Type</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+        </div>
+        <div class="tab-pane" id="AddAsset">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Add Asset</h3>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="strAssetCode" class="col-sm-3 control-label pull-left" >Asset Code</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strAssetCode" name="vstrAssetCode">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left" ></label>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="CreateAssetCodeButt"><strong><i class="fa fa-bar-code"> </i> Create Asset Code </strong></button>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="CreateAssetINFDIV"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strAssetName" class="col-sm-3 control-label pull-left" >Asset Name</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strAssetName" name="vstrAssetName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strAssetDescription" class="col-sm-3 control-label pull-left" >Asset Description</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strAssetDescription" name="vstrAssetDescription">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strPurchasePrice" class="col-sm-3 control-label pull-left" >Purchase Price</label>
+                        <div class="col-sm-6">
+                            <input type="text" id="strPurchasePrice" name="vstrPurchasePrice">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strDepreciation" class="col-sm-3 control-label pull-left" >Depreciation</label>
+                        <div class="col-sm-6">
+                            <select id="strDepreciation" class="form-control select2" style="width: 100%;">
+                                <option value="5">5 %</option>
+                                <option value="10">10 %</option>
+                                <option value="15">15 %</option>
+                                <option value="20">20 %</option>
+                                <option value="25">25 %</option>
+                                <option value="30">30 %</option>
+                                <option value="35">35 %</option>
+                                <option value="40">40 %</option>
+                                <option value="45">45 %</option>
+                                <option value="50">50 %</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strCurrentValue" class="col-sm-3 control-label pull-left" >Current Value</label>
+                        <div class="col-sm-6">
+                            <input type="text" id="strCurrentValue" name="vstrCurrentValue">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strAssetType" class="col-sm-3 control-label pull-left" >Asset Type</label>
+                        <div class="col-sm-6">
+                            <select id="strAssetType">
+                                <option value="Fixed">Fixed Asset</option>
+                                <option value="Movable">Movable Asset</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left" ></label>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="AddAssetButt"><strong><i class="fa fa-cloud"> </i> Add Asset </strong></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="box box-footer with-border">
+                <div id="AddAssetINFDIV"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/branches/assets.js"></script>
+<script>$(function () {$('#AssetsTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>

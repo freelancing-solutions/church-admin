@@ -1,0 +1,208 @@
+<link rel="stylesheet" href="/static/plugins/datepicker/datepicker3.css">
+<link rel="stylesheet" href="/static/plugins/timepicker/bootstrap-timepicker.min.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Minutes</h3>
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#Minutes" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-file"> </i> Minutes</button></a></li>
+            <li><a href="#EditMinutes" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-pencil"> </i> Minutes Editor</button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="Minutes">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Minutes</h3>
+                    </div>
+                    <ul class="list-group-unbordered">
+                        <li class="list-group-item"> Title      : {{ thisMinute.strMinutesTitle }}</li>
+                        <li class="list-group-item"> Date Taken : {{ thisMinute.strDateTaken }}</li>
+                        <li class="list-group-item">Time Taken  : {{ thisMinute.strTimeTaken }}</li>
+                    </ul>
+                    <div class="col-md-12">
+                              <div class="box box-solid">
+                                <div class="box-header with-border">
+                                  <h3 class="box-title">Minutes</h3>
+                                </div>
+                                <!-- /.box-header -->
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#MinutesItems" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-file"> </i> Minutes</button></a></li>
+                                <li><a href="#EditMinutesItems" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block" onclick="LoadAgendaItems()"> <i class="glyphicon glyphicon-pencil"> </i> Add Minutes</button> </a> </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="MinutesItems">
+                                        <div class="box-body">
+                                          <div class="box-group" id="accordion">
+                                            <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                                             {% for thisMenuItem in thisMinuteItemsList %}
+                                            <div class="panel box box-primary">
+                                              <div class="box-header with-border">
+                                                <h4 class="box-title">
+                                                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{ loop.index0 }}">
+                                                    {{ thisMenuItem.strAgenda }}
+                                                  </a>
+                                                </h4>
+                                              </div>
+                                              <div id="collapseOne{{ loop.index0 }}" class="panel-collapse collapse">
+                                                <div class="box-body">
+                                                 <blockquote>
+                                                     <div class="box box-header with-border">
+                                                         <h3 class="box-title">Minutes</h3>
+                                                     </div>
+                                                    {{ thisMenuItem.strMinutes }}
+                                                 </blockquote>
+                                                </div>
+                                                <div class="box box-footer">
+                                                    <blockquote>
+                                                        <div class="box box-header with-border">
+                                                            <h3 class="box-title">Notes</h3>
+                                                        </div>
+                                                        {{ thisMenuItem.strNotes }}
+                                                    </blockquote>
+                                                </div>
+                                              </div>
+                                            </div>
+                                              {% endfor %}
+                                          </div>
+                                        </div>
+                                </div>
+                                <div class="tab-pane" id="EditMinutesItems">
+                                    <div class="box box-body with-border">
+                                        <div class="box box-header with-border">
+                                            <h3>Add Minutes</h3>
+                                        </div>
+                                        <form class="form-horizontal">
+                                            <input type="hidden" class="hidden" id="strMinutesID" value="{{ thisMinute.strMinutesID }}">
+                                            <div class="form-group">
+                                                <label for="strSelectAgendaItem" class="col-sm-3 control-label pull-left">Agenda Item</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-file"> </i>
+                                                        </div>
+                                                        <select id="strSelectAgendaItem" class="form-control">
+                                                            <!--//Options for selecting items are added through javascript -->
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strAddMinutesTitle" class="col-sm-3 control-label pull-left">Minutes Title</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-file"> </i>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="strAddMinutesTitle">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strMinutes" class="col-sm-3 control-label pull-left">Minutes</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-file"> </i>
+                                                        </div>
+                                                        <textarea id="strMinutes" class="form-control"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strNotes" class="col-sm-3 control-label pull-left">Notes</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-file"> </i>
+                                                        </div>
+                                                        <textarea id="strNotes" class="form-control"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label pull-left"></label>
+                                                <div class="col-sm-6">
+                                                    <button type="button" class="btn btn-primary btn-block" id="UploadMinutesButt"><strong><i class="glyphicon glyphicon-cloud-upload"> </i> Upload Minutes </strong></button>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label pull-left"></label>
+                                                <div class="col-sm-6">
+                                                    <div id="UploadMinutesINFDIV"></div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+                  <!-- /.box -->
+                </div>
+            </div>
+        </div>
+            <div class="tab-pane" id="EditMinutes">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Minutes Editor</h3>
+                    </div>
+                    <form class="form-horizontal">
+                        <input type="hidden" id="strMeetingID" class="form-control" value="{{ thisMinute.strMeetingID }}">
+                        <div class="form-group">
+                            <label for="strMinutesTitle" class="col-sm-3 control-label pull-left">Minutes Title</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-file"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strMinutesTitle">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strDateTaken" class="col-sm-3 control-label pull-left">Date Taken</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strDateTaken">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strTimeTaken" class="col-sm-3 control-label pull-left">Time Taken</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-time"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strTimeTaken">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                    <button type="button" class="btn btn-primary btn-block" id="UpdateMinutesButt"><strong><i class="glyphicon glyphicon-cloud-upload"> </i> Update Minutes </strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="UpdateMinutesINFDIV"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="/static/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.js"></script>
+<script src="/static/dist/js/pages/admin/meetings/minutes.js"></script>
+<script>$(function () {$('#strDateTaken').datepicker({autoclose: true});$("#strTimeTaken").timepicker({showInputs: true});});</script>

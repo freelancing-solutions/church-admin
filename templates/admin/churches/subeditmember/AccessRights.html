@@ -1,0 +1,75 @@
+<div class="box box-profile with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Access Rights</h3>
+    </div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="strAdminUser" class="col-sm-3 control-label pull-left" >Admin</label>
+            <div class="col-sm-6">
+                <select id="strAdminUser">
+                    {% if vstrAdminUser == "YES" %}
+                        <option value="YES" selected="selected">True</option>
+                        <option value="NO">False</option>
+                    {% else %}
+                        <option value="NO" selected="selected">False</option>
+                        <option value="YES">True</option>
+                    {% endif %}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strSuperUser" class="col-sm-3 control-label pull-left" >Super User</label>
+            <div class="col-sm-6">
+                <select id="strSuperUser">
+                    {% if vstrSuperUser == "YES" %}
+                        <option value="YES" selected="selected">True</option>
+                        <option value="NO">False</option>
+                    {% else %}
+                        <option value="NO" selected="selected">False</option>
+                        <option value="YES">True</option>
+                    {% endif %}
+
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strVisitor" class="col-sm-3 control-label pull-left" >Visitor</label>
+            <div class="col-sm-6">
+                <select id="strVisitor">
+                    {% if vstrVisitor == "YES" %}
+                        <option value="YES" selected="selected">True</option>
+                        <option value="NO">False</option>
+                    {% else %}
+                        <option value="NO" selected="selected">False</option>
+                        <option value="YES">True</option>
+                    {% endif %}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strChurchMember" class="col-sm-3 control-label pull-left" >Church Member</label>
+            <div class="col-sm-6">
+                <select id="strChurchMember">
+                    {% if vstrChurchMember == "YES" %}
+                        <option value="YES" selected="selected">True</option>
+                        <option value="NO">False</option>
+                    {% else %}
+                        <option value="NO" selected="selected">False</option>
+                        <option value="YES">True</option>
+                    {% endif %}
+                </select>
+
+            </div>
+        </div>
+    </form>
+    <div class="box box-footer with-border">
+        <label class="col-sm-3 control-label pull-left" ></label>
+        <div class="col-sm-6">
+            <button type="button" class="btn btn-primary btn-block" id="UpdateAccessRightsButt"><strong><i class="fa fa-save"> </i> Update Access Rights </strong></button>
+        </div>
+    </div>
+    <div class="box box-footer with-border">
+        <div id="AccessRightsINFDIV"></div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/churches/subedit/accessrights.js"></script>

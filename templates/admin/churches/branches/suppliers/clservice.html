@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#Service" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Service</button></a></li>
+        <li><a href="#AddService" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Add Service </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="Service">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Services</h3>
+                </div>
+                 <table id="ServicesTable" class="table table-bordered table-striped">
+                     <thead>
+                        <tr>
+                            <td>Service Name</td>
+                            <td>Description</td>
+                            <td>Price</td>
+                            <td>Deposit</td>
+                        </tr>
+                     </thead>
+                     <tbody>
+                     {% for thisService in thisServiceList %}
+                        <tr>
+                            <td>{{ thisService.strServiceName }}</td>
+                            <td>{{ thisService.strDescription }}</td>
+                            <td>{{ thisService.strServiceCost }}</td>
+                            <td>{{ thisService.strDepositAmount }}</td>
+                        </tr>
+                     {% endfor %}
+                     </tbody>
+                     <tfoot>
+                        <tr>
+                            <td>Service Name</td>
+                            <td>Description</td>
+                            <td>Price</td>
+                            <td>Deposit</td>
+                        </tr>
+                     </tfoot>
+                 </table>
+            </div>
+        </div>
+        <div class="tab-pane" id="AddService">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Add Service</h3>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="strServiceName" class="col-sm-3 control-label pull-left">Service Name</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strServiceName" name="vstrServiceName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strDescription" class="col-sm-3 control-label pull-left">Description</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strDescription" name="vstrDescription">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strServiceCost" class="col-sm-3 control-label pull-left">Price</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strServiceCost" name="vstrServiceCost">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strDepositAmount" class="col-sm-3 control-label pull-left">Deposit</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strDepositAmount" name="vstrDepositAmount">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="AddServiceButt"><strong><i class="fa fa-save"> </i> upload Service</strong></button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <div id="AddServiceINFDIV"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/branches/suppliers/clservice.js"></script>
+<script>$(function () {$('#ServicesTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>

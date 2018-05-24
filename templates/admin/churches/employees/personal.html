@@ -1,0 +1,137 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Personal Details</h3>
+    </div>
+    <div class="box box-footer with-border">
+        <form class="form-horizontal">
+            <div class="box box-profile with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Employee Details</h3>
+                </div>
+                <div class="form-group">
+                    <label for="strNames" class="col-sm-3 control-label pull-left" >Names</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strNames" value="{{ thisEmployee.strNames }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strSurname" value="{{ thisEmployee.strSurname }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strIDNumber" class="col-sm-3 control-label pull-left">ID Number</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strIDNumber" value="{{ thisEmployee.strIDNumber }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPosition" class="col-sm-3 control-label pull-left">Position</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPosition" value="{{ thisEmployee.strPosition }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strContract" class="col-sm-3 control-label pull-left">Contract</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strContract" value="{{ thisEmployee.strContract }}">
+                    </div>
+                </div>
+            </div>
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Physical Address</h3>
+                </div>
+                <div class="form-group">
+                    <label for="strPhyStandNumber" class="col-sm-3 control-label pull-left" >Stand Number</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPhyStandNumber" value="{{ thisEmployee.strPhyStandNumber }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPhyStreetName" class="col-sm-3 control-label pull-left" >Street Name</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPhyStreetName" value="{{ thisEmployee.strPhyStreetName }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPhyCityTown" class="col-sm-3 control-label pull-left" >City Town</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPhyCityTown" value="{{ thisEmployee.strPhyCityTown }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPhyProvince" class="col-sm-3 control-label pull-left" >Province</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPhyProvince" value="{{ thisEmployee.strPhyProvince }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPhyCountry" class="col-sm-3 control-label pull-left" >Country</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPhyCountry" value="{{ thisEmployee.strPhyCountry }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPhyPostalCode" class="col-sm-3 control-label pull-left" >Postal Code</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPhyPostalCode" value="{{ thisEmployee.strPhyPostalCode }}">
+                    </div>
+                </div>
+            </div>
+            <div class="box box-primary with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Postal Address</h3>
+                </div>
+                <div class="form-group">
+                    <label for="strBoxNumber" class="col-sm-3 control-label pull-left">Box Number </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strBoxNumber" value="{{ thisEmployee.strBoxNumber }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strCityTown" class="col-sm-3 control-label pull-left">City/Town</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strCityTown" value="{{ thisEmployee.strCityTown }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strProvince" class="col-sm-3 control-label pull-left">Province</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strProvince" value="{{ thisEmployee.strProvince }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strCountry" class="col-sm-3 control-label pull-left">Country </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strCountry" value="{{ thisEmployee.strCountry }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPostalCode" class="col-sm-3 control-label pull-left">Postal Code</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPostalCode" value="{{ thisEmployee.strPostalCode }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strSelectBranch" class="col-sm-3 control-label pull-left">Select Branch</label>
+                    <div class="col-sm-6">
+                        <select id="strSelectBranch" class="form-control">
+                            {% for thisBranch in thisBranchList %}
+                            <option value="{{ thisBranch.strChurchBranchID }}">{{ thisBranch.strBranchName }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label pull-left"></label>
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-primary btn-block" id="UpdatePersonalButt"><strong><i class="glyphicon glyphicon-user"> </i> Update Employee</strong></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/churches/employees/personal.js"></script>

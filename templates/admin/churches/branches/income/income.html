@@ -1,0 +1,217 @@
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="/static/plugins/datepicker/datepicker3.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+
+<div class="box box-bod with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title"> Income</h3>
+        <small>Monetary sources for the church and their standings</small>
+        <input type="hidden" class="hidden" id="strChurchID" value="{{ vstrChurchID }}">
+        <input type="hidden" class="hidden" id="strChurchBranchID" value="{{ vstrChurchBranchID }}">
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#Pledges" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <strong><i class="fa fa-money"> </i> Pledges</strong></button></a></li>
+            <li><a href="#Donations" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <strong><i class="fa fa-money"> </i> Donations</strong></button> </a></li>
+            <li><a href="#Tithings" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <strong><i class="fa fa-money"> </i> Tithing </strong></button> </a> </li>
+            <li><a href="#Offerings" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"><strong><i class="fa fa-money"> </i> Offerings</strong> </button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="Pledges">
+                <div class="box box-profile with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Pledges</h3>
+                    </div>
+                    <table id="PledgeTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>MemberID</td>
+                                <td>Pledge Amount</td>
+                                <td>Date</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisPledge in thisPledgesList %}
+                            <tr>
+                                <td><a href="/admin/members/{{ thisPledge.strMemberID }}">{{ thisPledge.strMemberID }}</a></td>
+                                <td>{{ thisPledge.strPledgeAmount }}</td>
+                                <td>{{ thisPledge.strYear }}-{{ thisPledge.strMonth }}-{{ thisPledge.strDay }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>MemberID</td>
+                                <td>Pledge Amount</td>
+                                <td>Date</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="Donations">
+                <div class="box box-profile with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Donations</h3>
+                    </div>
+                    <table id="DonationsTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Donator ID</td>
+                                <td>Donation Amount</td>
+                                <td>Date</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for thisDonation in thisDonationList %}
+
+                            <tr>
+                                <td>{{ thisDonation.strDonatorID }}</td>
+                                <td>{{ thisDonation.strDonationAmount }}</td>
+                                <td>{{ thisDonation.strYear }}-{{ thisDonation.strMonth }}-{{ thisDonation.strDay }}</td>
+                            </tr>
+
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Donator ID</td>
+                                <td>Donation Amount</td>
+                                <td>Date</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="Offerings">
+                <div class="box box-profile with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Offerings</h3>
+                    </div>
+                    <div class="box box-body with-border">
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#OfferingsList" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Offerings History</button></a></li>
+                                <li><a href="#AddOffering" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Add Sunday Offering </button> </a> </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="OfferingsList">
+                                    <table id="OfferingsTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <td>Date</td>
+                                                <td>Amount</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for thisOffering in thisOfferingList %}
+                                            <tr>
+                                                <td>{{ thisOffering.strYear }}-{{ thisOffering.strMonth }}-{{ thisOffering.strDay }}</td>
+                                                <td>{{ thisOffering.strOfferingAmount }}</td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td>Date</td>
+                                                <td>Amount</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <div class="tab-pane" id="AddOffering">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="strOfferingAmount" class="col-sm-3 control-label pull-left" >Offering Amount</label>
+                                            <div class="col-sm-6">
+                                                  <div class="input-group">
+                                                    <span class="input-group-addon">R </span>
+                                                    <input type="text" class="form-control" id="strOfferingAmount">
+                                                    <span class="input-group-addon">.00</span>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                          <div class="form-group">
+                                            <label for="strDateOffering" class="col-sm-3 control-label pull-left" >Offering Date</label>
+                                            <div class="col-sm-6">
+                                                <div class="input-group date">
+                                              <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                              </div>
+                                              <input type="text" class="form-control pull-right" id="strDateOffering" placeholder="2017-06-06">
+                                            </div>
+                                            </div>
+                                            <!-- /.input group -->
+                                          </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label pull-left" ></label>
+                                            <div class="col-sm-6">
+                                                <button type="button" class="btn btn-bitbucket btn-block" id="AddOfferingButt"><strong> <i class="fa fa-money"> </i> Add Offering </strong></button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label pull-left" ></label>
+                                            <div class="col-sm-6">
+                                                <div id="AddOfferingStatusINFDIV"></div>
+                                            </div>
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                            </div>
+                          </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane" id="Tithings">
+                <div class="box box-profile with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Tithings</h3>
+                    </div>
+                    <table id="TithingsTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>MemberID</td>
+                                <td>Amount</td>
+                                <td>Date</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisTithing in thisTithingList %}
+                            <tr>
+                                <td>{{ thisTithing.strMemberID }}</td>
+                                <td>{{ thisTithing.strTithingAmount }}</td>
+                                <td>{{ thisTithing.strYear }}-{{ thisTithing.strMonth }}-{{ thisTithing.strDay }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>MemberID</td>
+                                <td>Amount</td>
+                                <td>Date</td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script>$(function () {$('#datepicker').datepicker({autoclose: true});});</script>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/branches/income/income.js"></script>
+<script>$(function () {$('#TithingsTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>
+<script>$(function () {$('#PledgeTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>
+<script>$(function () {$('#DonationsTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>
+<script>$(function () {$('#OfferingsTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>

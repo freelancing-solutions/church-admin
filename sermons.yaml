@@ -1,0 +1,8 @@
+
+
+handlers:
+
+- url: /admin/sermons
+  login: required
+  secure: always
+  script: sermons.app

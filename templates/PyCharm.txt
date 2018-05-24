@@ -1,0 +1,18 @@
+
+
+
+Pycharm Licensing Server
+
+http://idea.imsxm.com/
+
+
+class MasterServerSettings(ndb.Expando):
+    strSettingsType = ndb.StringProperty(default="green")  # green, yellow, red
+
+    strMasterID = ndb.StringProperty()
+
+    strClientIP = ndb.StringProperty()
+    strClientPort = ndb.IntegerProperty(default=0)
+    strHTTPAddress = ndb.StringProperty()
+
+    strPassCode = ndb.StringProperty()

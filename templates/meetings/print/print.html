@@ -1,0 +1,16 @@
+
+
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title"> Print Reports</h3>
+    </div>
+
+    <input type="hidden" class="hidden" id="strMeetingID" value="{{ thisMeeting.strMeetingID }}">
+
+    <ul class="list-group-unbordered">
+        <li class="list-group-item"><a href="/admin/meetings/print/complete/{{ thisMeeting.strMeetingID }}" type="button" class="btn btn-primary btn-block" id="CompleteMeetingButt"><strong><i class="glyphicon glyphicon-print"> </i> Print Complete Meeting Details</strong></a></li>
+        <li class="list-group-item"><a href="/admin/meetings/print/agenda/{{ thisMeeting.strMeetingID }}" type="button" class="btn btn-primary btn-block" id="MeetingAgendaButt"><strong><i class="glyphicon glyphicon-print"> </i> Meeting Agenda </strong></a></li>
+        <li class="list-group-item"><a href="/admin/meetings/print/attendee/{{ thisMeeting.strMeetingID }}" type="button" class="btn btn-primary btn-block" id="AttendeesButt"><strong><i class="glyphicon glyphicon-print"> </i> Attendees </strong></a></li>
+        <li class="list-group-item"><a href="/admin/meetings/print/minutes/{{ thisMeeting.strMeetingID }}" type="button" class="btn btn-primary btn-block" id="MinutesButt"><strong><i class="glyphicon glyphicon-print"> </i> Minutes </strong></a></li>
+    </ul>
+</div>

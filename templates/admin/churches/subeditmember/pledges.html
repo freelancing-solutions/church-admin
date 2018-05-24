@@ -1,0 +1,98 @@
+
+  <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#PledgeList" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Pledge List</button></a></li>
+        <li><a href="#AddPledge" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Add Pledge </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="PledgeList">
+            <div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Pledges</h3>
+        <input type="hidden" class="hidden" id="strMemberID" value="{{ vstrMemberID }}">
+    </div>
+    <table id="PledgesTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Transaction Code</td>
+                <td>Amount</td>
+                <td>Date</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for thisPledge in thisPledgeList %}
+            <tr>
+                <td>{{ thisPledge.strTransactionCode }}</td>
+                <td>{{ thisPledge.strPledgeAmount }}</td>
+                <td>{{ thisPledge.strYear }}-{{ thisPledge.strMonth }}-{{ thisPledge.strDay }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Transaction Code</td>
+                <td>Amount</td>
+                <td>Date</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+        </div>
+        <div class="tab-pane" id="AddPledge">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Add Pledge</h3>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="strPledgeAmount" class="col-sm-3 control-label pull-left" >Pledge Amount</label>
+                        <div class="col-sm-6">
+                              <div class="input-group">
+                                <span class="input-group-addon">R </span>
+                                <input type="text" class="form-control" id="strPledgeAmount">
+                                <span class="input-group-addon">.00</span>
+                              </div>
+
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <label for="strDate" class="col-sm-3 control-label pull-left" >Date</label>
+                            <div class="col-sm-6">
+                                  <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strDate" placeholder="2017-09-15">
+
+                                  </div>
+                            </div>
+                        </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left" ></label>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-bitbucket btn-block" id="AddPledgeButt"><strong> <i class="fa fa-money"> </i> Add Pledge </strong></button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left" ></label>
+                        <div class="col-sm-6">
+                            <div id="AddPledgeStatusINFDIV"></div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/subedit/pledges.js"></script>
+<script>$(function () {$('#PledgesTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>

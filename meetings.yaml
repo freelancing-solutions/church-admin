@@ -1,0 +1,23 @@
+
+
+handlers:
+- url: /admin/meetings
+  login: required
+  secure: always
+  script: meetings.app
+
+- url: /admin/meetings/print
+  login: required
+  secure: always
+  script: meetings.app
+
+- url: /admin/meetings/print/.*
+  login: required
+  secure: always
+  script: meetings.app
+
+- url: /admin/meetings/.*
+  login: required
+  secure: always
+  script: meetings.app
+

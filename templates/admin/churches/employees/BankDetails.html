@@ -1,0 +1,61 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Bank Details</h3>
+        <input type="hidden" class="hidden" id="strIDNumber" value="{{ thisBankDetails.strIDNumber }}">
+    </div>
+
+    <div class="box box-footer with-border">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="strAccountOwner" class="col-sm-3 control-label pull-left" >Account Owner</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strAccountOwner" value="{{ thisBankDetails.strAccountOwner }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strAccountNumber" class="col-sm-3 control-label pull-left" >Account Number</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strAccountNumber" value="{{ thisBankDetails.strAccountNumber }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strBankName" class="col-sm-3 control-label pull-left" >Bank Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strBankName" value="{{ thisBankDetails.strBankName }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strBranchName" class="col-sm-3 control-label pull-left" >Branch Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strBranchName" value="{{ thisBankDetails.strBranchName }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strBranchCode" class="col-sm-3 control-label pull-left" >Branch Code</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strBranchCode" value="{{ thisBankDetails.strBranchCode }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strAccountType" class="col-sm-3 control-label pull-left" >Account Type</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strAccountType" value="{{ thisBankDetails.strAccountType }}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label pull-left"></label>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block" id="UpdateBankDetailsButt"><strong><i class="fa fa-bank"> </i> Update Bank Details </strong></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label pull-left"></label>
+                <div class="col-sm-6">
+                    <div id="UpdateBankDetailsINFDIV"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/churches/employees/bankdetails.js"></script>

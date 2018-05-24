@@ -1,0 +1,22 @@
+
+
+handlers:
+
+- url: /events
+  secure: always
+  script: events.app
+
+- url: /events/public/.*
+  secure: always
+  script: events.app
+- url: /events/manager
+  secure: always
+  script: events.app
+- url: /events/manager/.*
+  secure: always
+  login: required
+  script: events.app
+- url: /events/registrations/.*
+  secure: always
+  login: required
+  script: events.app

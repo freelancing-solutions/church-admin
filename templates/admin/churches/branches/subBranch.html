@@ -1,0 +1,35 @@
+
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Branch Details</h3>
+        <input type="hidden" class="hidden" id="strChurchBranchID" value="{{ thisBranch.strChurchBranchID }}">
+        <input type="hidden" class="hidden" id="strChurchID" value="{{ thisBranch.strChurchID }}">
+    </div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="strBranchName" class="col-sm-3 control-label pull-left">Branch Name</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strBranchName" name="vstrBranchName" value="{{ thisBranch.strBranchName }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strBranchMotto" class="col-sm-3 control-label pull-left" >Branch Motto</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strBranchMotto" name="vstrBranchMotto" value="{{ thisBranch.strBranchMotto }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-3 control-label pull-left" ></label>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="BranchDetailsButt"><strong><i class="fa fa-cloud"> </i> Update Branch Details </strong></button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-3 control-label pull-left" ></label>
+            <div class="col-sm-6">
+                <div id="UpdateBranchINFDIV"></div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="/static/dist/js/pages/admin/churches/branches/subbranch.js"></script>

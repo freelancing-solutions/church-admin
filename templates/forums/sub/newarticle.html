@@ -1,0 +1,36 @@
+<script src='/static/dist/js/tinymce/js/tinymce/jquery.tinymce.min.js'></script>
+<script src='/static/dist/js/tinymce/js/tinymce/tinymce.min.js?apiKey=9nuhnoc9qqt5wm8bulfvl903bs6yfpzjypc4jz7a6wwknww9'></script>
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3>New Article</h3>
+    </div>
+
+    <input type="hidden" class="hidden" id="strForumID" value="{{ vstrForumID }}">
+    <input type="hidden" class="hidden" id="strTopicID" value="{{ vstrTopicID }}">
+    <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="glyphicon glyphicon-book"> </i> Title
+                </div>
+            <input type="text" class="form-control" id="strArticleTitle">
+            </div>
+    </div>
+    <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="glyphicon glyphicon-book"> </i> Article
+                </div>
+                <textarea id="strArticle"></textarea>
+                <div id="strTrackArticle" class="hidden"></div>
+            </div>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-primary btn-block" id="SaveArticleButt"><strong><i class="fa fa-save"> </i> Save Article </strong></button>
+    </div>
+    <div class="form-group">
+        <div id="SaveArticleINFDIV"></div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/forums/newarticle.js"></script>
+
+

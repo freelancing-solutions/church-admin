@@ -1,0 +1,166 @@
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../../../static/plugins/datatables/dataTables.bootstrap.css">
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#RegisterSponsorButt').click(function(){
+        var vstrChoice = 2;
+        var vstrEventID = document.getElementById('strEventID').value;
+        var vstrNames = document.getElementById('strNames').value;
+        var vstrSurname = document.getElementById('strSurname').value;
+        var vstrCell = document.getElementById('strCell').value;
+        var vstrTel = document.getElementById('strTel').value;
+        var vstrEmail = document.getElementById('strEmail').value;
+
+        var dataString = '&vstrChoice='+ vstrChoice + '&vstrEventID=' + vstrEventID + '&vstrNames=' + vstrNames +
+                '&vstrSurname=' + vstrSurname + '&vstrCell=' + vstrCell + '&vstrTel=' + vstrTel +
+                '&vstrEmail=' + vstrEmail;
+          $.ajax({
+                type: "post",
+                url: "/events/registrations/" + vstrEventID,
+                data: dataString,
+                cache: false,
+              success: function(html){
+                $('#RegisterSponsorINFDIV').html(html)
+              }
+          });
+      });
+  });
+</script>
+
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Sponsors Manager</h3>
+        <input type="hidden" id="strEventID" value="{{ vstrEventID }}">
+    </div>
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#EventSponsor" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Event Sponsor List</button></a></li>
+        <li><a href="#SponsorManager" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Sponsor Manager</button></a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="EventSponsor">
+            <table id="EventSponsorTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>Names</td>
+                        <td>Surname</td>
+                        <td>Cell</td>
+                        <td>Tel</td>
+                        <td>Email</td>
+                        <td>Date</td>
+                        <td>Verified</td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for thisSponsor in thisEventSponsorList %}
+                    <tr>
+                        <td>{{ thisSponsor.strNames }}</td>
+                        <td>{{ thisSponsor.strSurname }}</td>
+                        <td>{{ thisSponsor.strCell }}</td>
+                        <td>{{ thisSponsor.strTel }}</td>
+                        <td>{{ thisSponsor.strEmail }}</td>
+                        <td>{{ thisSponsor.strDateRegistered }}</td>
+                        <td>{{ thisSponsor.strVerified }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Names</td>
+                        <td>Surname</td>
+                        <td>Cell</td>
+                        <td>Tel</td>
+                        <td>Email</td>
+                        <td>Date</td>
+                        <td>Verified</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="tab-pane" id="SponsorManager">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Sponsor Manager</h3>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="strNames" class="col-sm-3 control-label pull-left" >Names</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user"> </i>
+                                </div>
+                                <input type="text" class="form-control" id="strNames">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user"> </i>
+                                </div>
+                                <input type="text" class="form-control" id="strSurname">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strCell" class="col-sm-3 control-label pull-left">Cell</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-phone"> </i>
+                                </div>
+                                <input type="text" class="form-control" id="strCell">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strTel" class="col-sm-3 control-label pull-left">Tel</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-phone-alt"> </i>
+                                </div>
+                                <input type="text" class="form-control" id="strTel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strEmail" class="col-sm-3 control-label pull-left">Email</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-envelope"> </i>
+                                </div>
+                                <input type="text" class="form-control" id="strEmail">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary btn-block" id="RegisterSponsorButt"><strong><i class="fa fa-cloud"> </i> Register Sponsor </strong></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div id="RegisterSponsorINFDIV"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- DataTables -->
+<script src="../../../../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../../../static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>$(function () {$('#EventSponsorTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>

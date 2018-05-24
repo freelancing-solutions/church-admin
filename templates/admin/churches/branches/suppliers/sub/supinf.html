@@ -1,0 +1,103 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Supplier</h3>
+    </div>
+    <form class="form-horizontal">
+        <input type="hidden" class="hidden" id="strSupplierID" value="{{ vstrSupplierID }}">
+        <div class="form-group">
+            <label for="strCompanyName" class="col-sm-3 control-label pull-left">Company Name</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-info-sign"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strCompanyName" value="{{ thisSupplier.strCompanyName }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strCompanyReg" class="col-sm-3 control-label pull-left">Company Reg</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-info-sign"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strCompanyReg" value="{{ thisSupplier.strCompanyReg }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strVAT" class="col-sm-3 control-label pull-left">VAT</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-info-sign"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strVAT" value="{{ thisSupplier.strVAT }}">
+                  </div>
+            </div>
+        </div>
+        <div class="box-profile with-border">
+            <div class="box box-border with-border">
+                <h3 class="box-title"> Contact Person</h3>
+            </div>
+            <div class="form-group">
+                <label for="strCPNames" class="col-sm-3 control-label pull-left">Name</label>
+                <div class="col-sm-6">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="glyphicon glyphicon-user"> </i>
+                        </div>
+                            <input type="text" class="form-control" id="strCPNames" value="{{ thisSupplier.strCPNames }}">
+                      </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strCPSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                <div class="col-sm-6">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="glyphicon glyphicon-user"> </i>
+                        </div>
+                            <input type="text" class="form-control" id="strCPSurname" value="{{ thisSupplier.strCPSurname }}">
+                      </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strCPIDNumber" class="col-sm-3 control-label pull-left">ID Number</label>
+                <div class="col-sm-6">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="glyphicon glyphicon-user"> </i>
+                        </div>
+                            <input type="text" class="form-control" id="strCPIDNumber" value="{{ thisSupplier.strCPIDNumber }}">
+                      </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strCPPosition" class="col-sm-3 control-label pull-left">Position</label>
+                <div class="col-sm-6">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="glyphicon glyphicon-user"> </i>
+                        </div>
+                            <input type="text" class="form-control" id="strCPPosition" value="{{ thisSupplier.strCPPosition }}">
+                      </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="col-sm-3 control-label pull-left"></label>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block" id="UpdateSupplierButt"><strong> <i class="glyphicon glyphicon-cloud-upload"> </i> Update Supplier </strong></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="col-sm-3 control-label pull-left"></label>
+                <div class="col-sm-6">
+                    <div id="UpdateSupplierINFDIV"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="/static/dist/js/pages/admin/churches/branches/suppliers/supplierinfo.js"></script>

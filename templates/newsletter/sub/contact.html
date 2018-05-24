@@ -1,0 +1,177 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Contact List Management</h3>
+        <input type="hidden" id="strListID" value="{{ vstrListID }}">
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#ContactList" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Contact List</button></a></li>
+            <li><a href="#ManageContacts" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Manage Contacts </button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="ContactList">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Contact List</h3>
+                    </div>
+                    <table id="ContactListTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Names</td>
+                                <td>Surname</td>
+                                <td>Cell</td>
+                                <td>Email</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisContact in thisContactList %}
+                            <tr>
+                                <td>{{ thisContact.strNames }}</td>
+                                <td>{{ thisContact.strSurname }}</td>
+                                <td>{{ thisContact.strCell }}</td>
+                                <td>{{ thisContact.strEmail }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Names</td>
+                                <td>Surname</td>
+                                <td>Cell</td>
+                                <td>Email</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+            <div class="tab-pane" id="ManageContacts">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Contact Manager</h3>
+                    </div>
+                     <div class="bav-tabs-custom">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#BulkUploads" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Bulk Uploads</button></a></li>
+                                            <li><a href="#SingleUploads" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Single Uploads </button> </a> </li>
+                                            <li><a href="#RemoveContacts" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Remove Contacts </button> </a> </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="active tab-pane" id="BulkUploads">
+                                                <div class="box box-body with-border">
+                                                    <form class="form-horizontal">
+                                                        <div class="form-group">
+                                                            <label for="strContacts" class="col-sm-3 control-label pull-left" >Contacts</label>
+                                                            <div class="col-sm-6">
+                                                                <textarea style="width: 100%;" class="form-control" id="strContacts">
+
+                                                                </textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label pull-left" ></label>
+                                                            <div class="col-sm-6">
+                                                                format : number,email,names,surname
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label pull-left" ></label>
+                                                            <div class="col-sm-6">
+                                                                <button type="button" class="btn btn-primary btn-block" id="BulkUploadContactsButt"><strong><i class="fa fa-cloud"> </i> Upload Bulk Contacts </strong></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label pull-left" ></label>
+                                                            <div class="col-sm-6">
+                                                                <div id="BulkUploadContactsINFDIV"></div>
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="SingleUploads">
+                                                <div class="box box-body with-border">
+                                                    <form class="form-horizontal">
+                                                        <div class="form-group">
+                                                            <label for="strNames" class="col-sm-3 control-label pull-left">Names</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="strNames" name="vstrNames">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="strSurname" name="vstrSurname">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="strCellNumber" class="col-sm-3 control-label pull-left">Cell Number</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="strCellNumber" name="vstrCellNumber">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="strEmail" class="col-sm-3 control-label pull-left">Email</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="strEmail" name="vstrEmail">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label pull-left"></label>
+                                                            <div class="col-sm-6">
+                                                                <button type="button" class="btn btn-primary btn-block" id="UploadContactButt"><strong><i class="fa fa-cloud"> </i> Upload Contact </strong></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label pull-left"></label>
+                                                            <div class="col-sm-6">
+                                                                <div id="UploadContactINFDIV"></div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="RemoveContacts">
+                                                <div class="box box-body with-border">
+                                                    <div class="box box-header with-border">
+                                                        <h3 class="box-title">Remove Contacts</h3>
+                                                    </div>
+                                                    <form class="form-horizontal">
+                                                        <div class="form-group">
+                                                            <label for="strRemoveEmail" class="col-sm-3 control-label pull-left">Email </label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="strRemoveEmail">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label pull-left"></label>
+                                                            <div class="col-sm-6">
+                                                                <button type="button" class="btn btn-primary btn-block" id="RemoveButt"><strong> <i class="fa fa-cut"> </i> Remove Contact </strong></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label pull-left"></label>
+                                                            <div class="col-sm-6">
+                                                                <div id="RemoveContactINFDIV"></div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/newsletters/contact.js"></script>
+<script>$(function () {$('#ContactListTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>
+

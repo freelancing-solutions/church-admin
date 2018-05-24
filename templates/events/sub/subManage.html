@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title"> Event Manager</h3>
+    </div>
+    <table id="EventManagerTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Event Name</td>
+                <td>Introduction</td>
+                <td>Start Date</td>
+                <td>End Date</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for thisEvent in thisEventList %}
+            <tr>
+                <td><a href="/events/manager/{{ thisEvent.strEventID }}">{{ thisEvent.strEventName }}</a></td>
+                <td>{{ thisEvent.strEventIntro }}</td>
+                <td>{{ thisEvent.strStartDate }}</td>
+                <td>{{ thisEvent.strStartTime }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Event Name</td>
+                <td>Introduction</td>
+                <td>Start Date</td>
+                <td>End Date</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>$(function () {$('#EventManagerTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>

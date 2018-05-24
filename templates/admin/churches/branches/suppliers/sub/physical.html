@@ -1,0 +1,92 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Physical Address</h3>
+    </div>
+
+    <form class="form-horizontal">
+        <input type="hidden" class="hidden" id="strSupplierID" value="{{ vstrSupplierID }}">
+
+
+        <div class="form-group">
+            <label for="strStandNumber" class="col-sm-3 control-label pull-left">Stand Number</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-info-sign"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strStandNumber" value="{{ thisPhysical.strStandNumber }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strStreetName" class="col-sm-3 control-label pull-left">Street Name</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-info-sign"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strStreetName" value="{{ thisPhysical.strStreetName }}">
+                  </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="strCityTown" class="col-sm-3 control-label pull-left">City Town</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-info-sign"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strCityTown" value="{{ thisPhysical.strCityTown }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strProvince" class="col-sm-3 control-label pull-left">Province</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-info-sign"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strProvince" value="{{ thisPhysical.strProvince }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strCountry" class="col-sm-3 control-label pull-left">Country</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-info-sign"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strCountry" value="{{ thisPhysical.strCountry }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strPostalCode" class="col-sm-3 control-label pull-left">Postal Code</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-info-sign"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strPostalCode" value="{{thisPhysical.strPostalCode }}">
+                  </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left"></label>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="UpdatePhysicalButt"><strong><i class="glyphicon glyphicon-cloud-upload"> </i> Update Physical Address </strong></button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left"></label>
+            <div class="col-sm-6">
+                <div id="UpdatePhysicalINFDIV"></div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="/static/dist/js/pages/admin/churches/branches/suppliers/physical.js"></script>

@@ -1,0 +1,33 @@
+
+cron:
+- description: newsletters
+  url: /tasks/newsletters
+  schedule: every 12 hours
+
+- description: birthday reminders
+  url: /tasks/birthdays
+  schedule: every 24 hours
+
+- description: bulk sms
+  url: /tasks/bulksms
+  schedule: every 10 minutes
+
+- description: bulk emails
+  url: /tasks/bulkemail
+  schedule: every 90 minutes
+
+- description: meetings reminders
+  url: /tasks/meetings
+  schedule: every 2 hours
+
+- description: System Notifications
+  url: /tasks/system
+  schedule: every 36 hours
+
+- description: Check Bulk SMS Responses
+  url: /tasks/bulksmsresponses
+  schedule: every 5 minutes
+
+- description: Check Meeting Responses
+  url: /tasks/meetingresponses
+  schedule: every 60 minutes

@@ -1,0 +1,36 @@
+<div class="box box-body with-border">
+      <div class="box box-header with-border">
+        <h3 class="box-title">Admin</h3>
+      </div>
+
+      <table id="AdminTableList" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <td>Admin ID</td>
+            <td>Church ID</td>
+            <td>Created</td>
+            <td>Active</td>
+          </tr>
+        </thead>
+        <tbody>
+        {% for thisAdmin in thisAdminsList %}
+          <tr>
+            <td><a href="/dashboard/thisadmins/{{ thisAdmin.strAdminID }}">{{ thisAdmin.strAdminID }}</a></td>
+            <td>{{ thisAdmin.strChurchID }}</td>
+            <td>{{ thisAdmin.strDateAssigned }}</td>
+            <td>{{ thisAdmin.strActive }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Admin ID</td>
+            <td>Church ID</td>
+            <td>Created</td>
+            <td>Active</td>
+          </tr>
+        </tfoot>
+      </table>
+
+    </div>
+

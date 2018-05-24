@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Church Admin-By Blue IT Marketing Pty LTD</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!-- jQuery 2.2.3 -->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+   <div id="MainHeaderDiv"></div>
+  <!-- Left side column. contains the logo and sidebar -->
+  <div id="SideBarDiv"></div>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Church Administration
+        <small>Church Administration App</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Edit Member</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-md-3">
+            <div class="box-body box-profile">
+                <img class="profile-user-img img-responsive img-circle" src="../../../static/dist/img/photo1.png" alt="User profile picture">
+                <h3 class="profile-username text-center">{{ thisChurchMember.strMemberNames }} {{ thisChurchMember.strMemberSurname}}</h3>
+                <p class="text-muted text-center">{{ thisChurchMember.strPositionInChurch }}</p>
+            </div>
+            <div class="box box-body">
+              <input type="hidden" id="strMemberID" value="{{ thisChurchMember.strMemberID }}">
+              <a href="/admin" type="button" class="btn btn-primary btn-block" id="AdminButt"><strong><i class="fa fa-cog"> </i> Admin </strong></a>
+            </div>
+            <div class="box-body box-profile">
+              <button type="button" class="btn btn-primary btn-block" id="MemberInfoButt"><strong><i class="fa  fa-user"> </i> Personal Details </strong></button>
+              <button type="button" class="btn btn-primary btn-block" id="MemberAddressButt"><strong><i class="fa  fa-building"> </i> Member Address </strong></button>
+              <button type="button" class="btn btn-primary btn-block" id="MemberAccessRightsButt"><strong><i class="fa  fa-key"> </i> Access Rights </strong></button>
+            </div>
+            <div class="box-body box-profile">
+              <button type="button" class="btn btn-primary btn-block" id="MemberPledgesButt"><strong><i class="fa fa-users"> </i> Pledges </strong></button>
+              <button type="button" class="btn btn-primary btn-block" id="MemberDonationsButt"><strong><i class="fa fa-users"> </i> Donations </strong></button>
+              <button type="button" class="btn btn-primary btn-block" id="MemberTithingsButt"><strong><i class="fa fa-users"> </i> Tithings </strong></button>
+            </div>
+            <div class="box-body box-profile">
+              <button type="button" class="btn btn-primary btn-block" id="MessagingButt"><strong><i class="fa fa-envelope"> </i> Messaging</strong></button>
+              <button type="button" class="btn btn-primary btn-block" id="SMSButt"><strong><i class="fa fa-envelope"> </i> SMS Groups</strong></button>
+              <button type="button" class="btn btn-primary btn-block" id="EmailButt"><strong><i class="fa fa-envelope"> </i> Email </strong></button>
+            </div>
+
+
+        </div>
+        <div class="col-md-9">
+
+          <div id="editThisINFDIV">
+
+          <div class="box box-primary with-border">
+            <div class="box box-header with-border">
+              <h3>Church Member Details</h3>
+            </div>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="strMemberTitle" class="col-sm-3 control-label pull-left" >Title</label>
+              <div class="col-sm-6">
+                  <input type="text" class="form-control" id="strMemberTitle" name="vstrMemberTitle" value="{{ thisChurchMember.strMemberTitle }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strMemberName" class="col-sm-3 control-label pull-left" >Names</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberName" name="vstrMemberName" value="{{ thisChurchMember.strMemberNames }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strMemberSurname" class="col-sm-3 control-label pull-left" >Surname</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberSurname" name="vstrMemberSurname" value="{{ thisChurchMember.strMemberSurname }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strMemberGender" class="col-sm-3 control-label pull-left" >Gender</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberGender" name="vstrMemberGender" value="{{ thisChurchMember.strMemberGender }}">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="strMemberIDNumber" class="col-sm-3 control-label pull-left" >ID Number</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberIDNumber" name="vstrMemberIDNumber" value="{{ thisChurchMember.strMemberIDNumber }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strMemberDateOfBirth" class="col-sm-3 control-label pull-left" >Date of Birth</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberDateOfBirth" name="vstrMemberDateOfBirth" value="{{ thisChurchMember.strMemberDateOfBirth }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strMemberDateOfMemberShip" class="col-sm-3 control-label pull-left" >Date of Membership</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberDateOfMemberShip" name="vstrMemberDateOfMemberShip" value="{{ thisChurchMember.strMemberDateOfMemberShip }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strMemberDateBaptised" class="col-sm-3 control-label pull-left" >Date Baptised</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberDateBaptised" name="vstrMemberDateBaptised" value="{{ thisChurchMember.strMemberDateBaptised }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strTel" class="col-sm-3 control-label pull-left" >Tel</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strTel" name="vstrTel" value="{{ thisChurchMember.strTel }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strCell" class="col-sm-3 control-label pull-left" >Cell</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strCell" name="vstrCell" value="{{ thisChurchMember.strCell }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strEmail" class="col-sm-3 control-label pull-left" >Email</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strEmail" name="vstrEmail" value="{{ thisChurchMember.strEmail }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strWorkTel" class="col-sm-3 control-label pull-left" >Work Tel</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strWorkTel" name="vstrWorkTel" value="{{ thisChurchMember.strWorkTel }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strWorkCell" class="col-sm-3 control-label pull-left" >Work Cell</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strWorkCell" name="vstrWorkCell" value="{{ thisChurchMember.strWorkCell }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strWorkEmail" class="col-sm-3 control-label pull-left" >Work Email</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strWorkEmail" name="vstrWorkEmail" value="{{ thisChurchMember.strWorkEmail }}">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="strSelectBranch" class="col-sm-3 control-label pull-left" >Select Branch</label>
+              <div class="col-sm-6">
+                <select id="strSelectBranch" class="form-control">
+                  {% for thisBranch in thisBranchList %}
+                    <option value="{{ thisBranch.strChurchBranchID }}">{{ thisBranch.strBranchName }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label  class="col-sm-3 control-label pull-left" ></label>
+              <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="UpdateChurchMemberButt"><strong><i class="fa fa-cloud-upload"> </i> Update Church Member</strong></button>
+              </div>
+
+            </div>
+          </form>
+
+
+        <div  class="box box-footer with-border">
+          <div id="UpdateChurchMemberINFDIV"></div>
+        </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+ <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/editthismember.js"></script>
+<script type="text/javascript">$(document).ready(function(){$('#MainHeaderDiv').load("/navigation/header")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#SideBarDiv').load("/navigation/sidebar")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#FooterDiv').load("/navigation/footer")});</script>
+</body>
+</html>

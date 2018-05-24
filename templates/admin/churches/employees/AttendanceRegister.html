@@ -1,0 +1,190 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Attendance Register</h3>
+        <input type="hidden" class="hidden" id="strIDNumber" value="{{ vstrIDNumber }}">
+    </div>
+
+    <div class="box box-footer with-border">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#Register" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Register</button></a></li>
+                <li><a href="#MarkRegister" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Mark Register </button> </a> </li>
+            </ul>
+            <div class="tab-content">
+                <div class="active tab-pane" id="Register">
+                    <div class="box box-primary with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Register Table</h3>
+                        </div>
+                        <table id="RegisterTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <td>Employee ID</td>
+                                    <td>Date</td>
+                                    <td>Sign In</td>
+                                    <td>Break Out</td>
+                                    <td>Break In</td>
+                                    <td>Lunch Out</td>
+                                    <td>Lunch In</td>
+                                    <td>Sign Out</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for thisAttendance in thisAttendanceRegisterList %}
+                                <tr>
+                                    <td>{{ thisAttendance.strEmployeeID }}</td>
+                                    <td>{{ thisAttendance.strThisDate }}</td>
+                                    <td>{{ thisAttendance.strTimeIn }}</td>
+                                    <td>{{ thisAttendance.strBreakTimeOut }}</td>
+                                    <td>{{ thisAttendance.strBreakTimeIN }}</td>
+                                    <td>{[ thisAttendance.strLunchTimeOut }}</td>
+                                    <td>{{ thisAttendance.strLunchTimeIN }}</td>
+                                    <td>{{ thisAttendance.strTimeOut }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Employee ID</td>
+                                    <td>Date</td>
+                                    <td>Sign In</td>
+                                    <td>Break Out</td>
+                                    <td>Break In</td>
+                                    <td>Lunch Out</td>
+                                    <td>Lunch In</td>
+                                    <td>Sign Out</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="MarkRegister">
+                    <div class="box box-body with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Mark Register</h3>
+                        </div>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="strEmployeeID" class="col-sm-3 control-label pull-left">Employee ID</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-key"> </i>
+                                        </div>
+                                        <input type="text" class="form-control" id="strEmployeeID" name="vstrEmployeeID" value="{{ thisAttendance.strEmployeedID }}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strTimeIn" class="col-sm-3 control-label pull-left">Sign In</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-time"> </i>
+                                        </div>
+                                        <input type="text" class="form-control" id="strTimeIn" name="vstrTimeIn">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strBreakTimeOut" class="col-sm-3 control-label pull-left">Break Time Out</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-time"> </i>
+                                        </div>
+                                            <input type="text" class="form-control" id="strBreakTimeOut" name="vstrBreakTimeOut">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strBreakTimeIN" class="col-sm-3 control-label pull-left">Break Time In</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-time"> </i>
+                                        </div>
+
+                                            <input type="text" class="form-control" id="strBreakTimeIN" name="vstrBreakTimeIN">
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strLunchTimeOut" class="col-sm-3 control-label pull-left">Lunch Time Out</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-time"> </i>
+                                        </div>
+
+                                            <input type="text" class="form-control" id="strLunchTimeOut" name="vstrLunchTimeOut">
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strLunchTimeIN" class="col-sm-3 control-label pull-left">Lunch Time In</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-time"> </i>
+                                        </div>
+
+                                            <input type="text" class="form-control" id="strLunchTimeIN" name="vstrLunchTimeIN">
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strTimeOut" class="col-sm-3 control-label pull-left">Sign Out</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-time"> </i>
+                                        </div>
+
+                                            <input type="text" class="form-control" id="strTimeOut" name="vstrTimeOut">
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-arrow-up"> </i>
+                                        </div>
+                                        <button type="button" class="btn btn-primary btn-block" id="AutoCompleteButt"><strong> <i class="fa fa-pencil-square"> </i> Auto Complete </strong></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-save-file"> </i>
+                                        </div>
+                                        <button type="button" class="btn btn-bitbucket btn-block" id="SaveRegisterButt"><strong> <i class="fa fa-save"> </i> Save Register </strong></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i> ? </i>
+                                        </div>
+                                        <div id="AttendanceRegisterINFDIV"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/dist/js/pages/admin/churches/employees/attendanceregister.js"></script>

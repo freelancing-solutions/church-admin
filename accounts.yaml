@@ -1,0 +1,23 @@
+
+handlers:
+
+- url: /accounts
+  login: required
+  secure: always
+  script: accounts.app
+- url: /accounts/update
+  login: required
+  secure: always
+  script: accounts.app
+- url: /accounts/request/.*
+  login: required
+  secure: always
+  script: accounts.app
+- url: /accounts/products
+  login: required
+  secure: always
+  script: accounts.app
+- url: /accounts/proinfo
+  login: required
+  secure: always
+  script: accounts.app

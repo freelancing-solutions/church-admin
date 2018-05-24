@@ -1,0 +1,103 @@
+<link rel="stylesheet" href="/static/plugins/datepicker/datepicker3.css">
+<link rel="stylesheet" href="/static/plugins/timepicker/bootstrap-timepicker.min.css">
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Schedule Newsletters</h3>
+        <input type="hidden" id="strListID" value="{{ vstrListID }}">
+    </div>
+<div class="bav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#CurrentSchedule" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Current Schedule</button></a></li>
+        <li><a href="#ManageSchedule" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Manage Schedule </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="CurrentSchedule">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Current Schedule</h3>
+                    <small>Note that the schedule will only work if there is a newletter that is currently created and not yet sent</small>
+                </div>
+                <table id="ScheduleTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td>List Name</td>
+                            <td>Start Date</td>
+                            <td>Start Time</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for thisMailing in thisMailingList %}
+                        <tr>
+                            <td>{{ thisMailing.strListName }}</td>
+                            <td>{{ thisMailing.strStartSendingDate }}</td>
+                            <td>{{ thisMailing.strStartSendingTime }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>List Name</td>
+                            <td>Start Date</td>
+                            <td>Start Time</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane" id="ManageSchedule">
+            <div class="box box-footer with-border">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="strDate" class="col-sm-3 control-label pull-left" >Date</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control" id="strDate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strTime" class="col-sm-3 control-label pull-left" >Time</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control" id="strTime">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="UpdateScheduleButt"><strong><i class="glyphicon glyphicon-calendar"> </i> Setup Schedule </strong></button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <div id="UpdateScheduleINFDIV"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="/static/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="/static/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="/static/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<script src="/static/dist/js/moment.min.js"></script>
+<script src="/static/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="/static/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<script src="/static/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/newsletters/schedule.js"></script>
+<script>$(function () {$('#ScheduleTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>
+<script>$(function () {$('#strDate').datepicker({autoclose: true});$("#strTime").timepicker({showInputs: true});});</script>

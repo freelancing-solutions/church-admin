@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Article List</h3>
+    </div>
+    <table id="ArticlesTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Author</td>
+                <td>Heading</td>
+                <td>Date Created</td>
+                <td>Time Created</td>
+                <td>Published</td>
+                <td>Date</td>
+                <td>Time</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for thisArticle in thisArticlesList %}
+                <tr>
+                    <td>{{ thisArticle.strPenName }}</td>
+                    <td>{{ thisArtilce.strArticleHeading }}</td>
+                    <td>{{ thisArticle.strDateCreated }}</td>
+                    <td>{{ thisArticle.strTimeCreated }}</td>
+                    <td>{{ thisArticle.strPublished }}</td>
+                    <td>{{ thisArticle.strDatePublished }}</td>
+                    <td>{{ thisArticle.strTimePublished }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Author</td>
+                <td>Heading</td>
+                <td>Date Created</td>
+                <td>Time Created</td>
+                <td>Published</td>
+                <td>Date</td>
+                <td>Time</td>
+            </tr>
+        </tfoot>
+
+    </table>
+</div>
+ <!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>$(function () {$('#ArticlesTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>
+

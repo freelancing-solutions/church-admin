@@ -1,0 +1,12 @@
+
+handlers:
+
+- url: /contact
+  login: required
+  secure: always
+  script: contact.app
+
+- url: /contact/read/.*
+  login: required
+  secure: always
+  script: contact.app

@@ -1,0 +1,212 @@
+
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#Costs" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Costs</button></a></li>
+        <li><a href="#UpdateCosts" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Update Costs </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="Costs">
+            <div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Costs</h3>
+        <input type="hidden" class="hidden" id="strChurchBranchID" name="vstrChurchBranchID" value="{{ vstrChurchBranchID }}">
+        <input type="hidden" class="hidden" id="strChurchID" name="vstrChurchID" value=" {{ vstrChurchID }}">
+    </div>
+    <table id="CostsTable" class="table table-bordered table-striped">
+        <thead>
+                <tr>
+                    <td>Year</td>
+                    <td>Month</td>
+                    <td>Rentals</td>
+                    <td>Maintenance</td>
+                    <td>Charges</td>
+                    <td>Salaries</td>
+                    <td>Overhead</td>
+                </tr>
+        </thead>
+        <tbody>
+            {% for thisCost in thisCostsList %}
+                <tr>
+                    <td><a href="/monetary/costs/{{ thisCost.strYear }}/{{ thisCost.strMonth }}">{{ thisCost.strYear }}</a></td>
+                    <td><a href="/monetary/costs/{{ thisCost.strYear }}/{{ thisCost.strMonth }}">{{ thisCost.strMonth }}</a></td>
+                    <td>{{ thisCost.strOfficeRentals }}</td>
+                    <td>{{ thisCost.strBuildingMaintenance }}</td>
+                    <td>{{ thisCost.strMunicipalCharges }}</td>
+                    <td>{{ thisCost.strSalaries }}</td>
+                    <td>{{ thisCost.strOverHeads }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+                <tr>
+                    <td>Year</td>
+                    <td>Month</td>
+                    <td>Rentals</td>
+                    <td>Maintenance</td>
+                    <td>Charges</td>
+                    <td>Salaries</td>
+                    <td>Overhead</td>
+                </tr>
+        </tfoot>
+    </table>
+</div>
+        </div>
+        <div class="tab-pane" id="UpdateCosts">
+            <div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Add Costs</h3>
+    </div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="strYear" class="col-sm-3 control-label pull-left" >Year</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar"> </i> </span>
+                    <input type="text" class="form-control" id="strYear">
+                    <span class="input-group-addon"></span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strMonth" class="col-sm-3 control-label pull-left" >Month</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar"> </i> </span>
+                    <input type="text" class="form-control" id="strMonth">
+                    <span class="input-group-addon"></span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strOfficeRentals" class="col-sm-3 control-label pull-left" >Office Rental</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">R </span>
+                    <input type="text" class="form-control" id="strOfficeRentals">
+                    <span class="input-group-addon">.00</span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strBuildingMaintenance" class="col-sm-3 control-label pull-left" >Building Maintenance</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">R </span>
+                    <input type="text" class="form-control" id="strBuildingMaintenance">
+                    <span class="input-group-addon">.00</span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strMunicipalCharges" class="col-sm-3 control-label pull-left" >Municipal Charges</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">R </span>
+                    <input type="text" class="form-control" id="strMunicipalCharges">
+                    <span class="input-group-addon">.00</span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strSalaries" class="col-sm-3 control-label pull-left" >Salaries</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">R </span>
+                    <input type="text" class="form-control" id="strSalaries">
+                    <span class="input-group-addon">.00</span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strTelephone" class="col-sm-3 control-label pull-left" >Telephone</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">R </span>
+                    <input type="text" class="form-control" id="strTelephone">
+                    <span class="input-group-addon">.00</span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strTransport" class="col-sm-3 control-label pull-left" >Transport</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">R </span>
+                    <input type="text" class="form-control" id="strTransport">
+                    <span class="input-group-addon">.00</span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strStationery" class="col-sm-3 control-label pull-left" >Stationery</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">R </span>
+                    <input type="text" class="form-control" id="strStationery">
+                    <span class="input-group-addon">.00</span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strElectricity" class="col-sm-3 control-label pull-left" >Electricity</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">R </span>
+                    <input type="text" class="form-control" id="strElectricity">
+                    <span class="input-group-addon">.00</span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strAdvertising" class="col-sm-3 control-label pull-left" >Advertising</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">R </span>
+                    <input type="text" class="form-control" id="strAdvertising">
+                    <span class="input-group-addon">.00</span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strInsurance" class="col-sm-3 control-label pull-left" >Insurance</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">R </span>
+                    <input type="text" class="form-control" id="strInsurance">
+                    <span class="input-group-addon">.00</span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strOverHeads" class="col-sm-3 control-label pull-left" >Overheads</label>
+            <div class="col-sm-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">R </span>
+                    <input type="text" class="form-control" id="strOverHeads">
+                    <span class="input-group-addon">.00</span>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left" ></label>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="CostsUpdateButt"><strong><i class="fa fa-money"> </i> Update Costs </strong></button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left" ></label>
+            <div class="col-sm-6">
+                <div id="AddCostsStatusINFDIV"></div>
+            </div>
+        </div>
+    </form>
+</div>
+        </div>
+    </div>
+</div>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/branches/costs.js"></script>
+<script>$(function () {$('#CostsTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>

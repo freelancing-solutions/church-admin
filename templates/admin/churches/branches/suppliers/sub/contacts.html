@@ -1,0 +1,79 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title"> Contacts</h3>
+    </div>
+
+    <form class="form-horizontal">
+        <input type="hidden" class="hidden" id="strSupplierID" value="{{ vstrSupplierID }}">
+        <div class="form-group">
+            <label for="strCell" class="col-sm-3 control-label pull-left">Cell</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-phone"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strCell" value="{{ thisContact.strCell }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strTel" class="col-sm-3 control-label pull-left">Tel</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-phone-alt"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strTel" value="{{ thisContact.strTel }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strFax" class="col-sm-3 control-label pull-left">Fax</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-tty"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strFax" value="{{ thisContact.strFax }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strEmail" class="col-sm-3 control-label pull-left">Email</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-envelope"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strEmail" value="{{ thisContact.strEmail }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strWebsite" class="col-sm-3 control-label pull-left">Website</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-link"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strWebsite" value="{{ thisContact.strWebsite }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left"></label>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="UpdateContactsButt"><strong><i class="glyphicon glyphicon-cloud-upload"> </i> Update Contact </strong></button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left"></label>
+            <div class="col-sm-6">
+                <div id="UpdateContactINFDIV"></div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<script src="/static/dist/js/pages/admin/churches/branches/suppliers/contacts.js"></script>

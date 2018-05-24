@@ -1,0 +1,128 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Account Details</h3>
+    </div>
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#AccountInfo" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Account Information</button></a></li>
+        <li><a href="#AccountDeposit" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-piggy-bank"> </i> Credit Purchases</button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="AccountInfo">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Account Details</h3>
+                    <small>Present Status of your Account</small>
+                </div>
+                <div class="box box-primary">
+                <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item">Total SMS Credits : <a href="#AccountDeposit" class="glyphicon glyphicon-send pull-right" data-toggle="tab"> {{ thisSMSAccount.strTotalSMS }} </a></li>
+                    {% if thisSMSAccount.strDateCredited == None %}
+                        <li class="list-group-item">Date Credited : <a href="#AccountDeposit" class="glyphicon glyphicon-calendar pull-right" data-toggle="tab"> Buy</a></li>
+                    {% else %}
+                        <li class="list-group-item">Date Credited : <a href="#AccountDeposit" class="glyphicon glyphicon-calendar pull-right" data-toggle="tab"> {{ thisSMSAccount.strDateCredited }}</a> </li>
+                    {% endif %}
+
+                    {% if thisSMSAccount.strTimeCredited == None %}
+                        <li class="list-group-item">Date Credited : <a href="#AccountDeposit" class="glyphicon glyphicon-time pull-right" data-toggle="tab"> Buy</a> </li>
+                    {% else %}
+                        <li class="list-group-item">Date Credited : <a href="#AccountDeposit" class="glyphicon glyphicon-time pull-right" data-toggle="tab"> {{ thisSMSAccount.strTimeCredited }}</a> </li>
+                    {% endif %}
+                </ul>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="AccountDeposit">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Account Deposit</h3>
+                    <small>This section allows you to easily purchase as much Bulk SMS as possible.</small>
+                    <small>Simply select the package you want and let the system create a Quotation for the package, if you dont get a Quote it simply means the packages are presently not available</small>
+
+                </div>
+                <div id="AccountINFDIV">
+                    <form class="form-horizontal">
+                        <input type="hidden" class="form-control" id="strVodacomSystemCredit" name="vstrVodacomSystemCredit" value="{{ thisVodacomPortal.strSystemCredit }}">
+                        <input type="hidden" class="form-control" id="strBudgetSystemCredit" name="vstrBudgetSystemCredit" value="{{ thisBudgetPortal.strSystemCredit }}">
+                        <input type="hidden" class="form-control" id="strBudgetSellPrice" name="vstrBudgetSellPrice" value="{{ thisBudgetPortal.strSellRate }}">
+                        <input type="hidden" class="form-control" id="strVodacomSellPrice" name="vstrVodacomSellPrice" value="{{ thisVodacomPortal.strSellRate }}">
+                    <div class="form-group">
+                        <label for="strSMSPackages" class="col-sm-3 control-label pull-left" >SMS Packages</label>
+                        <div class="col-sm-6">
+                                <div class="input-group">
+                                  <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon glyphicon-send"> </i>
+                                  </div>
+                                  <select id="strSMSPackages" class="form-control" onclick="CreateQuote(this.id)">
+                                      <option value="100">    100</option>
+                                      <option value="500">    500</option>
+                                      <option value="1000"> 1,000</option>
+                                      <option value="1500"> 1,500</option>
+                                      <option value="2000"> 2,000</option>
+                                      <option value="3000"> 3,000</option>
+                                      <option value="4000"> 4,000</option>
+                                      <option value="5000"> 5,000</option>
+                                      <option value="10000"> 10,000</option>
+                                  </select>
+                                  <div class="input-group-addon">
+                                    SMS
+                                  </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strDepositAmount" class="col-sm-3 control-label pull-left" >Deposit Amount</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    R
+                                </div>
+                                <input type="text" class="form-control" id="strDepositAmount" value="00" readonly>
+                                <div class="input-group-addon">
+                                    00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strDepositMethod" class="col-sm-3 control-label pull-left" >Payment Method</label>
+                        <div class="col-sm-6">
+                            <select id="strDepositMethod" class="form-control">
+                                <option value="EFT">EFT</option>
+                                <option value="Direct Deposit">Direct Deposit</option>
+                                <option value="PAYPAL">PAYPAL</option>
+                                <option value="Credit Card">Credit Card</option>
+                                <option value="Bank Card">Bank Card (Master / Visa)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left" ></label>
+                        <div class="col-xs-6">
+                          <p class="lead">Payment Methods:</p>
+                          <img src="../../../static/dist/img/credit/visa.png" alt="Visa">
+                          <img src="../../../static/dist/img/credit/mastercard.png" alt="Mastercard">
+                          <img src="../../../static/dist/img/credit/paypal2.png" alt="Paypal">
+
+                          <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                              <span class="fa fancybox-bg">Note that all Credit Purchases are non refundable</span>
+                          </p>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left" ></label>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="CreditAccountButt"><strong><i class="glyphicon glyphicon-piggy-bank"> </i> Buy Credits</strong></button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/static/dist/js/pages/admin/sms/account.js"></script>

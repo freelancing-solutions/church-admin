@@ -1,0 +1,5 @@
+
+
+{% for thisItem in thisAgendaItemsList %}
+    {{ thisItem.strItemsID }},{{ thisItem.strItemName }}|
+{% endfor %}

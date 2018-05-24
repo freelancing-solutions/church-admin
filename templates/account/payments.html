@@ -1,0 +1,88 @@
+
+
+
+<!-- DataTables -->
+<link rel="stylesheet" href="../../static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-border with-border">
+        <h3><i class="fa fa-money"> </i> Payments</h3>
+    </div>
+    <div class="box box-body with-border">
+        <div class="box box-header with-border">
+            <h3>Transaction Record</h3>
+        </div>
+        <table id="PaymentsTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Reference</td>
+                <td>Payment Amount</td>
+                <td>Date</td>
+                <td>Time</td>
+                <td>Payment Method</td>
+                <td>Verified</td>
+            </tr>
+        </thead>
+        <tbody>
+          {% for thisTransaction in thisTransactionList %}
+            <tr>
+                <td>{{ thisTransaction.strReference }}</td>
+                <td>{{ thisTransaction.strPaymentAmount }}</td>
+                <td>{{ thisTransaction.strDateOfPayment }}</td>
+                <td>{{ thisTransaction.strTimeOfPayment }}</td>
+                <td>{{ thisTransaction.strPaymentMethod }}</td>
+                <td>{{ thisTransaction.strTransactionVerified }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Reference</td>
+                <td>Payment Amount</td>
+                <td>Date</td>
+                <td>Time</td>
+                <td>Payment Method</td>
+                <td>Verified</td>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+
+    <div class="box box-footer with-border">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="strPaymentMethod" class="col-sm-3 control-label" >Payment Method</label>
+                <div class="col-sm-6">
+                    <select id="strPaymentMethod" class="form-control">
+                        <option value="Cash">Cash</option>
+                        <option value="EFT">EFT</option>
+                        <option value="DirectDeposit">Direct Deposit</option>
+                        <option value="CreditCard">Credit/Debit Card</option>
+                        <option value="PayPal">PayPal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPaymentAmount" class="col-sm-3 control-label" >Payment Amount</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPaymentAmount" name="vstrPaymentAmount">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" ></label>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block" id="MakePaymentButt"><strong><i class="fa fa-bank"> </i> Make Payment </strong></button>
+                </div>
+            </div>
+
+        </form>
+        <div class="box box-footer with-border">
+            <div id="MakePaymentINFDIV"></div>
+        </div>
+    </div>
+
+</div>
+
+<script src="../../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="../../static/dist/js/pages/account/payments.js"></script>
+<script>$(function () {$('#PaymentsTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>

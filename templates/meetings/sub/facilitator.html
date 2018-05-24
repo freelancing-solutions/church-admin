@@ -1,0 +1,129 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Meeting Facilitators</h3>
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#Facilitators" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Facilitators </button></a></li>
+            <li><a href="#ManageFacilitators" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-send"> </i> Manage Facilitators </button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="Facilitators">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Facilitator</h3>
+                    </div>
+                    <table id="FacilitatorsTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Surname</td>
+                                <td>Cell</td>
+                                <td>Email</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ thisMeeting.strFacilitatorName }}</td>
+                                <td>{{ thisMeeting.strFacilitatorSurname }}</td>
+                                <td>{{ thisMeeting.strFacilitatorCell }}</td>
+                                <td>{{ thisMeeting.strFacilitatoEmail }}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Name</td>
+                                <td>Surname</td>
+                                <td>Cell</td>
+                                <td>Email</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="ManageFacilitators">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Manage Facilitator</h3>
+                    </div>
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#AddFacilitator" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Add Facilitator </button></a></li>
+                            <li><a href="#RemoveFacilitator" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-send"> </i> Remove Facilitator </button> </a> </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="active tab-pane" id="AddFacilitator">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="strFacilitatorName" class="col-sm-3 control-label pull-left">Facilitator Name</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-user"> </i>
+                                                </div>
+                                                <input type="text" class="form-control" id="strFacilitatorName" name="vstrFacilitatorName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strFacilitatorSurname" class="col-sm-3 control-label pull-left">Facilitator Surname</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-user"> </i>
+                                                </div>
+                                                <input type="text" class="form-control" id="strFacilitatorSurname" name="vstrFacilitatorSurname">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strFacilitatorCell" class="col-sm-3 control-label pull-left">Facilitator Cell</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-phone"> </i>
+                                                </div>
+                                                <input type="text" class="form-control" id="strFacilitatorCell" name="vstrFacilitatorCell">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strFacilitatorEmail" class="col-sm-3 control-label pull-left">Facilitator Email</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-envelope"> </i>
+                                                </div>
+                                                <input type="text" class="form-control" id="strFacilitatorEmail" name="vstrFacilitatoEmail">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label pull-left"></label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-user"> </i>
+                                                </div>
+                                                <button type="button" class="btn btn-primary btn-block" id="UpdateFacilitatorButt"><strong><i class="fa fa-user"> </i> Update Facilitator </strong></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label pull-left"></label>
+                                        <div class="col-sm-6">
+                                            <div id="UpdateFacilitatorINFDIV"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane" id="RemoveFacilitator">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/meetings/facilitator.js"></script>

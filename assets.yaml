@@ -1,0 +1,15 @@
+
+
+handlers:
+
+
+- url: /assets
+  login: required
+  secure: always
+  script: assets.app
+
+- url : /assets/.*
+  login: required
+  secure: always
+  script: assets.app
+

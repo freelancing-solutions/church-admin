@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Public Event</h3>
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#Events" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-book"> </i> Events</button></a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="Events">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Events</h3>
+                    </div>
+                    <table id="EventTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Event Name</td>
+                                <td>Introduction</td>
+                                <td>Start Date</td>
+                                <td>Start Time</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for Event in thisEventList %}
+                            <tr>
+                                <td><a href="/events/public/{{ Event.strEventID }}"> {{ Event.strEventName }}</a></td>
+                                <td>{{ Event.strEventIntro }}</td>
+                                <td>{{ Event.strStartDate }}</td>
+                                <td>{{ Event.strStartTime }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Event Name</td>
+                                <td>Introduction</td>
+                                <td>Start Date</td>
+                                <td>Start Time</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>$(function () {$('#EventTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>

@@ -1,0 +1,45 @@
+
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3>Email Settings</h3>
+        <small> Date Created : {{ thisEmailSettings.strDateCreated }} | Time  {{ thisEmailSettings.strTimeCreated }}</small>
+    </div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="strEmailAddress" class="col-sm-3 control-label pull-left">Email Address</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strEmailAddress" name="vstrEmailAddress" value="{{ thisEmailSettings.strEmailAddress }}">
+            </div>
+        </div>
+        <div class="input-group">
+
+            <input type="text" class="form-control" placeholder="Username">
+            <span class="input-group-addon">@</span>
+        </div>
+        <div class="form-group">
+            <label for="strName" class="col-sm-3 control-label pull-left">Names</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strName" name="vstrName" value="{{ thisEmailSettings.strName }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strSignature" class="col-sm-3 control-label pull-left">Email Signature</label>
+            <div class="col-sm-6">
+                <textarea id="strSignature"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left"></label>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="UpdateEmailSettingsButt"><strong><i class="fa fa-envelope"> </i> Update Email Settings </strong></button>
+            </div>
+        </div>
+      <div class="form-group">
+          <label class="col-sm-3 control-label pull-left"></label>
+          <div class="col-sm-6">
+            <div id="EmailSettingsINFDIV"></div>
+          </div>
+      </div>
+
+    </form>
+</div>

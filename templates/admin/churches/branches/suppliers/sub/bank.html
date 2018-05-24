@@ -1,0 +1,98 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="fa fa-bank">Bank</h3>
+    </div>
+
+    <form class="form-horizontal">
+        <input type="hidden" class="hidden" id="vstrSupplierID" value="{{ vstrSupplierID }}">
+        <div class="form-group">
+            <label for="strAccountHolder" class="col-sm-3 control-label pull-left">Account Holder</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-user"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strAccountHolder" value="{{ thisBankDetail.strAccountHolder }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strAccountNumber" class="col-sm-3 control-label pull-left">Account Number</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-cc-diners-club"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strAccountNumber" value="{{ thisBankDetail.strAccountNumber }}">
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strAccountType" class="col-sm-3 control-label pull-left">Account Type</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-check"> </i>
+                    </div>
+                      <select id="strAccountType" class="form-control">
+                          {% if thisBankDetail.strAccountType == "Savings" %}
+                                <option value="Savings" selected="selected">Savings</option>
+                          {% else %}
+                                <option value="Savings">Savings</option>
+                          {% endif %}
+
+                          {% if thisBankDetail.strAccountType == "Cheque" %}
+                                <option value="Cheque" selected="selected">Cheque</option>
+                          {% else %}
+                                <option value="Cheque">Cheque</option>
+                          {% endif %}
+                          {% if thisBankDetail.strAccountType == "Transmission" %}
+                                <option value="Transmission" selected="selected">Transmission</option>
+                          {% else %}
+                                <option value="Transmission">Transmission</option>
+                          {% endif %}
+                      </select>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strBankName" class="col-sm-3 control-label pull-left">Bank Name</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-registered"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strBankName" value="{{ thisBankDetail.strBankName }}">
+                  </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="strBranchCode" class="col-sm-3 control-label pull-left">Branch Code</label>
+            <div class="col-sm-6">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-code"> </i>
+                    </div>
+                        <input type="text" class="form-control" id="strBranchCode" value="{{ thisBankDetail.strBranchCode }}">
+                  </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left"></label>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="UpdateBankButt"><strong> Update Bank</strong></button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left"></label>
+            <div class="col-sm-6">
+                <div id="UpdateBankINFDIV"></div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<script src="/static/dist/js/pages/admin/churches/branches/suppliers/bank.js"></script>

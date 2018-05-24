@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Messages</h3>
+        <input type="hidden" class="hidden" id="strGroupID" value="{{ vstrGroupID }}">
+    </div>
+    <div class="bav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#MessageList" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Message History</button></a></li>
+            <li><a href="#CreateMessage" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Create Message </button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="MessageList">
+                <table id="MessageTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td>Date Created</td>
+                            <td>Time Created</td>
+                            <td>Message</td>
+                            <td>Submitted</td>
+                            <td>Date Submitted</td>
+                            <td>Time Submitted</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for thisMessage in  thisMessagesList %}
+                        <tr>
+                            <td>{{ thisMessage.strDateCreated }}</td>
+                            <td>{{ thisMessage.strTimeCreated }}</td>
+                            <td><a href="/sms/manage/{{ thisMessage.strMessageID }}">{{ thisMessage.strMessage }}</a></td>
+                            <td>{{ thisMessage.strSubmitted }}</td>
+                            <td>{{ thisMessage.strDateSubmitted }}</td>
+                            <td>{{ thisMessage.strTimeSubmitted }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Date Created</td>
+                            <td>Time Created</td>
+                            <td>Message</td>
+                            <td>Submitted</td>
+                            <td>Date Submitted</td>
+                            <td>Time Submitted</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="tab-pane" id="CreateMessage">
+                <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Create Message</h3>
+                    <small>First upload your message then on the message history tab select your message and schedule it for delivery</small>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="strMessage" class="col-sm-3 control-label pull-left" > Message </label>
+                        <div class="col-sm-6">
+                            <textarea id="strMessage" class="form-control" onkeyup="countChar(this)"></textarea>
+                            <label class="label label-info" id="charNum"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="UploadMessageButt"><strong><i class="fa fa-comment"> </i> Upload Message </strong></button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <div id="UploadMessageStatusINFDIV"></div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/sms/createmessage.js"></script>
+<script>$(function () {$('#MessageTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>

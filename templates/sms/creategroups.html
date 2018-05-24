@@ -1,0 +1,71 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Manage Groups</h3>
+    </div>
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#GroupsList" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Groups List</button></a></li>
+        <li><a href="#CreateGroups" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Create Groups </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="GroupsList">
+            <table id="GroupsListTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+
+                        <td>Group ID</td>
+                        <td>Group Name</td>
+                        <td>Group Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for thisGroup in thisGroupsList %}
+                    <tr>
+                        <td><a href="/sms/groupman/{{ thisGroup.strGroupID }}">{{ thisGroup.strGroupID }}</a></td>
+                        <td>{{ thisGroup.strGroupName }}</td>
+                        <td>{{ thisGroup.strGroupDescription }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+
+                        <td>Group ID</td>
+                        <td>Group Name</td>
+                        <td>Group Description</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="tab-pane" id="CreateGroups">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="strGroupName" class="col-sm-3 control-label pull-left" >Group Name</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strGroupName" name="vstrGroupName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strGroupDescription" class="col-sm-3 control-label pull-left" >Group Description</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strGroupDescription" name="vstrGroupDescription">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label pull-left" ></label>
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-primary btn-block" id="CreateGroupButt"><strong><i class="fa fa-users"> </i> Create Group</strong></button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label pull-left"></label>
+                    <div class="col-sm-6">
+                        <div id="CreateGroupsINFDIV"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/static/dist/js/pages/admin/sms/creategroups.js"></script>

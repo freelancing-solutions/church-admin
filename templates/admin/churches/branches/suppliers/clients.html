@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#ServiceProvider" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Service Provider</button></a></li>
+        <li><a href="#AddServiceProvider" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Add Service Provider </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="ServiceProvider">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Service Providers</h3>
+                    <input type="hidden" class="hidden" id="strChurchID" value="{{ vstrChurchID }}">
+                    <input type="hidden" class="hidden" id="strChurchBranchID" value="{{ vstrChurchBranchID }}">
+                </div>
+                <table id="ClientsTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td>Names</td>
+                            <td>Surname</td>
+                            <td>ID</td>
+                            <td>Date</td>
+                            <td>Time</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for thisClient in thisClientsList %}
+                        <tr>
+                            <td><a href="/admin/clients/{{ thisClient.strClientID }}">{{ thisClient.strNames }}</a></td>
+                            <td>{{ thisClient.strSurname }}</td>
+                            <td>{{ thisClient.strIDNumber }}</td>
+                            <td>{{ thisClient.strYear }}-{{ thisClient.strMonth }}-{{ thisClient.strDay }}</td>
+                            <td>{{ thisClient.strTimeRegistered }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Names</td>
+                            <td>Surname</td>
+                            <td>ID</td>
+                            <td>Date</td>
+                            <td>Time</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane" id="AddServiceProvider">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Add Client</h3>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="strNames" class="col-sm-3 control-label pull-left">Names</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strNames" name="vstrNames">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strSurname" name="vstrSurname">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strIDNumber" class="col-sm-3 control-label pull-left">ID Number</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="AddClientButt"><strong><i class="fa fa-cloud"> </i> Add Client </strong></button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <div id="AddClientINFDIV"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/branches/suppliers/clients.js"></script>
+<script>$(function () {$('#ClientsTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>

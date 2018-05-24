@@ -1,0 +1,203 @@
+<!-- DataTables -->
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#Employees" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Employees</button></a></li>
+        <li><a href="#AddEmployees" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Add Employees </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="Employees">
+            <div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Employees</h3>
+    </div>
+    <table id="EmployeesTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Names</td>
+                <td>Surname</td>
+                <td>ID</td>
+                <td>Date Employed</td>
+                <td>Stand</td>
+                <td>Street</td>
+                <td>City</td>
+                <td>Province</td>
+                <td>Country</td>
+                <td>Postal Code</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for thisEmployee in thisEmployeesList %}
+            <tr>
+                <td><a href="/employees/{{ thisEmployee.strIDNumber }}">{{ thisEmployee.strNames }}</a></td>
+                <td>{{ thisEmployee.strSurname }}</td>
+                <td>{{ thisEmployee.strIDNumber }}</td>
+                <td>{{ thisEmployee.strDateOfEmployment }}</td>
+                <td>{{ thisEmployee.strPhyStandNumber }}</td>
+                <td>{{ thisEmployee.strPhyStreetName }}</td>
+                <td>{{ thisEmployee.strPhyCityTown }}</td>
+                <td>{{ thisEmployee.strPhyProvince }}</td>
+                <td>{{ thisEmployee.strPhyCountry }}</td>
+                <td>{{ thisEmployee.strPhyPostalCode }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Names</td>
+                <td>Surname</td>
+                <td>ID</td>
+                <td>Date Employed</td>
+                <td>Stand</td>
+                <td>Street</td>
+                <td>City</td>
+                <td>Province</td>
+                <td>Country</td>
+                <td>Postal Code</td>
+            </tr>
+        </tfoot>
+
+    </table>
+</div>
+        </div>
+        <div class="tab-pane" id="AddEmployees">
+            <div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Add Employee</h3>
+    </div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="strNames" class="col-sm-3 control-label pull-left" >Names</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strNames" name="vstrNames">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strSurname" class="col-sm-3 control-label pull-left" >Surname</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strSurname" name="vstrSurname">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strIDNumber" class="col-sm-3 control-label pull-left" >ID Number</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber">
+            </div>
+        </div>
+        <div class="box box-profile with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title">Physical Address</h3>
+            </div>
+            <div class="form-group">
+                <label for="strPhyStandNumber" class="col-sm-3 control-label pull-left" >Stand Number</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPhyStandNumber" name="vstrPhyStandNumber">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPhyStreetName" class="col-sm-3 control-label pull-left" >Street Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPhyStreetName" name="vstrPhyStreetName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPhyCityTown" class="col-sm-3 control-label pull-left" >City Town</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPhyCityTown" name="vstrPhyCityTown">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPhyProvince" class="col-sm-3 control-label pull-left" >Province</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPhyProvince" name="vstrPhyProvince">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPhyCountry" class="col-sm-3 control-label pull-left" >Country</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPhyCountry" name="vstrPhyCountry">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPhyPostalCode" class="col-sm-3 control-label pull-left" >Postal Code</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPhyPostalCode" name="vstrPhyPostalCode">
+                </div>
+            </div>
+        </div>
+        <div class="box box-profile with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title">Postal Address</h3>
+            </div>
+            <div class="form-group">
+                <label for="strBoxNumber" class="col-sm-3 control-label pull-left" >Box Number</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strBoxNumber" name="vstrBoxNumber">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strCityTown" class="col-sm-3 control-label pull-left" >City Town</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strCityTown" name="vstrCityTown">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strProvince" class="col-sm-3 control-label pull-left" >Province</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strProvince" name="vstrProvince">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strCountry" class="col-sm-3 control-label pull-left" >Country</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strCountry" name="vstrCountry">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPostalCode" class="col-sm-3 control-label pull-left" >Postal Code</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPostalCode" name="vstrPostalCode">
+                </div>
+            </div>
+        </div>
+        <div class="box box-profile with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title">Admin</h3>
+            </div>
+            <div class="form-group">
+                <label for="strDateOfEmployment" class="col-sm-3 control-label pull-left" >Date Employment</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strDateOfEmployment" name="vstrDateOfEmployment">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strSelectBranch" class="col-sm-3 control-label pull-left" >Select Branch</label>
+                <div class="col-sm-6">
+                    <select id="strSelectBranch" class="form-control">
+                        {% for thisBranch in thisBranchList %}
+                            <option value="{{ thisBranch.strChurchBranchID }}">{{ thisBranch.strBranchName }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label pull-left" ></label>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block" id="AddEmployeeButt"><strong><i class="fa fa-cloud"> </i> Add Employment </strong></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div id="AddEmployeeINFDIV"></div>
+            </div>
+        </div>
+    </form>
+</div>
+        </div>
+    </div>
+</div>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/branches/employees.js"></script>
+<script>$(function () {$('#EmployeesTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>

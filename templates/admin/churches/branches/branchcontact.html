@@ -1,0 +1,156 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Branch Contact</h3>
+    </div>
+    <form class="form-horizontal">
+        <input type="hidden" class="hidden" id="strChurchID" value="{{ thisBranchContact.strChurchID }}">
+        <input type="hidden" class="hidden" id="strChurchBranchID" value="{{ thisBranchContact.strChurchBranchID}}">
+        <div class="box box-body with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title">Physical Address</h3>
+            </div>
+            <div class="form-group">
+                 <label for="strPhyStandNumber" class="col-sm-3 control-label pull-left">Stand Number</label>
+                 <div class="col-sm-6">
+                     <input type="text" class="form-control" id="strPhyStandNumber" name="vstrPhyStandNumber" value="{{ thisBranchContact.strPhyStandNumber }}">
+                 </div>
+            </div>
+            <div class="form-group">
+                <label for="strPhyStreetName" class="col-sm-3 control-label pull-left">Street Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPhyStreetName" name="vstrPhyStreetName" value="{{ thisBranchContact.strPhyStreetName }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPhyCityTown" class="col-sm-3 control-label pull-left">City Town</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPhyCityTown" name="vstrPhyCityTown" value="{{ thisBranchContact.strPhyCityTown }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPhyProvince" class="col-sm-3 control-label pull-left">Province</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPhyProvince" name="vstrPhyProvince" value="{{ thisBranchContact.strPhyProvince }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPhyCountry" class="col-sm-3 control-label pull-left">Country</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPhyCountry" name="vstrPhyCountry" value="{{ thisBranchContact.strPhyCountry }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPhyPostalCode" class="col-sm-3 control-label pull-left">Postal Code</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPhyPostalCode" name="vstrPhyPostalCode" value="{{ thisBranchContact.strPhyPostalCode }}">
+                </div>
+            </div>
+
+        </div>
+        <div class="box box-body with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title">Postal Address</h3>
+            </div>
+            <div class="form-group">
+                <label for="strPosAddress" class="col-sm-3 control-label pull-left">Postal Address</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPosAddress" name="vstrPosAddress" value="{{ thisBranchContact.strPosAddress }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPosCityTown" class="col-sm-3 control-label pull-left">City Town</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPosCityTown" name="vstrPosCityTown" value="{{ thisBranchContact.strPosCityTown }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPosProvince" class="col-sm-3 control-label pull-left">Province</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPosProvince" name="vstrPosProvince" value="{{ thisBranchContact.strPosProvince }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPosCountry" class="col-sm-3 control-label pull-left">Country</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPosCountry" name="vstrPosCountry" value="{{ thisBranchContact.strPosCountry }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPostPostalCode" class="col-sm-3 control-label pull-left">Postal Code</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strPostPostalCode" name="vstrPostPostalCode" value="{{ thisBranchContact.strPostPostalCode }}">
+                </div>
+            </div>
+
+        </div>
+        <div class="box box-body with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title">Contact Information</h3>
+            </div>
+            <div class="form-group">
+                <label for="strTel" class="col-sm-3 control-label pull-left">Tel</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strTel" name="vstrTel" value="{{ thisBranchContact.strTel }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strCell" class="col-sm-3 control-label pull-left">Cell</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strCell" name="vstrCell" value="{{ thisBranchContact.strCell }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strFax" class="col-sm-3 control-label pull-left">Fax</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strFax" name="vstrFax" value="{{ thisBranchContact.strFax }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strEmail" class="col-sm-3 control-label pull-left">Email</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strEmail" name="vstrEmail" value="{{ thisBranchContact.strEmail }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strWebsite" class="col-sm-3 control-label pull-left">Website</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strWebsite" name="vstrWebsite" value="{{ thisBranchContact.strWebsite }}">
+                </div>
+            </div>
+
+        </div>
+        <div class="box box-body with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title">Contact Person</h3>
+            </div>
+            <div class="form-group">
+                <label for="strCPTitle" class="col-sm-3 control-label pull-left">Title</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strCPTitle" name="vstrCPTitle" value="{{ thisBranchContact.strCPTitle }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strCPNames" class="col-sm-3 control-label pull-left">Names</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strCPNames" name="vstrCPNames" value="{{ thisBranchContact.strCPNames }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strCPGender" class="col-sm-3 control-label pull-left">Gender</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strCPGender" name="vstrCPGender" value="{{ thisBranchContact.strCPGender }}">
+                </div>
+            </div>
+        </div>
+        <div class="box box-footer with-border">
+             <label class="col-sm-3 control-label pull-left"></label>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="UpdateBranchContactsButt"><strong><i class="fa fa-cloud"> </i> Update Contact Details </strong></button>
+            </div>
+        </div>
+    </form>
+    <div class="box box-footer with-border">
+        <div id="BranchContactINFDIV"></div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/churches/branches/branchcontact.js"></script>

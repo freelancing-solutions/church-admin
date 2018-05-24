@@ -1,0 +1,91 @@
+
+
+
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Meeting Details</h3>
+    </div>
+    <div class="box box-footer with-border">
+         <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strMeetingSubject" class="col-sm-3 control-label pull-left" >Meeting Subject</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-bookmark"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strMeetingSubject" name="vstrMeetingSubject" value="{{ thisMeeting.strSubjectOfMeeting }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strIntroduction" class="col-sm-3 control-label pull-left" >Introduction</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-pencil"> </i>
+                                    </div>
+                                        <textarea id="strIntroduction" class="form-control">{{ thisMeeting.strIntroduction }}</textarea>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strDateSchedule" class="col-sm-3 control-label pull-left" >Date</label>
+                            <div class="col-sm-6">
+                                <div  class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strDateSchedule" name="vstrDateSchedule" value="{{ thisMeeting.strDateMeetingSchedule }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strTimeScheduled" class="col-sm-3 control-label pull-left" >Time</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-time"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strTimeScheduled" name="vstrTimeScheduled" value="{{ thisMeeting.strTimeMeetingScheduled }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strIsPrivate" class="col-sm-3 control-label pull-left"> Private </label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-ok-sign"> </i>
+                                    </div>
+                                    {% if thisMeeting.strIsPrivate == True %}
+                                        <input type="checkbox" id="strIsPrivate" checked>
+                                    {% else %}
+                                        <input type="checkbox" id="strIsPrivate" checked>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left" ></label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-save"> </i>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-block" id="SaveMeetingButt"><i class="fa fa-save"> </i> Upload Meeting </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left" ></label>
+                            <div class="col-sm-6">
+                                <div id="SaveMeetingINFDIV"></div>
+                            </div>
+                        </div>
+
+
+                    </form>
+    </div>
+</div>

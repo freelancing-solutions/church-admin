@@ -1,0 +1,37 @@
+
+handlers:
+
+- url: /admin/churchdetails
+  login: required
+  secure: always
+  script: church.app
+- url: /admin/branches
+  login: required
+  secure: always
+  script: church.app
+- url: /admin/branches/.*
+  login: required
+  secure: always
+  script: church.app
+- url: /admin/congregants
+  login: required
+  secure: always
+  script: church.app
+- url: /church/congregants/browse
+  login: required
+  secure: always
+  script: church.app
+- url: /church/member/edit
+  login: required
+  secure: always
+  script: church.app
+- url: /church/member/edit/.*
+  login: required
+  secure: always
+  script: church.app
+- url: /church/member/get
+  login: required
+  secure: always
+  script: church.app
+
+

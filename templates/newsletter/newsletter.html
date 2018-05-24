@@ -1,0 +1,121 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Publications</h3>
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#EmailList" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Publications</button></a></li>
+            <li><a href="#CreateMailList" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Create Publications</button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="EmailList">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Publications</h3>
+                    </div>
+
+                    <table id="EmailListsTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Publication Name</td>
+                                <td>Description</td>
+                                <td>Date</td>
+                                <td>Time</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisList in thisMailingList %}
+                            <tr>
+                                <td><a href="/admin/newsletters/{{ thisList.strListID }}"> {{ thisList.strListName }}</a></td>
+                                <td>{{ thisList.strListDescription }}</td>
+                                <td>{{ thisList.strStartSendingDate }}</td>
+                                <td>{{ thisList.strStartSendingTime }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Publication Name</td>
+                                <td>Description</td>
+                                <td>Date</td>
+                                <td>Time</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="CreateMailList">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Create Publication</h3>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strListName" class="col-sm-3 control-label pull-left" >Publication Name</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-bookmark"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strListName" name="vstrListName">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strListDescription" class="col-sm-3 control-label pull-left" >Description</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-pencil"> </i>
+                                    </div>
+                                    <textarea class="form-control" id="strListDescription" name="vstrListDescription"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strStartSendingDate" class="col-sm-3 control-label pull-left" >Start Date</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strStartSendingDate" name="vstrStartSendingDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strStartSendingTime" class="col-sm-3 control-label pull-left" >Start Time</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-time"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strStartSendingTime" name="vstrStartSendingTime">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="UploadNewsLetterButt"><strong><i class="fa fa-comment"> </i> Upload Newsletter </strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="UploadNewsLetterINFDIV"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/newsletters/newsletter.js"></script>
+<script>$(function () {$('#EmailListsTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>
+

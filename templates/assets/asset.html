@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="rkt7iLTBYZuRLjY_Sxg4uDDNusOJnuhHCDIGPwAahtk" />
+  <title>Church Admin-By Blue IT Marketing Pty LTD</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!-- jQuery 2.2.3 -->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+   <div id="MainHeaderDiv"></div>
+  <!-- Left side column. contains the logo and sidebar -->
+  <div id="SideBarDiv"></div>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Church Administration
+        <small>Church Administration App</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Assets</li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Assets</h3>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">Asset Name : {{ thisAsset.strAssetName }}</li>
+                        <li class="list-group-item">Asset Code: {{ thisAsset.strAssetCode }}</li>
+                        <li class="list-group-item">Purchase Price : R {{ thisAsset.strPurchasePrice }}.00</li>
+                        <li class="list-group-item">Asset Type : {{ thisAsset.strAssetType }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#Asset" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Asset</button></a></li>
+                        <li><a href="#AssetLocation" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Asset Location </button> </a> </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="active tab-pane" id="Asset">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="strAssetName" class="col-sm-3 control-label pull-left" >Asset Name</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="strAssetName" name="vstrAssetName" value="{{ thisAsset.strAssetName }}">
+                                        <input type="hidden" class="hidden" id="strAssetCode" value="{{ thisAsset.strAssetCode }}">
+                                        <input type="hidden" class="hidden" id="strAssetID" value="{{ thisAsset.strAssetID }}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="strAssetDescription" class="col-sm-3 control-label pull-left" >Asset Description</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="strAssetDescription" name="vstrAssetDescription" value="{{ thisAsset.strAssetDescription }}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="strPurchasePrice" class="col-sm-3 control-label pull-left" >Purchase Price</label>
+                                    <div class="col-sm-6">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">R </span>
+                                            <input type="text" class="form-control" id="strPurchasePrice" value="{{ thisAsset.strPurchasePrice }}">
+                                            <span class="input-group-addon">.00</span>
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="strDepreciation" class="col-sm-3 control-label pull-left" >Depreciation</label>
+                                    <div class="col-sm-6">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">R </span>
+                                            <input type="text" class="form-control" id="strDepreciation" value="{{ thisAsset.strDepreciation }}">
+                                            <span class="input-group-addon">.00</span>
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="strCurrentValue" class="col-sm-3 control-label pull-left" >Current Value</label>
+                                    <div class="col-sm-6">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">R </span>
+                                            <input type="text" class="form-control" id="strCurrentValue" value="{{ thisAsset.strCurrentValue }}">
+                                            <span class="input-group-addon">.00</span>
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="strAssetType" class="col-sm-3 control-label pull-left" >Asset Type</label>
+                                    <div class="col-sm-6">
+                                          <div class="input-group">
+                                            <span class="input-group-addon"> <i class="glyphicon glyphicon-certificate"> </i>  </span>
+                                            <input type="text" class="form-control" id="strAssetType" value="{{ thisAsset.strAssetType }}">
+                                            <span class="input-group-addon"></span>
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label pull-left" ></label>
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-bitbucket btn-block" id="UpdateAssetButt"><strong> <i class="fa fa-money"> </i> Update Asset </strong></button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label pull-left" ></label>
+                                    <div class="col-sm-6">
+                                        <div id="UpdateAssetINFDIV"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="AssetLocation">
+                            <div class="box box-body with-border">
+                                <div class="box box-header with-border">
+                                    <h2>Asset Location</h2>
+                                </div>
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="strBuildingName" class="col-sm-3 control-label pull-left" >Building</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strBuildingName" name="vstrBuildingName" value="{{ thisAssetLocation.strBuildingName }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strOfficeNumber" class="col-sm-3 control-label pull-left" >Office Number</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strOfficeNumber" name="vstrOfficeNumber" value="{{ thisAssetLocation.strOfficeNumber }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strStandNumber" class="col-sm-3 control-label pull-left" >Stand Number</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strStandNumber" name="vstrStandNumber" value="{{ thisAssetLocation.strStandNumber }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strStreetName" class="col-sm-3 control-label pull-left" >Street Name</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strStreetName" name="vstrStreetName" value="{{ thisAssetLocation.strStreetName }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strCityTown" class="col-sm-3 control-label pull-left" >City Town</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strCityTown" name="vstrCityTown" value="{{ thisAssetLocation.strCityTown }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strProvince" class="col-sm-3 control-label pull-left" >Province</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strProvince" name="vstrProvince" value="{{ thisAssetLocation.strProvince }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strCountry" class="col-sm-3 control-label pull-left" >Country</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strCountry" name="vstrCountry" value="{{ thisAssetLocation.strCountry }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strPostalCode" class="col-sm-3 control-label pull-left" >Postal Code</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strPostalCode" name="vstrPostalCode" value="{{ thisAssetLocation.strPostalCode }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label pull-left" ></label>
+                                        <div class="col-sm-6">
+                                            <button type="button" class="btn btn-bitbucket btn-block" id="UpdateAssetLocationButt"><strong> <i class="fa fa-money"> </i> Update Asset Location </strong></button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label pull-left" ></label>
+                                        <div class="col-sm-6">
+                                            <div id="AssetLocationINFDIV"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+  </div>
+ <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/asset.js"></script>
+<script type="text/javascript">$(document).ready(function(){$('#MainHeaderDiv').load("/navigation/header")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#SideBarDiv').load("/navigation/sidebar")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#FooterDiv').load("/navigation/footer")});</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+          <div class="box box-primary with-border">
+            <div class="box box-header with-border">
+              <h3 class="box-title">Church Member Details</h3>
+            </div>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="strMemberTitle" class="col-sm-3 control-label pull-left" >Title</label>
+              <div class="col-sm-6">
+                  <input type="text" class="form-control" id="strMemberTitle" name="vstrMemberTitle" value="{{ thisChurchMember.strMemberTitle }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strMemberName" class="col-sm-3 control-label pull-left" >Names</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberName" name="vstrMemberName" value="{{ thisChurchMember.strMemberNames }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strMemberSurname" class="col-sm-3 control-label pull-left" >Surname</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberSurname" name="vstrMemberSurname" value="{{ thisChurchMember.strMemberSurname }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strMemberGender" class="col-sm-3 control-label pull-left" >Gender</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberGender" name="vstrMemberGender" value="{{ thisChurchMember.strMemberGender }}">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="strMemberIDNumber" class="col-sm-3 control-label pull-left" >ID Number</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberIDNumber" name="vstrMemberIDNumber" value="{{ thisChurchMember.strMemberIDNumber }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strMemberDateOfBirth" class="col-sm-3 control-label pull-left" >Date of Birth</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberDateOfBirth" name="vstrMemberDateOfBirth" value="{{ thisChurchMember.strMemberDateOfBirth }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strMemberDateOfMemberShip" class="col-sm-3 control-label pull-left" >Date of Membership</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberDateOfMemberShip" name="vstrMemberDateOfMemberShip" value="{{ thisChurchMember.strMemberDateOfMemberShip }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strMemberDateBaptised" class="col-sm-3 control-label pull-left" >Date Baptised</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strMemberDateBaptised" name="vstrMemberDateBaptised" value="{{ thisChurchMember.strMemberDateBaptised }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strTel" class="col-sm-3 control-label pull-left" >Tel</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strTel" name="vstrTel" value="{{ thisChurchMember.strTel }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strCell" class="col-sm-3 control-label pull-left" >Cell</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strCell" name="vstrCell" value="{{ thisChurchMember.strCell }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strEmail" class="col-sm-3 control-label pull-left" >Email</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strEmail" name="vstrEmail" value="{{ thisChurchMember.strEmail }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strWorkTel" class="col-sm-3 control-label pull-left" >Work Tel</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strWorkTel" name="vstrWorkTel" value="{{ thisChurchMember.strWorkTel }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strWorkCell" class="col-sm-3 control-label pull-left" >Work Cell</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strWorkCell" name="vstrWorkCell" value="{{ thisChurchMember.strWorkCell }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="strWorkEmail" class="col-sm-3 control-label pull-left" >Work Email</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="strWorkEmail" name="vstrWorkEmail" value="{{ thisChurchMember.strWorkEmail }}">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label  class="col-sm-3 control-label pull-left" ></label>
+              <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="UpdateChurchMemberButt"><strong><i class="fa fa-cloud-upload"> </i> Update Church Member</strong></button>
+              </div>
+
+            </div>
+          </form>
+        <div  class="box box-footer with-border">
+          <div id="UpdateChurchMemberINFDIV"></div>
+        </div>
+          </div>

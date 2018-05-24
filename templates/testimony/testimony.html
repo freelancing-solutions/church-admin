@@ -1,0 +1,127 @@
+ <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+ <link rel="stylesheet" href="/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Testimony</h3>
+    </div>
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#Testaments" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Testaments</button></a></li>
+        <li><a href="#CreateTestament" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Create Testaments </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="Testaments">
+            <div class="box box-body with-border">
+                <div class="box box-header">
+                    <h3 class="box-title">Testament</h3>
+                </div>
+
+                <table id="TestamentTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td>Names</td>
+                            <td>Surname</td>
+                            <td>Occasion</td>
+                            <td>Testament</td>
+                            <td>Testament Audio</td>
+                            <td>Testament Video</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for thisTestimony in thisTestimonyList %}
+                        <tr>
+                            <td>{{ thisTestimony.strNames }}</td>
+                            <td>{{ thisTestimony.strSurname }}</td>
+                            <td>{{ thisTestimony.strOccasion }}</td>
+                            <td>{{ thisTestimony.strTextTestament }}</td>
+                            <td>{{ thisTestimony.strAudioTestament }}</td>
+                            <td>{{ thisTestimony.strVideoTestament }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Names</td>
+                            <td>Surname</td>
+                            <td>Occasion</td>
+                            <td>Testament</td>
+                            <td>Testament Audio</td>
+                            <td>Testament Video</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane" id="CreateTestament">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Create Testament</h3>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="strNames" class="col-sm-3 control-label pull-left" >Names</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-user"> </i>
+                                </div>
+                                <input type="text" class="form-control" id="strNames" name="vstrNames">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strSurname" class="col-sm-3 control-label pull-left" >Surname</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-user"> </i>
+                                </div>
+                                <input type="text" class="form-control" id="strSurname" name="vstrSurname">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strOccasion" class="col-sm-3 control-label pull-left">Occasion</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-th-large"> </i>
+                                </div>
+                                <input type="text" class="form-control" id="strOccasion" name="vstrOccasion">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strTextTestament" class="col-sm-3 control-label pull-left">Testament</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa  fa-file-text-o"> </i>
+                                </div>
+                                    <textarea id="strTextTestament" class="form-control"></textarea>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="UploadTestamentButt"><strong><i class="fa fa-cloud-upload"> </i> Upload Testament </strong></button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <div id="UploadTestamentINFDIV"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+ <script src="/static/dist/js/pages/admin/testimony/testimony.js"></script>
+<script>$(function () {$('#TestamentTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>
+

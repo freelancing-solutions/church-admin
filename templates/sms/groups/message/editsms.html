@@ -1,0 +1,33 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Edit SMS</h3>
+        <input type="hidden" class="hidden" id="strMessageID" value="{{ vstrMessageID }}">
+        <input type="hidden" class="hidden" id="vstrGroupID" value="{{ vstrGroupID }}">
+    </div>
+    <div class="box box-footer with-border">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="strMessage" class="col-sm-3 control-label pull-left" > Message </label>
+                <div class="col-sm-6">
+                    <textarea id="strMessage" class="form-control" onkeyup="countChar(this)">{{ thisMessage.strMessage }}</textarea>
+                    <label class="label label-info" id="charNum"></label>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label pull-left"></label>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block" id="UploadMessageButt"><strong><i class="fa fa-comment"> </i> Upload Message </strong></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label pull-left"></label>
+                <div class="col-sm-6">
+                    <div id="SMSMessageINfDIV"></div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/sms/editsms.js"></script>

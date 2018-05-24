@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="rkt7iLTBYZuRLjY_Sxg4uDDNusOJnuhHCDIGPwAahtk" />
+  <title>Church Admin-By Blue IT Marketing Pty LTD</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+   <div id="MainHeaderDiv"></div>
+  <!-- Left side column. contains the logo and sidebar -->
+  <div id="SideBarDiv"></div>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Church Administration
+        <small>Church Administration App</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"> Events</li>
+      </ol>
+      <div id="ourmanna-verse">Loading...</div>
+      <script src="http://www.ourmanna.com/verses/api/js/" type="text/javascript"></script>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box box-profile with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title"> Events</h3>
+                    </div>
+                    <div class="box box-body with-border">
+                        <button type="button" class="btn btn-primary btn-block" id="PublicEventCalendarButt"><strong><i class="glyphicon glyphicon-calendar"> </i> Event Calendar Listings </strong></button>
+                    </div>
+
+                    <div class="box box-body with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Event Management</h3>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" id="ManageEventButt"><strong><i class="glyphicon glyphicon-calendar"> </i> Manage Events </strong></button>
+                        <button type="button" class="btn btn-primary btn-block" id="MyEventsButt"><strong><i class="glyphicon glyphicon-bell"> </i> My Events </strong></button>
+                    </div>
+                    <div class="box box-primary">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">My Church Events</h3>
+
+                      <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                      </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                      <ul class="products-list product-list-in-box">
+                       {% for thisEvent in MyChurchEventList %}
+                        <li class="item">
+                          <div class="product-img">
+                            <img src="/static/dist/img/events.png" alt="Church Admin Events">
+                          </div>
+                          <div class="product-info">
+                            <a href="/events/public/{{ thisEvent.strEventID }}" class="product-title">{{ thisEvent.strEventName }}
+                              <span class="label label-warning pull-right"></span></a>
+                                <span class="product-description">
+                                  {{ thisEvent.strEventIntro }}
+                                </span>
+                          </div>
+                        </li>
+                        {% endfor %}
+                        <!-- /.item -->
+                      </ul>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer text-center">
+                      <a href="/events" class="uppercase">View All Events</a>
+                    </div>
+                    <!-- /.box-footer -->
+                  </div>
+                    <div class="box box-primary">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Recent Events</h3>
+
+                      <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                      </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                      <ul class="products-list product-list-in-box">
+                       {% for thisEvent in RecentEventsList %}
+                        <li class="item">
+                          <div class="product-img">
+                            <img src="/static/dist/img/events.png" alt="Church Admin Events">
+                          </div>
+                          <div class="product-info">
+                            <a href="/events/public/{{ thisEvent.strEventID }}" class="product-title">{{ thisEvent.strEventName }}
+                              <span class="label label-warning pull-right"></span></a>
+                                <span class="product-description">
+                                  {{ thisEvent.strEventIntro }}
+                                </span>
+                          </div>
+                        </li>
+                        {% endfor %}
+                        <!-- /.item -->
+                      </ul>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer text-center">
+                      <a href="/events" class="uppercase">View All Events</a>
+                    </div>
+                    <!-- /.box-footer -->
+                  </div>
+                    <div class="box box-primary">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Upcoming Events</h3>
+
+                      <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                      </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                      <ul class="products-list product-list-in-box">
+                       {% for thisEvent in UpcomingEventsList %}
+                        <li class="item">
+                          <div class="product-img">
+                            <img src="/static/dist/img/events.png" alt="Church Admin Events">
+                          </div>
+                          <div class="product-info">
+                            <a href="/events/public/{{ thisEvent.strEventID }}" class="product-title">{{ thisEvent.strEventName }}
+                              <span class="label label-warning pull-right"></span></a>
+                                <span class="product-description">
+                                  {{ thisEvent.strEventIntro }}
+                                </span>
+                          </div>
+                        </li>
+                        {% endfor %}
+                        <!-- /.item -->
+                      </ul>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer text-center">
+                      <a href="/events" class="uppercase">View All Events</a>
+                    </div>
+                    <!-- /.box-footer -->
+                  </div>
+
+                    <ul class="list-group">
+                        <li class="list-group-item"></li>
+                    </ul>
+                      <div class="box box-footer pull-left with-border">
+                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://church-admins.appspot.com/events" target="_blank" class="btn btn-block btn-social btn-facebook"><i class="fa fa-facebook"></i> Share on Facebook</a>
+                          <a href="https://plus.google.com/share?url=https://church-admins.appspot.com/events" target="_blank" class="btn btn-block btn-social btn-google"><i class="fa fa-google-plus"></i>Share on Google Plus </a>
+                          <a href="http://www.twitter.com/share?url=https://church-admins.appspot.com/events" target="_blank" class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter"></i> Share on Twitter</a>
+                      </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="EventINFDIV"></div>
+            </div>
+        </div>
+    </section>
+  </div>
+ <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/dist/js/pages/admin/events/events.js"></script>
+<script type="text/javascript">$(document).ready(function(){$('#MainHeaderDiv').load("/navigation/header")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#SideBarDiv').load("/navigation/sidebar")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#FooterDiv').load("/navigation/footer")});</script>
+
+</body>
+</html>

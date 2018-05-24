@@ -1,0 +1,8 @@
+
+
+handlers:
+
+- url: /reports/serviceprovider/info
+  login: required
+  secure: always
+  script: reports.app

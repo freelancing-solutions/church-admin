@@ -1,0 +1,49 @@
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Edit Congregants</h3>
+    </div>
+    <table id="CongregantsTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Title</td>
+                <td>Names</td>
+                <td>Surname</td>
+                <td>ID</td>
+                <td>Gender</td>
+                <td>Cell</td>
+                <td>Email</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for thisChurchMember in thisChurchMembersList %}
+            <tr>
+                <td><a href="/church/member/edit/{{ thisChurchMember.strMemberID }}">{{ thisChurchMember.strMemberTitle }}</a></td>
+                <td><a href="/church/member/edit/{{ thisChurchMember.strMemberID }}">{{ thisChurchMember.strMemberNames }}</a></td>
+                <td><a href="/church/member/edit/{{ thisChurchMember.strMemberID }}">{{ thisChurchMember.strMemberSurname }}</a></td>
+                <td>{{ thisChurchMember.strMemberIDNumber }}</td>
+                <td>{{ thisChurchMember.strMemberGender }}</td>
+                <td>{{ thisChurchMember.strCell }}</td>
+                <td>{{ thisChurchMember.strEmail }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Title</td>
+                <td>Names</td>
+                <td>Surname</td>
+                <td>ID</td>
+                <td>Gender</td>
+                <td>Cell</td>
+                <td>Email</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>$(function () {$('#CongregantsTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>

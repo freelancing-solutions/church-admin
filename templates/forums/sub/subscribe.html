@@ -1,0 +1,43 @@
+
+<div class="box box-footer with-border">
+    <form class="form-horizontal">
+        <input type="hidden" id="strForumID" value="{{ vstrForumID }}">
+        <div class="form-group">
+            <label for="strNames" class="col-sm-3 control-label pull-left">Names</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strNames" value="{{ thisSubscription.strNames }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strSurname" value="{{ thisSubscription.strSurname }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strCell" class="col-sm-3 control-label pull-left">Cell</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strCell" value="{{ thisSubscription.strCell }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strEmail" class="col-sm-3 control-label pull-left">Email</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strEmail" value="{{ thisSubscription.strEmail }}" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left"></label>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="DOSubscribeButt"><strong><i class="fa fa-heart-o"> </i> Subscribe </strong></button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left"></label>
+            <div class="col-sm-6">
+                <div id="DoSubscribeINFDIV"></div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="/static/dist/js/pages/admin/forums/subscribe.js"></script>

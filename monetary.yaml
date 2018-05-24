@@ -1,0 +1,40 @@
+
+
+handlers:
+
+- url: /monetary/income
+  login: required
+  secure: always
+  script: monetary.app
+
+- url: /monetary/donators
+  login: required
+  secure: always
+  script: monetary.app
+
+- url: /monetary/costs
+  login: required
+  secure: always
+  script: monetary.app
+- url: /monetary/costs/.*
+  login: required
+  secure: always
+  script: monetary.app
+- url: /monetary/payments/authorize/.*
+  login: required
+  secure: always
+  script: monetary.app
+- url: /monetary/statements
+  login: required
+  secure: always
+  script: monetary.app
+
+- url: /monetary/beneficiaries/.*
+  login: required
+  secure: always
+  script: monetary.app
+
+- url: /monetary/donators/.*
+  login: required
+  secure: always
+  script: monetary.app

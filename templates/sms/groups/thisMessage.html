@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="rkt7iLTBYZuRLjY_Sxg4uDDNusOJnuhHCDIGPwAahtk" />
+  <title>Church Admin - Blue IT Marketing Pty LTD</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!-- jQuery 2.2.3 -->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+   <div id="MainHeaderDiv"></div>
+  <!-- Left side column. contains the logo and sidebar -->
+  <div id="SideBarDiv"></div>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Church Administration
+        <small>Church Administration App</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">SMS Manager</li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="box box-primary with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title">SMS Manager</h3>
+                <input type="hidden" class="form-control" id="strChurchID" value="{{ thisGroup.strGroupID }}">
+                <input type="hidden" class="form-control" id="strMessageID" value="{{ thisMessage.strMessageID }}">
+
+            </div>
+            <ul class="list-group">
+                  <li class="list-group-item">Total Numbers : {{ thisGroup.strTotalNumbers }} </li>
+                  <li class="list-group-item">Group Name : {{ thisGroup.strGroupName }}</li>
+                  <li class="list-group-item">Description : {{ thisGroup.strGroupDescription }}</li>
+            </ul>
+            <input type="hidden" class="hidden" id="strGroupID" value="{{ thisGroup.strGroupID }}">
+          </div>
+          <div class="box box-primary with-border">
+            <a href="/admin" class="btn btn-warning btn-block"><strong><i class="fa fa-briefcase"> </i> Admin </strong></a>
+            <a href="/sms/groupman/{{ thisGroup.strGroupID }}" class="btn btn-warning btn-block margin-bottom"><strong><i class="fa fa-briefcase"> </i> Group Management </strong></a>
+            <button type="button" class="btn btn-primary btn-block" id="EditSMSButt"><strong><i class="glyphicon glyphicon-pencil"> </i> Edit SMS </strong></button>
+            <button type="button" class="btn btn-primary btn-block" id="DeleteSMSGroupButt"><strong><i class="fa fa-cut"> </i> Delete SMS </strong></button>
+          </div>
+          <div class="box box-primary with-border">
+              <button type="button" class="btn btn-primary btn-block" id="ManageScheduleButt"><strong><i class="fa fa-calendar-o"> </i> Manage Schedule</strong></button>
+              <button type="button" class="btn btn-primary btn-block" id="SendNowButt"><strong><i class="fa fa-paper-plane"> </i> Send Now </strong></button>
+              <button type="button" class="btn btn-primary btn-block" id="MessageDeliveryReportsButt"><strong><i class="fa fa-signal"> </i> Network Delivery Reports </strong></button>
+          </div>
+        </div>
+        <div class="col-md-9">
+            <div id="SMSINFDIV"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+ <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/dist/js/pages/admin/sms/thismessage.js"></script>
+<script type="text/javascript">$(document).ready(function(){$('#MainHeaderDiv').load("/navigation/header")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#SideBarDiv').load("/navigation/sidebar")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#FooterDiv').load("/navigation/footer")});</script>
+
+</body>
+</html>

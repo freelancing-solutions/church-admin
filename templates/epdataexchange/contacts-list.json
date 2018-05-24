@@ -1,0 +1,17 @@
+{% for thisContact in thisContactList %}
+    {% if loop.index0 < strLimit %}
+        {
+            "cell":"{{ thisContact.strCell }}",
+            "email":"{{ thisContact.strEmail }}",
+            "names":"{{ thisContact.strNames }}",
+            "surname":"{{ thisContact.strSurname }}"
+        },
+    {% else %}
+        {
+            "cell":"{{ thisContact.strCell }}",
+            "email":"{{ thisContact.strEmail }}",
+            "names":"{{ thisContact.strNames }}",
+            "surname":"{{ thisContact.strSurname }}"
+        }
+    {% endif %}
+{% endfor %}

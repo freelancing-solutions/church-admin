@@ -1,0 +1,172 @@
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<!-- Bootstrap time Picker -->
+<link rel="stylesheet" href="/static/plugins/timepicker/bootstrap-timepicker.min.css">
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="/static/plugins/datepicker/datepicker3.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title"> Event Agenda</h3>
+        <input type="hidden" id="strEventID" value="{{ vstrEventID }}">
+    </div>
+
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#EventAgenda" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Event Agenda List</button></a></li>
+        <li><a href="#AgendaManager" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Agenda Manager</button></a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="EventAgenda">
+            <table id="EventAgendaTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>Title</td>
+                        <td>Description</td>
+                        <td>Date</td>
+                        <td>Time</td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for thisAgenda in thisAgendaList %}
+                    <tr>
+                        <td>{{ thisAgenda.strAgendaTitle }}</td>
+                        <td>{{ thisAgenda.strAgendaDescription }}</td>
+                        <td>{{ thisAgenda.strStartDate }}</td>
+                        <td>{{ thisAgenda.strStartTime }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Title</td>
+                        <td>Description</td>
+                        <td>Date</td>
+                        <td>Time</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="tab-pane" id="AgendaManager">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Agenda Manager</h3>
+                </div>
+
+                <form class="form-horizontal">
+                    <div class="box box-body with-border">
+                        <div class="form-group">
+                            <label for="strTitle" class="col-sm-3 control-label pull-left">Title</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-bookmark"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strTitle">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strAgendaDescription" class="col-sm-3 control-label pull-left">Description</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-pencil"> </i>
+                                    </div>
+                                        <textarea class="form-control" id="strAgendaDescription"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="strSpeaker" class="col-sm-3 control-label pull-left">Select Speaker</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-pencil"> </i>
+                                    </div>
+                                    <select id="strSpeaker" class="form-control">
+                                    {% for Speaker in thisSpeakerList %}
+                                        <option value="{{ Speaker.strSpeakerID }}">{{ Speaker.strNames }} {{ Speaker.strSurname }}</option>
+                                    {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="box box-body with-border">
+                        <div class="form-group">
+                            <label for="strStartDate" class="col-sm-3 control-label pull-left"> Start Date</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strStartDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strStartTime" class="col-sm-3 control-label pull-left"> Start Time</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-time"> </i>
+                                    </div>
+                                        <input type="text" class="form-control" id="strStartTime">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box box-body with-border">
+                        <div class="form-group">
+                            <label for="strEndDate" class="col-sm-3 control-label pull-left"> End Date</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"> </i>
+                                    </div>
+                                        <input type="text" class="form-control" id="strEndDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strEndTime" class="col-sm-3 control-label pull-left"> End Time</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-time"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strEndTime">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box box-body with-border">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"> </label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="UpdateAgendaButt"><strong><i class="fa fa-cloud"> </i> Update Agenda </strong></button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"> </label>
+                            <div class="col-sm-6">
+                                <div id="AgendaINFDIV"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/static/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="/static/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/events/agenda.js"></script>
+<script>$(function () {$('#EventAgendaTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>
+<script>$(function () {$('#strStartDate').datepicker({autoclose: true});$('#strEndDate').datepicker({autoclose: true});$("#strStartTime").timepicker({showInputs: true});$("#strEndTime").timepicker({showInputs: true});});</script>

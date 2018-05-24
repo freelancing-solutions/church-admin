@@ -1,0 +1,22 @@
+handlers:
+
+- url: /admin/clients
+  login: required
+  secure: always
+  script: suppliers.app
+
+- url: /admin/clients/.*
+  login: required
+  secure: always
+  script: suppliers.app
+
+- url: /admin/supplier
+  login: required
+  secure: always
+  script: suppliers.app
+
+- url: /admin/suppliers/.*
+  login: required
+  secure: always
+  script: suppliers.app
+

@@ -1,0 +1,391 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Contact Manager</h3>
+        <input type="hidden" class="hidden" id="strContactID" value="{{ thisContact.strContactID }}">
+    </div>
+    <div class="box box-footer with-border">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#ContactDetails" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-phone"> </i> Contact Details</button></a></li>
+                <li><a href="#PostalAddress" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-map"> </i> Postal Address</button> </a> </li>
+                <li><a href="#PhysicalAddress" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-map-o"> </i> Physical Address</button> </a> </li>
+                <li><a href="#Notes" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-sticky-note"> </i> Notes</button> </a> </li>
+            </ul>
+            <div class="tab-content">
+                <div class="active tab-pane" id="ContactDetails">
+                    <div class="box box-primary with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Contact Details</h3>
+                        </div>
+                        <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strTitle" class="col-sm-3 control-label pull-left">Title </label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"> </i>
+                                    </div>
+                                    <select id="strTitle" class="form-control">
+                                            <option value="MR">MR</option>
+                                            <option value="MRS">MRS</option>
+                                            <option value="Miss">Miss</option>
+                                            <option value="Evangelist">Evangelist</option>
+                                            <option value="Doctor">Doctor</option>
+                                            <option value="Deacon">Deacon</option>
+                                            <option value="Prophet">Prophet</option>
+                                            <option value="Pastor">Pastor</option>
+                                            <option value="Priest">Priest</option>
+                                            <option value="Priestess">Priestess</option>
+                                            <option value="Prophet">Prophet</option>
+                                            <option value="Prophetess">Prophetess</option>
+                                            <option value="Apostle">Apostle</option>
+                                            <option value="Bishop">Bishop</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strNames" class="col-sm-3 control-label pull-left">Names</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strNames" name="vstrNames" value="{{ thisContact.strNames }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strSurname" name="vstrSurname" value="{{ thisContact.strSurname }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strCell" class="col-sm-3 control-label pull-left">Cell</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-phone"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strCell" name="vstrCell" value="{{ thisContact.strCell }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strTel" class="col-sm-3 control-label pull-left">Tel</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-phone"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strTel" name="vstrTel" value="{{ thisContact.strTel }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strFax" class="col-sm-3 control-label pull-left">Fax</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-fax"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strFax" name="vstrFax" value="{{ thisContact.strFax }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strEmail" class="col-sm-3 control-label pull-left">Email</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-envelope"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strEmail" name="vstrEmail" value="{{ thisContact.strEmail }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strWebsite" class="col-sm-3 control-label pull-left">Website</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-link"> </i>
+                                    </div>
+                                        <input type="text" class="form-control" id="strWebsite" name="vstrWebsite" value="{{ thisContact.strWebsite }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="UploadContactsButt"><strong><i class="fa fa-phone"> </i> Upload Contact </strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="UploadContactINFDIV"></div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="PostalAddress">
+                    <div class="box box-primary with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Postal Address</h3>
+                        </div>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="strBox" class="col-sm-3 control-label pull-left">Box</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-map-marker"> </i>
+                                        </div>
+                                        <input type="text" class="form-control" id="strBox" name="vstrBox" value="{{ thisPostalAddress.strBox }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strCityTown" class="col-sm-3 control-label pull-left">City Town</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-building"> </i>
+                                        </div>
+                                            <input type="text" class="form-control" id="strCityTown" name="vstrCityTown" value="{{ thisPostalAddress.strCityTown }}">
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strProvince" class="col-sm-3 control-label pull-left">Province</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-map"> </i>
+                                        </div>
+                                            <input type="text" class="form-control" id="strProvince" name="vstrProvince" value="{{ thisPostalAddress.strProvince }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strCountry" class="col-sm-3 control-label pull-left">Country</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-globe"> </i>
+                                        </div>
+                                            <input type="text" class="form-control" id="strCountry" name="vstrCountry" value="{{ thisPostalAddress.strCountry }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPostalCode" class="col-sm-3 control-label pull-left">Postal Code</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-qrcode"> </i>
+                                        </div>
+                                        <input type="text" class="form-control" id="strPostalCode" name="vstrPostalCode" value="{{ thisPostalAddress.strPostalCode }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-primary btn-block" id="UploadPostalAddressButt"><strong><i class="fa fa-tty"> </i> Upload Postal Address </strong></button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <div id="UploadAddressINFDIV"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="PhysicalAddress">
+                    <div class="box box-primary with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Physical Address</h3>
+                        </div>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="strStandNumber" class="col-sm-3 control-label pull-left">Stand Number</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-map-signs"> </i>
+                                        </div>
+                                        <input type="text" class="form-control" id="strStandNumber" name="vstrStandNumber" value="{{ thisPhysicalAddress.strStandNumber }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strStreetName" class="col-sm-3 control-label pull-left">Street Name</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-street-view"> </i>
+                                        </div>
+                                        <input type="text" class="form-control" id="strStreetName" name="vstrStreetName" value="{{ thisPhysicalAddress.strStreetName }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPhyCityTown" class="col-sm-3 control-label pull-left">City Town</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-building"> </i>
+                                        </div>
+                                            <input type="text" class="form-control" id="strPhyCityTown" name="vstrCityTown" value="{{ thisPhysicalAddress.strCityTown }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPhyProvince" class="col-sm-3 control-label pull-left">Province</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-map"> </i>
+                                        </div>
+                                            <input type="text" class="form-control" id="strPhyProvince" name="vstrPhyProvince" value="{{ thisPhysicalAddress.strProvince }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPhyCountry" class="col-sm-3 control-label pull-left">Country</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-globe"> </i>
+                                        </div>
+                                        <input type="text" class="form-control" id="strPhyCountry" name="vstrPhyCountry" value="{{ thisPhysicalAddress.strCountry }}">
+                                    </div>
+                                </div>
+                             </div>
+                            <div class="form-group">
+                                <label for="strPhyPostalCode" class="col-sm-3 control-label pull-left">Postal Code</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-qrcode"> </i>
+                                        </div>
+                                    <input type="text" class="form-control" id="strPhyPostalCode" name="vstrPhyPostalCode" value="{{ thisPhysicalAddress.strPostalCode }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label  class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-primary btn-block" id="UploadPhysicalAddressButt"><strong><i class="fa fa-cloud"> </i> Upload Physical Address </strong></button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label  class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <div id="UploadPhysicalAddressINFDIV"></div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="Notes">
+                    <div class="box box-primary with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Notes</h3>
+                        </div>
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#thisNotes" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-phone"> </i> Notes</button></a></li>
+                                <li><a href="#AddNotes" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-map"> </i> Add Notes</button> </a> </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="thisNotes">
+                                    <table id="NotesTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <td>Subject</td>
+                                                <td>Notes</td>
+                                                <td>Date</td>
+                                                <td>Time</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for thisNote in thisNotesList %}
+                                            <tr>
+                                                <td>{{ thisNote.strSubject }}</td>
+                                                <td>{{ thisNote.strNotes }} </td>
+                                                <td>{{ thisNote.strDateTaken }}</td>
+                                                <td>{{ thisNote.strTimeTaken }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td>Subject</td>
+                                                <td>Notes</td>
+                                                <td>Date</td>
+                                                <td>Time</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+
+                                </div>
+                                <div class="tab-pane" id="AddNotes">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="strSubject" class="col-sm-3 control-label pull-left">Subject</label>
+                                            <div class="col-sm-6">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="glyphicon glyphicon-pencil"> </i>
+                                                    </div>
+                                                        <input type="text" class="form-control" id="strSubject" name="vstrSubject">
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="strNotes" class="col-sm-3 control-label pull-left">Notes</label>
+                                            <div class="col-sm-6">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="glyphicon glyphicon-file"> </i>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="strNotes" name="vstrNotes">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label pull-left"></label>
+                                            <div class="col-sm-6">
+                                                <button type="button" class="btn btn-primary btn-block" id="UploadNotesButt"><strong><i class="fa fa-cloud"> </i> Upload Notes </strong></button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label pull-left"></label>
+                                            <div class="col-sm-6">
+                                                <div id="UploadNotesINFDIV"></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/static/dist/js/pages/admin/contacts/manage.js"></script>

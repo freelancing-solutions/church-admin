@@ -1,0 +1,154 @@
+
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Birthdays &amp; Other Events Notifications</h3>
+        <input type="hidden" class="hidden" id="strChurchID" value="{{ vstrChurchID }}">
+    </div>
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#Birthdays" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Birthdays</button></a></li>
+                <li><a href="#ImportantEvents" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Important Events </button> </a> </li>
+            </ul>
+            <div class="tab-content">
+                <div class="active tab-pane" id="Birthdays">
+                    <div class="box box-body with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Birthdays</h3>
+                        </div>
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#Message" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Message</button></a></li>
+                                <li><a href="#TodaysBirthdays" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Todays Birthdays </button> </a> </li>
+                                <li><a href="#UpcomingBirthdays" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Upcoming Birthdays </button> </a> </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="Message">
+                                    <div class="box box-body with-border">
+                                        <div class="box box-header with-border">
+                                            <h3 class="box-title">Message</h3>
+                                        </div>
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="strBirthdayWishes" class="col-sm-3 control-label pull-left">Birthday Wishes</label>
+                                                <div class="col-sm-6">
+                                                    <textarea id="strBirthdayWishes" class="form-control">{{ thisBirthDay.strBirthdayMessage }}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strAutoSendMessages" class="col-sm-3 control-label pull-left">Auto Send Messages</label>
+                                                <div class="col-sm-6">
+                                                    <select id="strAutoSendMessages" class="form-control">
+                                                        <option value="YES">Yes</option>
+                                                        <option value="NO">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label pull-left"></label>
+                                                <div class="col-sm-6">
+                                                    <button type="button" class="btn btn-primary btn-block" id="UploadMessageButt"><strong><i class="glyphicon glyphicon-bullhorn"> </i> Upload Birthday Wishes </strong></button>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label pull-left"></label>
+                                                <div class="col-sm-6">
+                                                    <div id="UploadMessageINFDIV"></div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="TodaysBirthdays">
+                                    <div class="box box-body with-border">
+                                        <div class="box box-header with-border">
+                                            <h3 class="box-title">Todays Birthdays</h3>
+                                        </div>
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <td>Names</td>
+                                                    <td>Surname</td>
+                                                    <td>Cell</td>
+                                                    <td>Email</td>
+                                                    <td>DOB</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for thisBirthDay in thisTodaysBirthdayList %}
+                                                <tr>
+                                                    <td>{{ thisBirthDay.strMemberNames }}</td>
+                                                    <td>{{ thisBirthDay.strMemberSurname }}</td>
+                                                    <td>{{ thisBirthDay.strCell }}</td>
+                                                    <td>{{ thisBirthDay.strEmail }}</td>
+                                                    <td>{{ thisBirthDay.strMemberDateOfBirth }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td>Names</td>
+                                                    <td>Surname</td>
+                                                    <td>Cell</td>
+                                                    <td>Email</td>
+                                                    <td>DOB</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="UpcomingBirthdays">
+                                    <div class="box box-body with-border">
+                                        <div class="box box-header with-border">
+                                            <h3 class="box-title">Upcoming Birthdays</h3>
+                                        </div>
+
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <td>Names</td>
+                                                    <td>Surname</td>
+                                                    <td>Cell</td>
+                                                    <td>Email</td>
+                                                    <td>DOB</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for thisBirthDay in thisUpcomingBirthList %}
+                                                <tr>
+                                                    <td>{{ thisBirthDay.strMemberNames }}</td>
+                                                    <td>{{ thisBirthDay.strMemberSurname }}</td>
+                                                    <td>{{ thisBirthDay.strCell }}</td>
+                                                    <td>{{ thisBirthDay.strEmail }}</td>
+                                                    <td>{{ thisBirthDay.strMemberDateOfBirth }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td>Names</td>
+                                                    <td>Surname</td>
+                                                    <td>Cell</td>
+                                                    <td>Email</td>
+                                                    <td>DOB</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="ImportantEvents">
+                    <div class="box box-body with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Important Events</h3>
+                        </div>
+                    <small>Note: Coming Soon...</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<script src="/static/dist/js/pages/admin/churches/birthdays.js"></script>

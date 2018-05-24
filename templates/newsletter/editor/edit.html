@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="rkt7iLTBYZuRLjY_Sxg4uDDNusOJnuhHCDIGPwAahtk" />
+  <title>Church Admin-By Blue IT Marketing Pty LTD</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!-- jQuery 2.2.3 -->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src='/static/dist/js/tinymce/js/tinymce/jquery.tinymce.min.js'></script>
+<script src='/static/dist/js/tinymce/js/tinymce/tinymce.min.js?apiKey=9nuhnoc9qqt5wm8bulfvl903bs6yfpzjypc4jz7a6wwknww9'></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+   <div id="MainHeaderDiv"></div>
+  <!-- Left side column. contains the logo and sidebar -->
+  <div id="SideBarDiv"></div>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Church Administration
+        <small>Church Administration App</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Newsletters</li>
+      </ol>
+      <div id="ourmanna-verse">Loading...</div>
+      <script src="http://www.ourmanna.com/verses/api/js/" type="text/javascript"></script>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3">
+                 <div class="box box-primary with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Articles Editor</h3>
+                        <input type="hidden" class="hidden" id="strListID" value="{{ thisArticle.strListID }}">
+                        <input type="hidden" class="hidden" id="strArticleID" value="{{ thisArticle.strArticleID }}">
+                    </div>
+                     <a href="/admin/newsletters/{{ thisArticle.strListID }}" type="button" class="btn btn-primary btn-block" ><strong><i class="glyphicon glyphicon-link"> </i>  Newsletter</strong></a>
+                     <button type="button" class="btn btn-primary btn-block" id="SaveArticleButt"><strong><i class="glyphicon glyphicon-save-file"> </i> Save </strong></button>
+                     <button type="button" class="btn btn-primary btn-block" id="DeleteArticleButt"><strong><i class="glyphicon glyphicon-remove-sign"> </i> Delete </strong></button>
+                     <button type="button" class="btn btn-primary btn-block" id="PublishArticleButt"><strong><i class="glyphicon glyphicon-cloud-upload"> </i> Publish </strong></button>
+                     <div id="EditINFDIV"></div>
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Article Editor</h3>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strArticleHeading" class="col-sm-3 control-label pull-left">Title</label>
+                             <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="strArticleHeading" value="{{ thisArticle.strLetterHeading }}">
+                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strURL" class="col-sm-3 control-label pull-left">SEO URL</label>
+                             <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="strURL" value="{{ thisArticle.strHostedLink }}">
+                             </div>
+                        </div>
+
+                        <textarea id="strArticleEditor">{{ thisArticle.strLetterBody }}</textarea>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+  </div>
+ <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/dist/js/pages/admin/newsletters/edit.js"></script>
+<script type="text/javascript">$(document).ready(function(){$('#MainHeaderDiv').load("/navigation/header")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#SideBarDiv').load("/navigation/sidebar")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#FooterDiv').load("/navigation/footer")});</script>
+
+</body>
+</html>

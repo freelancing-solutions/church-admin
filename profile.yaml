@@ -1,0 +1,11 @@
+
+handlers:
+
+- url: /profile
+  login: required
+  secure: always
+  script: profiles.app
+
+
+
+

@@ -1,0 +1,130 @@
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Contact Messaging (Emails)</h3>
+        <input type="hidden" class="hidden" id="strCell" value="{{ vstrCell }}">
+    </div>
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#OutBoxEmails" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-send"> </i> Outbox</button></a></li>
+                <li><a href="#InboxEmails" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-inbox"> </i> Inbox</button> </a> </li>
+                <li><a href="#Compose" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-envelope"> </i> Compose</button> </a> </li>
+            </ul>
+            <div class="tab-content">
+                <div class="active tab-pane" id="OutBoxEmails">
+                    <div class="box box-primary with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Outbox</h3>
+                        </div>
+                        <table id="OutboxTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <td>Message</td>
+                                    <td>Sent</td>
+                                    <td>Date Sent</td>
+                                    <td>Time Sent</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for thisOutBox in thisEmailOutBoxList %}
+                                <tr>
+                                    <td>{{ thisOutBox.strMessage }}</td>
+                                    <td>{{ thisOutBox.strIsSent}}</td>
+                                    <td>{{ thisOutBox.strDateSent }}</td>
+                                    <td>{{ thisOutBox.strTimeSent }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Message</td>
+                                    <td>Sent</td>
+                                    <td>Date Sent</td>
+                                    <td>Time Sent</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="InboxEmails">
+                    <div class="box box-primary with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Inbox</h3>
+                        </div>
+                    <table id="InboxTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Message</td>
+                                <td>Date</td>
+                                <td>Time</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisMessage in thisEmailInboxList %}
+                            <tr>
+                                <td>{{ thisMessage.strResponse }}</td>
+                                <td>{{ thisMessage.strDateReceived }}</td>
+                                <td>{[ thisMessage.strTimeReceived }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Message</td>
+                                <td>Date</td>
+                                <td>Time</td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="Compose">
+                    <div class="box box-primary with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Compose</h3>
+                        </div>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="strSubject" class="col-sm-3 control-label pull-left">Subject</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-pencil"> </i>
+                                        </div>
+                                            <input type="text" class="form-control" id="strSubject" name="vstrSubject">
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strMessage" class="col-sm-3 control-label pull-left">Message</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-envelope"> </i>
+                                        </div>
+
+                                            <textarea id="strMessage" class="form-control">9nuhnoc9qqt5wm8bulfvl903bs6yfpzjypc4jz7a6wwknww9</textarea>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-primary btn-block" id="MessageButt"><strong><i class="fa fa-envelope"> </i> Message </strong></button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <div id="MessageINFDIV"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<script src="/static/dist/js/pages/admin/contacts/email.js"></script>

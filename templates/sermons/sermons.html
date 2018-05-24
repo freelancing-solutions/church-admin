@@ -1,0 +1,171 @@
+ <!-- DataTables -->
+  <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Sermons</h3>
+    </div>
+
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#TheBible" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-book"> </i> Bible Books</button></a></li>
+        <li><a href="#SermonsNotes" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Sermons Notes </button> </a> </li>
+        <li><a href="#PreviousSermons" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Previous Sermons </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="TheBible">
+            <div class="box box-footer with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Bible Books</h3>
+                    <small>To load another chapter please reload this form by clicking the sermons button on the left hand side</small>
+                </div>
+                   <div class="box box-footer with-border">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="strBibleBook" class="col-sm-3 control-label pull-left" >Bible Book</label>
+                <div class="col-sm-6">
+                    <select id="strBibleBook" class="form-control">
+                    {% for thisBook in sixtySixBooks %}
+                        <option value="{{ thisBook }}"  >{{ thisBook }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label pull-left" ></label>
+                <div class="col-sm-6">
+                    <small>To use Sermons please enter the book and the chapter number for example =  genesis1  then the whole chapter will
+                    be revealed to you</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label pull-left"></label>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block" id="strBibleBookBtn"><strong><i class="fa fa-book"></i> Select Book Chapter and Load </strong> </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label pull-left"></label>
+                <div class="col-sm-11">
+                    <textarea id="scripture" class="form-control" onclick="showInEditor(this.id)"></textarea>
+                </div>
+            </div>
+
+        </form>
+        <div class="box footer">
+        </div>
+    </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="SermonsNotes">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Sermons Notes</h3>
+                    <small>Use Bible Books Section to find your Scriptures you can copy paste Scriptures from Bible Books to this section</small>
+                </div>
+                <div class="box box-footer with-border">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-bookmark"> </i> Title
+                                    </div>
+                                <input type="text" class="form-control" id="strTitle">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-book"> </i> Sermon
+                                    </div>
+                                    <textarea id="strSermon" name="strSermon" class="form-control"></textarea>
+                                    <div id="strSermonTracker" class="hidden"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"> </i> Date of Delivery
+                                    </div>
+                                    <input type="text" id="strDateDelivery" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-bullhorn"> </i>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-block" id="UpdateSermonsButt"><strong><i class="fa fa-church"> </i> Update Sermons </strong></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <label class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <div id="UpdateSermonsINFDIV"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="PreviousSermons">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Previous Sermons</h3>
+                </div>
+                <table id="SermonsTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td>Date</td>
+                            <td>Sermons Title</td>
+                            <td>Excerpts</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for thisSermon in thisSermonsList %}
+                        <tr>
+                            <td>{{ thisSermon.strDateOfDelivery }}</td>
+                            <td>{{ thisSermon.strTitle }}</td>
+                            <td>{{ thisSermon.strExcerpt }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Date</td>
+                            <td>Sermons Title</td>
+                            <td>Excerpts</td>
+                        </tr>
+                    </tfoot>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/static/dist/js/ckeditorintro/ckeditor.js"></script>
+<script src="/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="/static/dist/js/pages/admin/sermons/sermons.js"></script>
+<script>$(function () {CKEDITOR.replace('strSermon');$(".textarea").wysihtml5();timer = setInterval(updateDiv,100);function updateDiv(){var editorText = CKEDITOR.instances.strSermon.getData();$('#strSermonTracker').html(editorText);}});</script>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>$(function () {$('#SermonsTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>
+

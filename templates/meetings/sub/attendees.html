@@ -1,0 +1,212 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Attendees</h3>
+        <input type="hidden" class="hidden" id="strMeetingID" value="{{ vstrMeetingID }}">
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#Attendees" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Attendees</button></a></li>
+            <li><a href="#SendInvites" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-send"> </i> Send Invites</button> </a> </li>
+            <li><a href="#ManageAttendees" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Manage Attendees </button> </a> </li>
+
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="Attendees">
+                <div class="box box-footer with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Attendees</h3>
+                    </div>
+                    <table id="AttendeesTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Names</td>
+                                <td>Surname</td>
+                                <td>Cell</td>
+                                <td>Email</td>
+                                <td>Invited</td>
+                                <td>Attended</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisAttendee in thisAttendeesList %}
+                            <tr>
+                                <td>{{ thisAttendee.strNames }}</td>
+                                <td>{{ thisAttendee.strSurname }}</td>
+                                <td>{{ thisAttendee.strCell }}</td>
+                                <td>{{ thisAttendee.strEmail }}</td>
+                                <td>{{ thisAttendee.strInvited }}</td>
+                                <td>{{ thisAttendee.strAttended }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Names</td>
+                                <td>Surname</td>
+                                <td>Cell</td>
+                                <td>Email</td>
+                                <td>Invited</td>
+                                <td>Attended</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="SendInvites">
+                <div class="box box-footer with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Send Invites</h3><br>
+                        <small>Used to send Meeting Invitations to people who are suppose to participate in the agenda, this allows the admin to confirm with an individual before including them on the agenda</small>
+
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">SMS Credit  : {{ thisSMSAccount.strTotalSMS }}</li>
+                        <li class="list-group-item">Email Quota : 1000</li>
+                    </ul>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-send"> </i>
+                                    </div>
+                                    <textarea class="form-control" id="strInviteMessage" onclick="countChar(this)"></textarea>
+                                    <label class="label label-info" id="charNum"></label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="SendSMSInviteButt"><strong><i class="glyphicon glyphicon-send"> </i> Send SMS Invite </strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="MessagingResultINFDIV"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane" id="ManageAttendees">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Manage Attendees</h3>
+                    </div>
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#AddAttendee" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Add Attendee</button></a></li>
+                            <li><a href="#RemoveAttendee" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Remove Attendee</button> </a> </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="active tab-pane" id="AddAttendee">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="strNames" class="col-sm-3 control-label pull-left">Names</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-user"> </i>
+                                                </div>
+                                                <input type="text" class="form-control" id="strNames" name="vstrNames">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-user"> </i>
+                                                </div>
+                                                <input type="text" class="form-control" id="strSurname" name="vstrSurname">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strCell" class="col-sm-3 control-label pull-left">Cell</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-phone"> </i>
+                                                </div>
+                                                <input type="text" class="form-control" id="strCell" name="vstrCell">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strEmail" class="col-sm-3 control-label pull-left">Email</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-envelope"> </i>
+                                                </div>
+                                                <input type="text" class="form-control" id="strEmail" name="vstrEmail">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label pull-left"></label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-ok"> </i>
+                                                </div>
+                                                <button type="button" class="btn btn-primary btn-block" id="UpdateAttendeeButt"><strong><i class="glyphicon glyphicon-user"> </i> Update Attendee </strong></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label pull-left"></label>
+                                        <div class="col-sm-6">
+                                            <div id="UpdateAttendeeINFDIV"></div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="tab-pane" id="RemoveAttendee">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="strRemoveCell" class="col-sm-3 control-label pull-left">Cell</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-phone"> </i>
+                                                </div>
+                                                <input type="text" class="form-control" id="strRemoveCell">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label pull-left"></label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-remove"> </i>
+                                                </div>
+                                                <button type="button" class="btn btn-primary btn-block" id="RemoveAttendeeButt"><strong><i class="fa fa-cut"> </i> Remove Attendee </strong></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label pull-left"></label>
+                                        <div class="col-sm-6">
+                                            <div id="RemoveAttendeeINFDIV"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/meetings/attendees.js"></script>

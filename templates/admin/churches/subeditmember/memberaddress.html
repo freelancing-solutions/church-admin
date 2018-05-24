@@ -1,0 +1,93 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Address</h3>
+    </div>
+    <div class="box box-primary">
+        <div class="box box-header">
+            <h3 class="box-title">Physical Address</h3>
+        </div>
+        <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="strPhyStandNumber" class="col-sm-3 control-label pull-left" >Stand Number</label>
+                  <div class="col-sm-6">
+                      <input type="text" class="form-control" id="strPhyStandNumber" name="vstrPhyStandNumber" value="{{ thisMemberAddress.strPhyStandNumber }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="strPhyStreetName" class="col-sm-3 control-label pull-left" >Street Name</label>
+                  <div class="col-sm-6">
+                      <input type="text" class="form-control" id="strPhyStreetName" name="vstrPhyStreetName" value="{{ thisMemberAddress.strPhyStreetName }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="strPhyCityTown" class="col-sm-3 control-label pull-left" >Town/City</label>
+                  <div class="col-sm-6">
+                      <input type="text" class="form-control" id="strPhyCityTown" name="vstrPhyCityTown" value="{{ thisMemberAddress.strPhyCityTown }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="strPhyProvince" class="col-sm-3 control-label pull-left" >Province</label>
+                  <div class="col-sm-6">
+                      <input type="text" class="form-control" id="strPhyProvince" name="vstrPhyProvince" value="{{ thisMemberAddress.strPhyProvince }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="strPhyCountry" class="col-sm-3 control-label pull-left" >Country</label>
+                  <div class="col-sm-6">
+                      <input type="text" class="form-control" id="strPhyCountry" name="vstrPhyCountry" value="{{ thisMemberAddress.strPhyCountry }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="strPhyPostalCode" class="col-sm-3 control-label pull-left" >Postal Code</label>
+                  <div class="col-sm-6">
+                      <input type="text" class="form-control" id="strPhyPostalCode" name="vstrPhyPostalCode" value="{{ thisMemberAddress.strPhyPostalCode }}">
+                  </div>
+                </div>
+
+        </form>
+    </div>
+    <div class="box box-primary">
+        <div class="box box-header">
+            <h3 class="box-title">Postal Code</h3>
+        </div>
+        <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="strPosBoxNumber" class="col-sm-3 control-label pull-left" >Box Number</label>
+                  <div class="col-sm-6">
+                      <input type="text" class="form-control" id="strPosBoxNumber" name="vstrPosBoxNumber" value="{{ thisMemberAddress.strPosBoxNumber }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="strPosCityTown" class="col-sm-3 control-label pull-left" >Town/City</label>
+                  <div class="col-sm-6">
+                      <input type="text" class="form-control" id="strPosCityTown" name="vstrPosCityTown" value="{{ thisMemberAddress.strPosCityTown }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="strPosProvince" class="col-sm-3 control-label pull-left" >Province</label>
+                  <div class="col-sm-6">
+                      <input type="text" class="form-control" id="strPosProvince" name="vstrPosProvince" value="{{ thisMemberAddress.strPosProvince }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="strPosCountry" class="col-sm-3 control-label pull-left" >Country</label>
+                  <div class="col-sm-6">
+                      <input type="text" class="form-control" id="strPosCountry" name="vstrPosCountry" value="{{ thisMemberAddress.strPosCountry }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="strPosPostalCode" class="col-sm-3 control-label pull-left" >Postal Code</label>
+                  <div class="col-sm-6">
+                      <input type="text" class="form-control" id="strPosPostalCode" name="vstrPosPostalCode" value="{{ thisMemberAddress.strPosPostalCode }}">
+                  </div>
+                </div>
+        </form>
+    </div>
+    <div class="box box-footer">
+        <button type="button" class="btn btn-primary btn-block" id="UpdatedMemberAddressButt"><strong><i class="fa fa-save"> </i> Update Member Address </strong></button>
+    </div>
+    <div class="box box-footer">
+        <div id="AddressINFDIV"></div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/churches/subedit/memberaddress.js"></script>

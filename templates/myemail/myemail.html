@@ -1,0 +1,79 @@
+<div class="row">
+      <div class="col-md-3">
+        <button id="ComposeButt" class="btn btn-primary btn-block margin-bottom">Compose</button>
+
+        <div class="box box-solid">
+          <div class="box-header with-border">
+            <h3 class="box-title">Folders</h3>
+
+            <div class="box-tools">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="box-body no-padding">
+            <ul class="nav nav-pills nav-stacked">
+              <li class="active"><a href="#" id="InboxButt"><i class="fa fa-inbox"></i> Inbox<span class="label label-primary pull-right"> </span></a></li>
+              <li><a href="#" id="SentButt"><i class="fa fa-envelope-o"></i> Sent</a></li>
+              <li><a href="#" id="Draftbutt"><i class="fa fa-file-text-o"></i> Drafts</a></li>
+            </ul>
+          </div>
+        <!-- /.box-body -->
+        </div>
+        <!-- /. box -->
+        <!-- /.box -->
+      </div>
+      <!-- /.col -->
+      <div class="col-md-9">
+        <div id="MyEmailINFDIV">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3>Email Settings</h3>
+                    <small> Date Created : {{ thisEmailSettings.strDateCreated }} | Time  {{ thisEmailSettings.strTimeCreated }}</small>
+                </div>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                        <label for="strEmailAddress" class="col-sm-3 control-label pull-left">Email Address</label>
+                        <div class="col-sm-6">
+                               <div class="input-group">
+                                  <input id="strEmailAddress" type="text" class="form-control" placeholder="Username" value="{{ thisEmailSettings.strEmailAddress }}">
+                                  <span class="input-group-addon">@church-admins.com</span>
+                              </div>
+                          </div>
+                  </div>
+                    <div class="form-group">
+                        <label for="strName" class="col-sm-3 control-label pull-left">Names</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                            <input type="text" class="form-control" id="strName" name="vstrName" value="{{ thisEmailSettings.strName }}">
+                              <span class="input-group-addon"><i class="fa fa-user"> </i> </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strSignature" class="col-sm-3 control-label pull-left">Email Signature</label>
+                        <div class="col-sm-6">
+                            <textarea id="strSignature"  class="form-control" style="height: 300px"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="UpdateEmailSettingsButt"><strong><i class="fa fa-envelope"> </i> Update Email Settings </strong></button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                          <div id="EmailSettingsINFDIV"></div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <!-- /. box -->
+      </div>
+      <!-- /.col -->
+</div>
+<script src="/static/dist/js/pages/admin/myemail/myemail.js"></script>

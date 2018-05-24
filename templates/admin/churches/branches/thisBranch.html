@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="rkt7iLTBYZuRLjY_Sxg4uDDNusOJnuhHCDIGPwAahtk" />
+  <title>Church Admin-By Blue IT Marketing Pty LTD</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!-- jQuery 2.2.3 -->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+   <div id="MainHeaderDiv"></div>
+  <!-- Left side column. contains the logo and sidebar -->
+  <div id="SideBarDiv"></div>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Church Administration
+        <small>Church Administration App</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Branches</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3">
+                    <div class="box-body box-profile">
+                      <img class="profile-user-img img-responsive img-circle" src="../../../../static/dist/img/photo1.png" alt="User profile picture">
+
+                      <h3 class="profile-username text-center">{{ thisBranch.strBranchName}}</h3>
+
+                      <p class="text-muted text-center">{{ thisBranch.strBranchMotto }}</p>
+
+                      <input type="hidden" class="hidden" id="strChurchBranchID" value="{{ thisBranch.strChurchBranchID }}">
+                      <input type="hidden" class="hidden" id="strChurchID" value="{{ thisBranch.strChurchID }}">
+                    </div>
+                    <div class="box box-profile with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Dashboard</h3>
+                        </div>
+                        <a href="/admin" type="button" class="btn btn-bitbucket btn-block"><strong> <i class="fa fa-briefcase"> </i> Admin </strong></a>
+                    </div>
+                    <div class="box box-profile with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Branch Details</h3>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" id="BranchDetailsButt"><strong><i class="fa fa-building"> </i> Branch Details </strong></button>
+                        <button type="button" class="btn btn-primary btn-block" id="BranchContactDetailsButt"><strong><i class="fa fa-envelope"> </i> Branch Contact Details </strong></button>
+                    </div>
+                    <div class="box box-profile">
+                      <div class="box box-header with-border">
+                        <h3 class="box-title">Congregants</h3>
+                      </div>
+                      <button class="btn btn-primary btn-block" data-toggle="tab" id="AddCongregantsButt"><i class="fa fa-refresh"> </i> <strong> Congregants</strong></button>
+                    </div>
+
+                    <div class="box box-profile with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Human Resources</h3>
+                        </div>
+                        <button class="btn btn-primary btn-block" id="BranchEmployeesButt"><i class="fa fa-refresh"> </i> <strong> Employees</strong> </button>
+                    </div>
+                    <div class="box box-profile with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Service Providers</h3>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" id="ClientsButt"><i class="fa fa-users"> </i> <strong> Service Providers </strong> </button>
+                        <button type="button" class="btn btn-primary btn-block" id="SuppliersButt"><i class="fa fa-users"> </i> <strong> Suppliers </strong> </button>
+                        <button type="button" class="btn btn-primary btn-block" id="DonatorsButt"><i class="fa fa-users"> </i> Donators </button>
+                    </div>
+                    <div class="box box-profile with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Assets</h3>
+                        </div>
+                        <button class="btn btn-primary btn-block" id="AssetsButt"><i class="fa fa-refresh"> </i> <strong> Assets</strong> </button>
+                    </div>
+                    <div class="box box-profile with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Financial</h3>
+                        </div>
+                        <button class="btn btn-primary btn-block" id="IncomeButt"><i class="fa fa-money"> </i> <strong> Income </strong> </button>
+                        <button class="btn btn-primary btn-block" id="CostsButt"><i class="fa fa-money"> </i> <strong> Costs </strong>  </button>
+                        <button class="btn btn-primary btn-block" id="StatementsButt"><i class="fa fa-money"> </i> <strong>Statement </strong> </button>
+                        <button class="btn btn-primary btn-block" id="BankButt"><i class="fa fa-bank"> </i> <strong> Bank </strong> </button>
+                    </div>
+            </div>
+            <div class="col-md-9">
+                <div id="BranchDetailsINFDIV"></div>
+
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+  </div>
+ <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- Bootstrap 3.3.6 -->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/branches/thisbranch.js"></script>
+<script type="text/javascript">$(document).ready(function(){$('#MainHeaderDiv').load("/navigation/header")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#SideBarDiv').load("/navigation/sidebar")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#FooterDiv').load("/navigation/footer")});</script>
+</body>
+</html>

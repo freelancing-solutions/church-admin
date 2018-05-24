@@ -1,0 +1,189 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Donator Information</h3>
+    </div>
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#DonatorDetails" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-tty"> </i> Donator Details</button> </a></li>
+                <li><a href="#EditDonator" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-bank"> </i> Edit Donator Details</button> </a> </li>
+            </ul>
+            <div class="tab-content">
+                <div class="active tab-pane" id="DonatorDetails">
+                    <div class="box box-body with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Donators Details</h3>
+                            <input type="hidden" class="hidden" id="strDonatorID" value="{{ thisDonator.strDonatorID }}">
+                            <input type="hidden" class="hidden" id="strChurchID" name="vstrChurchID" value="{{ thisDonator.strChurchID }}">
+                            <input type="hidden" class="hidden" id="strChurchBranchID" name="vstrChurchBranchID" value="{{ thisDonator.strChurchBranchID }}">
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Institution : {{ thisDonator.strInstitutionName }}</li>
+                            <li class="list-group-item">Names : {{ thisDonator.strNames }}</li>
+                            <li class="list-group-item">Surname : {{ thisDonator.strSurname }}</li>
+                            <li class="list-group-item">ID Number : {{ thisDonator.strIDNumber }}</li>
+                            <li class="list-group-item">Tel : {{ thisDonator.strTel }} </li>
+                            <li class="list-group-item">Cell : {{ thisDonator.strCell }}</li>
+                            <li class="list-group-item">Email : {{ thisDonator.strEmail }}</li>
+                            <li class="list-group-item">Website : {{ thisDonator.strWebsite }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-pane" id="EditDonator">
+                    <div class="box box-body with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Edit Donator</h3>
+                        </div>
+                            <form class="form-horizontal">
+                                <div class="box box-footer with-border">
+                                    <div class="box box-header with-border">
+                                        <h4 class="box-title">Personal Information</h4>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strInstitutionName" class="col-sm-3 control-label pull-left" >Institution Name</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strInstitutionName" name="vstrInstitutionName" value="{{ thisDonator.strInstitutionName }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strNames" class="col-sm-3 control-label pull-left" >Names</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strNames" name="vstrNames" value="{{ thisDonator.strNames }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strSurname" class="col-sm-3 control-label pull-left" >Surname</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strSurname" name="vstrSurname" value="{{ thisDonator.strSurname }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strIDNumber" class="col-sm-3 control-label pull-left" >ID Number</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber" value="{{ thisDonator.strIDNumber }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box box-footer with-border">
+                                    <div class="box box-header with-border">
+                                        <h4 class="box-title">Physical Address</h4>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strPhyStandNumber" class="col-sm-3 control-label pull-left" >Stand Number</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strPhyStandNumber" name="vstrPhyStandNumber" value="{{ thisDonator.strPhyStandNumber }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strPhyStreetName" class="col-sm-3 control-label pull-left" >Street Name</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strPhyStreetName" name="vstrPhyStreetName" value="{{ thisDonator.strPhyStreetName }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strPhyCityTown" class="col-sm-3 control-label pull-left" >City/Town</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strPhyCityTown" name="vstrPhyCityTown" value="{{ thisDonator.strPhyCityTown }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strPhyProvince" class="col-sm-3 control-label pull-left" >Province</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strPhyProvince" name="vstrPhyProvince" value="{{ thisDonator.strPhyProvince }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strPhyCountry" class="col-sm-3 control-label pull-left" >Country</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strPhyCountry" name="vstrPhyCountry" value="{{ thisDonator.strPhyCountry }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strPhyPostalCode" class="col-sm-3 control-label pull-left" >Postal Code</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strPhyPostalCode" name="vstrPhyPostalCode" value="{{ thisDonator.strPhyPostalCode }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box box-footer with-border">
+                                    <div class="box box-header with-border">
+                                        <h4 class="box-title">Postal Address</h4>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strPosBoxNumber" class="col-sm-3 control-label pull-left" >Box Number</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strPosBoxNumber" name="vstrPosBoxNumber" value="{{ thisDonator.strPosBoxNumber }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strPosCityTown" class="col-sm-3 control-label pull-left" >City/Town</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strPosCityTown" name="vstrPosCityTown" value="{{ thisDonator.strPosCityTown }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strPosProvince" class="col-sm-3 control-label pull-left" >Province</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strPosProvince" name="vstrPosProvince" value="{{ thisDonator.strPosProvince }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strPosCountry" class="col-sm-3 control-label pull-left" >Country</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strPosCountry" name="vstrPosCountry" value="{{ thisDonator.strPosCountry }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strPosPostalCode" class="col-sm-3 control-label pull-left" >Postal Code</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strPosPostalCode" name="vstrPosPostalCode" value="{{ thisDonator.strPosPostalCode }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box box-footer with-border">
+                                    <div class="box box-header with-border">
+                                        <h4 class="box-title">Contact</h4>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strTel" class="col-sm-3 control-label pull-left" >Tel</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strTel" name="vstrTel" value="{{ thisDonator.strTel }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strCell" class="col-sm-3 control-label pull-left" >Cell</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strCell" name="vstrCell" value="{{ thisDonator.strCell }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strEmail" class="col-sm-3 control-label pull-left" >Email</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strEmail" name="vstrEmail" value="{{ thisDonator.strEmail }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strWebsite" class="col-sm-3 control-label pull-left" >Website</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="strWebsite" name="vstrWebsite" value="{{ thisDonator.strWebsite }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label pull-left" ></label>
+                                        <div class="col-sm-6">
+                                            <button type="button" class="btn btn-primary btn-block" id="UpdateDonatorButt"><strng> <i class="glyphicon glyphicon-cloud-upload"> </i> Update Donator </strng></button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label pull-left" ></label>
+                                        <div class="col-sm-6">
+                                            <div id="UpdatedDonatorINFDIV"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/churches/branches/income/donations/donatorinf.js"></script>

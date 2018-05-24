@@ -1,0 +1,79 @@
+
+<div class="box box-footer with-border">
+    <div class="box box-header with-border">
+        <h3><i class="fa fa-file-text-o"> </i> Topics</h3>
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#Topics" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa  fa-file-text-o"> </i> Topics</button></a></li>
+            <li><a href="#ManageTopics" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa  fa-file-text"> </i> Topic Manager </button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="Topics">
+                <div class="box box-footer with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Forum Topics</h3>
+                        <input type="hidden" class="hidden" id="strForumID" value="{{ vstrForumID }}">
+                    </div>
+                    <ul class="list-group">
+                        {% for thisTopic in thisTopicsList %}
+                        <li class="list-group-item"><strong>{{ thisTopic.strTopicName }} <a href="#"> {{ thisTopic.strTotalArticle }} </a></strong> <span class="pull-right"><i class="fa fa-calendar"> </i> {{ thisTopic.strDate }}, <i class="glyphicon glyphicon-time"> </i> {{ thisTopic.strTime }}</span>
+                        <blockquote>
+                            <a href="#" id="{{ thisTopic.strTopicID }}" onclick="showArticles(this.id)">articles...</a>
+                            {{ thisTopic.strTopicDescription }}<br>
+                            <blockquote>
+                                <div id="showArticlesINFDIV{{ thisTopic.strTopicID }}"></div>
+                            </blockquote>
+                        </blockquote>
+                        </li>
+                        {% endfor %}
+                    </ul>
+               </div>
+            </div>
+            <div class="tab-pane" id="ManageTopics">
+                <div class="box box-footer with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Topic Manager</h3>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strTopicName" class="col-sm-3 control-label pull-left">Topic Name</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-bookmark-o"> </i>
+                                    </div>
+                                        <input type="text" class="form-control" id="strTopicName">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strTopicDescription" class="col-sm-3 control-label pull-left">Topic Description</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-book"> </i>
+                                    </div>
+                                        <textarea class="form-control" id="strTopicDescription"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="UploadTopicButt"><strong><i class="fa fa-file-archive-o"> </i> Upload Topic</strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="UploadTopicINFDIV"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/forums/topics.js"></script>

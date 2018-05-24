@@ -1,0 +1,25 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3><i class="fa fa-warning"> </i> User Restricted</h3>
+        <span>You are currently logged in as the following User</span>
+    </div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="strNames" class="col-sm-3 control-label pull-left">Names</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control readonly" id="strNames" name="vstrNames" value="{{ thisChurchMember.strMemberNames }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control readonly" id="strSurname" name="vstrSurname" value="{{ thisChurchMember.strMemberSurname }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+                <a type="button" class="btn btn-primary btn-block"><strong><i class="fa fa-expeditedssl"> </i> Login as a different user </strong></a>
+            </div>
+        </div>
+    </form>
+</div>

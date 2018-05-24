@@ -1,0 +1,56 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Church Branches</h3>
+    </div>
+ <div class="box">
+        <div class="box box-body">
+
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tr>
+                  <th>Branch Name</th>
+                  <th>Branch Motto</th>
+                </tr>
+                {% for branch in thisBranchesList %}
+                    <tr>
+                      <td><a href="/admin/branches/{{ branch.strChurchBranchID }}">{{ branch.strBranchName }}</a></td>
+                      <td>{{ branch.strBranchMotto }}</td>
+                    </tr>
+                {% endfor %}
+              </table>
+            </div>
+        <div class="box box-header with-border">
+           <h4 class="box-title">Branch Details</h4>
+        </div>
+        <form class="form-horizontal">
+            <div class="form-group">
+              <label for="strBranchName" class="col-sm-3 control-label pull-left" >Branch Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strBranchName" name="vstrBranchName" placeholder="">
+                 </div>
+            </div>
+            <div class="form-group">
+              <label for="strBranchMotto" class="col-sm-3 control-label pull-left" >Branch Motto</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strBranchMotto" name="vstrBranchMotto" placeholder="">
+                 </div>
+            </div>
+
+            <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="AddBranchButt"><strong><i class="fa  fa-cloud-upload"> </i> Add Branch</strong></button>
+            </div>
+            <div class="col-sm-offset-3 col-sm-6">
+                <small>to add more detail on a church branch please click on the branch name on the list above...</small>
+            </div>
+            </div>
+        </form>
+            <div class="box box-footer with-border">
+                <div id="BranchINFDIV"></div>
+            </div>
+        </div>
+</div>
+</div>
+<script src="/static/dist/js/pages/admin/churches/branches.js"></script>
+
+

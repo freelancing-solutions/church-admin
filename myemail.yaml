@@ -1,0 +1,12 @@
+
+
+handlers:
+
+- url: /_ah/mail/.+
+  login: admin
+  script: myemail.app
+
+- url: /admin/myemail
+  login: required
+  secure: always
+  script: myemail.app

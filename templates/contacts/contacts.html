@@ -1,0 +1,190 @@
+
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Contact Book</h3>
+        <small>Module for creating General Contacts plus messaging</small>
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#Contacts" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-phone"> </i> Contacts</button></a></li>
+            <li><a href="#ManageContacts" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-phone"> </i> Manage Contacts</button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="Contacts">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Contacts</h3>
+                    </div>
+                    <table id="ContactsTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Title</td>
+                                <td>Names</td>
+                                <td>Surname</td>
+                                <td>Cell</td>
+                                <td>Email</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisContact in thisContactsList %}
+                            <tr>
+                                <td>{{ thisContact.strTitle }}</td>
+                                <td><a href="/admin/contacts/{{ thisContact.strCell }}">{{ thisContact.strNames }}</a></td>
+                                <td>{{ thisContact.strSurname }}</td>
+                                <td>{{ thisContact.strCell }}</td>
+                                <td>{{ thisContact.strEmail }} </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Title</td>
+                                <td>Names</td>
+                                <td>Surname</td>
+                                <td>Cell</td>
+                                <td>Email</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="ManageContacts">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Manage Contacts</h3>
+                    </div>
+
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strTitle" class="col-sm-3 control-label pull-left">Title </label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"> </i>
+                                    </div>
+                                    <select id="strTitle" class="form-control">
+                                        <option value="MR">MR</option>
+                                        <option value="MRS">MRS</option>
+                                        <option value="Miss">Miss</option>
+                                        <option value="Evangelist">Evangelist</option>
+                                        <option value="Doctor">Doctor</option>
+                                        <option value="Deacon">Deacon</option>
+                                        <option value="Prophet">Prophet</option>
+                                        <option value="Pastor">Pastor</option>
+                                        <option value="Priest">Priest</option>
+                                        <option value="Priestess">Priestess</option>
+                                        <option value="Prophet">Prophet</option>
+                                        <option value="Prophetess">Prophetess</option>
+                                        <option value="Apostle">Apostle</option>
+                                        <option value="Bishop">Bishop</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strNames" class="col-sm-3 control-label pull-left">Names</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strNames" name="vstrNames">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strSurname" name="vstrSurname">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strCell" class="col-sm-3 control-label pull-left">Cell</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-phone"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strCell" name="vstrCell">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strTel" class="col-sm-3 control-label pull-left">Tel</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-phone"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strTel" name="vstrTel">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strFax" class="col-sm-3 control-label pull-left">Fax</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-fax"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strFax" name="vstrFax">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strEmail" class="col-sm-3 control-label pull-left">Email</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-envelope"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strEmail" name="vstrEmail">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strWebsite" class="col-sm-3 control-label pull-left">Website</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-link"> </i>
+                                    </div>
+                                        <input type="text" class="form-control" id="strWebsite" name="vstrWebsite">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strDateCreated" class="col-sm-3 control-label pull-left">Date Created</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strDateCreated" name="vstrDateCreated">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="UploadContactsButt"><strong><i class="fa fa-phone"> </i> Upload Contact </strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="UploadContactINFDIV"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/contacts/contacts.js"></script>

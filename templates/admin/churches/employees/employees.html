@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Church Admin-By Blue IT Marketing Pty LTD</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!-- jQuery 2.2.3 -->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <!-- Main Header -->
+   <div id="MainHeaderDiv"></div>
+  <!-- Left side column. contains the logo and sidebar -->
+  <div id="SideBarDiv"></div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Church Administration
+        <small>Church Administration App</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Employees</li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-md-3">
+            <div class="box box-body with-border">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="../../../../static/dist/img/photo1.png" alt="Employees">
+
+              <h3 class="profile-username text-left">Names : {{ thisEmployee.strNames }} {{ thisEmployee.strSurname }}</h3>
+
+              <p class="text-muted text-left">Position : {{ thisEmployee.strPosition }}</p>
+              <p class="text-muted text-left">Contract : {{ thisEmployee.strContract }}</p>
+              <p class="text-muted text-left">Employee ID  : {{ thisEmployee.strEmployeeID }}</p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item" title="">
+                  <b>Church </b> <a href="#" class="pull-right"><i class="fa fa-home"> </i> {{ thisEmployee.strChurchID }} </a>
+                </li>
+                <li class="list-group-item" title="">
+                  <b>Branch </b> <a href="#" class="pull-right"><i class="fa fa-users"> </i> {{ thisEmployee.strChurchBranchID }} <i class="glyphicon glyphicon-leaf"> </i></a>
+                </li>
+              </ul>
+            </div>
+            <div class="box box-profile">
+                <a href="/admin" type="button" class="btn btn-primary btn-block" id="AdminButt"><strong><i class="fa fa-briefcase"> </i> Admin </strong></a>
+            </div>
+            <div class="box box-profile">
+                <button type="button" class="btn btn-primary btn-block" id="EmployeeDetailsButt"><strong><i class="fa fa-user"> </i> Employee Details </strong></button>
+                <button type="button" class="btn btn-primary btn-block" id="SalaryDetailsButt"><strong><i class="fa fa-money"> </i>  Salaries &amp; Payslips</strong></button>
+                <button type="button" class="btn btn-primary btn-block" id="BankingDetailsButt"><strong><i class="fa fa-bank"> </i> Banking Details </strong></button>
+                <button type="button" class="btn btn-primary btn-block" id="AttendanceButt"><strong><i class="fa fa-calendar"> </i> Attendance Register </strong></button>
+                <button type="button" class="btn btn-primary btn-block" id="LeaveButt"><strong><i class="fa fa-calendar"> </i> Leave </strong></button>
+                <input type="hidden" id="strClientID" value="{{ thisEmployee.strClientID }}">
+                <input type="hidden" id="strIDNumber" value="{{ thisEmployee.strIDNumber }}">
+            </div>
+            </div>
+
+        </div>
+        <div class="col-md-9">
+            <div id="EmployeeDetailsINFDIV">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Personal Details</h3>
+    </div>
+
+    <div class="box box-footer with-border">
+        <form class="form-horizontal">
+            <div class="box box-profile with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Employee Details</h3>
+                </div>
+                <div class="form-group">
+                    <label for="strNames" class="col-sm-3 control-label pull-left" >Names</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strNames" value="{{ thisEmployee.strNames }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strSurname" value="{{ thisEmployee.strSurname }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strIDNumber" class="col-sm-3 control-label pull-left">ID Number</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strIDNumber" value="{{ thisEmployee.strIDNumber }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPosition" class="col-sm-3 control-label pull-left">Position</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPosition" value="{{ thisEmployee.strPosition }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strContract" class="col-sm-3 control-label pull-left">Contract</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strContract" value="{{ thisEmployee.strContract }}">
+                    </div>
+                </div>
+            </div>
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Physical Address</h3>
+                </div>
+                <div class="form-group">
+                    <label for="strPhyStandNumber" class="col-sm-3 control-label pull-left" >Stand Number</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPhyStandNumber" value="{{ thisEmployee.strPhyStandNumber }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPhyStreetName" class="col-sm-3 control-label pull-left" >Street Name</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPhyStreetName" value="{{ thisEmployee.strPhyStreetName }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPhyCityTown" class="col-sm-3 control-label pull-left" >City Town</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPhyCityTown" value="{{ thisEmployee.strPhyCityTown }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPhyProvince" class="col-sm-3 control-label pull-left" >Province</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPhyProvince" value="{{ thisEmployee.strPhyProvince }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPhyCountry" class="col-sm-3 control-label pull-left" >Country</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPhyCountry" value="{{ thisEmployee.strPhyCountry }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strPhyPostalCode" class="col-sm-3 control-label pull-left" >Postal Code</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPhyPostalCode" value="{{ thisEmployee.strPhyPostalCode }}">
+                    </div>
+                </div>
+            </div>
+            <div class="box box-primary with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Postal Address</h3>
+                </div>
+                <div class="form-group">
+                    <label for="strBoxNumber" class="col-sm-3 control-label pull-left">Box Number </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strBoxNumber" value="{{ thisEmployee.strBoxNumber }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strCityTown" class="col-sm-3 control-label pull-left">City/Town</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strCityTown" value="{{ thisEmployee.strCityTown }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strProvince" class="col-sm-3 control-label pull-left">Province</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strProvince" value="{{ thisEmployee.strProvince }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strCountry" class="col-sm-3 control-label pull-left">Country </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strCountry" value="{{ thisEmployee.strCountry }}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strPostalCode" class="col-sm-3 control-label pull-left">Postal Code</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPostalCode" value="{{ thisEmployee.strPostalCode }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strSelectBranch" class="col-sm-3 control-label pull-left">Select Branch</label>
+                    <div class="col-sm-6">
+                        <select id="strSelectBranch" class="form-control">
+                            {% for thisBranch in thisBranchList %}
+                                {% if thisEmployee.strChurchBranchID == thisBranch.strChurchBranchID %}
+                                <option value="{{ thisBranch.strChurchBranchID }}" selected="selected">{{ thisBranch.strBranchName }}</option>
+                                {% else %}
+                                    <option value="{{ thisBranch.strChurchBranchID }}">{{ thisBranch.strBranchName }}</option>
+                                {% endif %}
+
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+    </section>
+  </div>
+ <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/employees/employees.js"></script>
+<script type="text/javascript">$(document).ready(function(){$('#MainHeaderDiv').load("/navigation/header")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#SideBarDiv').load("/navigation/sidebar")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#FooterDiv').load("/navigation/footer")});</script>
+</body>
+</html>

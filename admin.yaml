@@ -1,0 +1,7 @@
+
+handlers:
+
+- url: /admin
+  login: required
+  secure: always
+  script: admin.app

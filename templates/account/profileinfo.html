@@ -1,0 +1,282 @@
+        <div class="box box-primary with-border">
+            <div class="box box-header with-border">
+              <h3 class="box-title">Church Account</h3>
+            </div>
+          </div>
+          <div class="box box-body with-border">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#MyDetailsTab" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> My Details</button></a></li>
+                    <li><a href="#ManageUsersTab" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-barcode"> </i> Manage Users</button> </a> </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="active tab-pane" id="MyDetailsTab">
+                        <div class="box box-body with-border">
+                            <div class="box box-header with-border">
+                                <h3 class="box-title">My Details</h3>
+                            </div>
+                              <form class="form-horizontal">
+                                  <div class="form-group">
+                                     <label for="strNames" class="col-sm-3 control-label pull-left">Names</label>
+                                     <div class="col-sm-6">
+                                       <div class="input-group">
+                                           <div class="input-group-addon">
+                                               <i class="glyphicon glyphicon-user"> </i>
+                                           </div>
+                                           {% if thisAppRequest.strReference is not none %}
+                                              <input type="text" class="form-control" id="strNames" name="vstrNames" value="{{ thisAppRequest.strNames }}">
+                                           {% else %}
+                                              <input type="text" class="form-control" id="strNames" name="vstrNames">
+                                           {% endif %}
+                                       </div>
+
+                                     </div>
+                                  </div>
+                                  <div class="form-group">
+                                     <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                                     <div class="col-sm-6">
+                                         <div class="input-group">
+                                             <div class="input-group-addon">
+                                                 <i class="glyphicon glyphicon-user"> </i>
+                                             </div>
+                                               {% if thisAppRequest.strReference is not none %}
+                                                    <input type="text" class="form-control" id="strSurname" name="vstrSurname" value="{{ thisAppRequest.strSurname }}">
+                                               {% else %}
+                                                    <input type="text" class="form-control" id="strSurname" name="vstrSurname">
+                                               {% endif %}
+                                         </div>
+
+                                     </div>
+                                  </div>
+                                  <div class="form-group">
+                                     <label for="strIDNumber" class="col-sm-3 control-label pull-left">ID Number</label>
+                                     <div class="col-sm-6">
+                                         <div class="input-group">
+                                             <div class="input-group-addon">
+                                                 <i class="glyphicon glyphicon-barcode"> </i>
+                                             </div>
+                                               {% if thisAppRequest.strReference is not none %}
+                                                  <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber" value="{{ thisAppRequest.strIDNumber }}">
+                                               {% else %}
+                                                  <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber">
+                                               {% endif %}
+
+                                         </div>
+                                     </div>
+                                  </div>
+                                  <div class="form-group">
+                                     <label for="strCell" class="col-sm-3 control-label pull-left">Cell</label>
+                                     <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="glyphicon glyphicon-phone"> </i>
+                                            </div>
+                                           {% if thisAppRequest.strReference is not none %}
+                                              <input type="text" class="form-control" id="strCell" name="vstrCell" value="{{ thisAppRequest.strCell }}">
+                                           {% else %}
+                                              <input type="text" class="form-control" id="strCell" name="vstrCell">
+                                           {% endif %}
+                                        </div>
+
+                                     </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                     <label for="strEmail" class="col-sm-3 control-label pull-left">Email</label>
+                                     <div class="col-sm-6">
+                                       <div class="input-group">
+                                           <div class="input-group-addon">
+                                               <i class="glyphicon glyphicon-envelope"> </i>
+                                           </div>
+
+                                               {% if thisAppRequest.strReference is not none %}
+                                                  <input type="text" class="form-control" id="strEmail" name="vstrEmail" value="{{ thisAppRequest.strEmail }}">
+                                               {% else %}
+                                                  <input type="text" class="form-control" id="strEmail" name="vstrEmail">
+                                               {% endif %}
+                                       </div>
+                                     </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                     <label for="strSelectProduct" class="col-sm-3 control-label pull-left">Select Product</label>
+                                     <div class="col-sm-6">
+                                       <select class="form-control select2" style="width: 100%;"  id="strSelectProduct">
+                                         <option value="BasicAdminApp">Basic Admin App ( R 6,000.00 )</option>
+                                         <option value="AdminPlusSMS">Admin Plus SMS Notifications App ( R 8,000.00 )</option>
+                                         <option value="AdminPlusSMSEmail">Admin Plus SMS and Email Notifications App ( R 9,500.00 )</option>
+                                       </select>
+                                     </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label  class="col-sm-3 control-label pull-left"></label>
+                                    <div class="col-sm-6">
+                                            {% if thisAppRequest.strReference is none %}
+                                                <button type="button" class="btn btn-primary btn-block with-border" id="CreateChurchAccountButt"><strong><i class="fa fa-users"> </i> Create Church Account </strong></button>
+                                            {% else %}
+                                                <button type="button" class="btn btn-bitbucket btn-block with-border" id="UpdateChurchAccountButt"><strong><i class="fa fa-users"> </i> Update Church Account </strong></button>
+                                            {% endif %}
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <div id="CreateChurchINFDIV"></div>
+                                  </div>
+
+
+
+                              </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="ManageUsersTab">
+                        <div class="box box-body with-border">
+                            <div class="box box-header with-border">
+                                <h3 class="box-title">Manage Users</h3>
+                            </div>
+                            <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#UsersListTAB" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-user"> </i> Users</button></a></li>
+                                    <li><a href="#AddUsersTAB" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-barcode"> </i> Add Users</button> </a> </li>
+                                    <li><a href="#RemoveUsersTAB" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-barcode"> </i> Remove Users</button> </a> </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="active tab-pane" id="UsersListTAB">
+
+                                        <table id="ManageUsersTable" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <td>Names</td>
+                                                    <td>Surname</td>
+                                                    <td>ID</td>
+                                                    <td>Cell</td>
+                                                    <td>Email</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for thisUser in thisUsersList %}
+                                                <tr>
+                                                    <td>{{ thisUser.strMemberNames }}</td>
+                                                    <td>{{ thisUser.strMemberSurname }}</td>
+                                                    <td>{{ thisUser.strMemberIDNumber }}</td>
+                                                    <td>{{ thisUser.strCell }}</td>
+                                                    <td>{{ thisUser.strEmail }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td>Names</td>
+                                                    <td>Surname</td>
+                                                    <td>ID</td>
+                                                    <td>Cell</td>
+                                                    <td>Email</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane" id="AddUsersTAB">
+                                        <form class="form-horizontal">
+                                              <div class="form-group">
+                                                 <label for="strAddNames" class="col-sm-3 control-label pull-left">Names</label>
+                                                 <div class="col-sm-6">
+                                                     <div class="input-group">
+                                                         <div class="input-group-addon">
+                                                             <i class="glyphicon glyphicon-user"> </i>
+                                                         </div>
+                                                        <input type="text" class="form-control" id="strAddNames">
+                                                     </div>
+                                                 </div>
+                                              </div>
+                                              <div class="form-group">
+                                                 <label for="strAddSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                                                 <div class="col-sm-6">
+                                                     <div class="input-group">
+                                                         <div class="input-group-addon">
+                                                             <i class="glyphicon glyphicon-user"> </i>
+                                                         </div>
+                                                        <input type="text" class="form-control" id="strAddSurname">
+                                                     </div>
+                                                 </div>
+                                              </div>
+                                              <div class="form-group">
+                                                 <label for="strAddCell" class="col-sm-3 control-label pull-left">Cell</label>
+                                                 <div class="col-sm-6">
+                                                     <div class="input-group">
+                                                         <div class="input-group-addon">
+                                                             <i class="glyphicon glyphicon-phone"> </i>
+                                                         </div>
+                                                        <input type="text" class="form-control" id="strAddCell">
+                                                     </div>
+                                                 </div>
+                                              </div>
+                                              <div class="form-group">
+                                                 <label for="strAddEmail" class="col-sm-3 control-label pull-left">Email</label>
+                                                 <div class="col-sm-6">
+                                                     <div class="input-group">
+                                                         <div class="input-group-addon">
+                                                             <i class="glyphicon glyphicon-envelope"> </i>
+                                                         </div>
+                                                        <input type="text" class="form-control" id="strAddEmail">
+                                                     </div>
+                                                 </div>
+                                              </div>
+
+                                              <div class="form-group">
+                                                 <label class="col-sm-3 control-label pull-left"></label>
+                                                 <div class="col-sm-6">
+                                                     <button type="button" class="btn btn-primary btn-block" id="AddUserButt"><strong><i class="glyphicon glyphicon-users"> </i> Add User </strong></button>
+                                                 </div>
+                                              </div>
+
+
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="RemoveUsersTAB">
+                                        <form class="form-horizontal">
+                                              <div class="form-group">
+                                                 <label for="strRemoveEmail" class="col-sm-3 control-label pull-left">Email</label>
+                                                 <div class="col-sm-6">
+                                                     <div class="input-group">
+                                                         <div class="input-group-addon">
+                                                             <i class="glyphicon glyphicon-envelope"> </i>
+                                                         </div>
+
+                                                        <input type="text" class="form-control" id="strRemoveEmail">
+                                                     </div>
+                                                 </div>
+                                              </div>
+                                              <div class="form-group">
+                                                 <label class="col-sm-3 control-label pull-left"></label>
+                                                 <div class="col-sm-6">
+                                                     <button type="button" class="btn btn-primary btn-block" id="RemoveUserButt"><strong><i class="glyphicon glyphicon-users"> </i> Remove User </strong></button>
+                                                 </div>
+                                              </div>
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </div>
+      </div>
+
+<!-- DataTables -->
+<script src="../../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+  $(function () {
+
+    $('#ManageUsersTable').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
+

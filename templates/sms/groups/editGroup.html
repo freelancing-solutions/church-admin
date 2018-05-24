@@ -1,0 +1,85 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">SMS Group Editor</h3>
+        <input type="hidden" class="hidden" id="strGroupID" name="vstrGroupID" value="{{ thisGroup.strGroupID }}">
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#GroupDetail" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Group Detail</button></a></li>
+            <li><a href="#GroupContacts" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Group Contacts </button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="GroupDetail">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Group Details</h3>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strGroupName" class="col-sm-3 control-label pull-left" >Group Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strGroupName" name="vstrGroupName" value="{{ thisGroup.strGroupName }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strGroupDescription" class="col-sm-3 control-label pull-left" >Description</label>
+                            <div class="col-sm-6">
+                                <textarea id="strGroupDescription" class="form-control">{{ thisGroup.strGroupDescription }}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="UpdateGroupDetailButt"><strong><i class="glyphicon glyphicon-cloud-upload"> </i> Updated SMS Group</strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="GroupDetailUpdateINFDIV"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="tab-pane" id="GroupContacts">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Group Contacts</h3>
+                    </div>
+                    <table id="GroupContactsTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Member ID</td>
+                                <td>Names</td>
+                                <td>Surname</td>
+                                <td>Cell Number</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisContact in thisSMSContactsList %}
+                            <tr>
+                                <td>{{ thisContact.strMemberID }}</td>
+                                <td>{{ thisContact.strNames }}</td>
+                                <td>{{ thisContact.strSurname }}</td>
+                                <td>{{ thisContact.strCellNumber }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Member ID</td>
+                                <td>Names</td>
+                                <td>Surname</td>
+                                <td>Cell Number</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/static/dist/js/pages/admin/sms/editgroup.js"></script>

@@ -1,0 +1,10 @@
+
+handlers:
+
+- url: /endpoints/.*
+  script: myapi.app
+  secure: always
+
+- url: /epinternal/.*
+  script: myapi.app
+  secure: always

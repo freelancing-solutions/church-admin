@@ -1,0 +1,6 @@
+
+handlers:
+
+- url: /about
+  secure: always
+  script: about.app

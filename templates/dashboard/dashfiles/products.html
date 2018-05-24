@@ -1,0 +1,76 @@
+
+
+  <div class="box box-body with-border">
+      <div class="box box-header with-border">
+          <h3><i class="glyphicon glyphicon-th-list"> </i> Products</h3>
+      </div>
+
+      <div class="box box-body with-border">
+           <table id="ProductsTable" class="table table-bordered table-striped">
+               <thead>
+                    <tr>
+                        <td><strong>ProductTag</strong></td>
+                        <td><strong>Product Name</strong></td>
+                        <td><strong>Description</strong></td>
+                        <td><strong>Cost</strong></td>
+                    </tr>
+               </thead>
+               <tbody>
+                    {% for thisProduct in thisProductsList %}
+                    <tr>
+                        <td>{{ thisProduct.strProductTag }}</td>
+                        <td>{{ thisProduct.strProductName }}</td>
+                        <td>{{ thisProduct.strProductDescription }}</td>
+                        <td>{{ thisProduct.strProductCost }}</td>
+                    </tr>
+                    {% endfor %}
+               </tbody>
+               <tfoot>
+                    <tr>
+                        <td><strong>ProductTag</strong></td>
+                        <td><strong>Product Name</strong></td>
+                        <td><strong>Description</strong></td>
+                        <td><strong>Cost</strong></td>
+                    </tr>
+               </tfoot>
+
+           </table>
+      </div>
+
+      <form class="form-horizontal">
+          <div class="form-group">
+              <label for="strProductTag" class="col-sm-3 control-label pull-left">Product Tag</label>
+              <div class="col-sm-6">
+                  <input type="text" class="form-control" id="strProductTag" name="vstrProductTag">
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="strProductName" class="col-sm-3 control-label pull-left">Product Name</label>
+              <div class="col-sm-6">
+                  <input type="text" class="form-control" id="strProductName" name="vstrProductName">
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="strProductDescription" class="col-sm-3 control-label pull-left">Product Description</label>
+              <div class="col-sm-6">
+                  <textarea id="strProductDescription"></textarea>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="strProductCost" class="col-sm-3 control-label pull-left">Product Cost</label>
+              <div class="col-sm-6">
+                  <input type="text" class="form-control" id="strProductCost" name="vstrProductCost">
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label  class="col-sm-3 control-label pull-left"></label>
+              <div class="col-sm-6">
+                  <button type="button" class="btn btn-primary btn-block" id="AddProductButt"><strong><i class="fa fa-cloud-upload"> </i> Upload Product </strong></button>
+
+              </div>
+          </div>
+
+      </form>
+
+  </div>

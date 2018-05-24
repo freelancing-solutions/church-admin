@@ -1,0 +1,216 @@
+<div class="box box-profile with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Donators</h3>
+        <small>Persons,Institutions,Companies and Organizations that constantly donates funds to the church</small>
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#Donators" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-tty"> </i> Donators </button> </a></li>
+            <li><a href="#AddDonators" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-tty"> </i> Add Donators </button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="Donators">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Donators</h3>
+                        <input type="hidden" class="hidden" id="strChurchBranchID" name="vstrChurchBranchID" value="{{ vstrChurchBranchID }}">
+                        <input type="hidden" class="hidden" id="strChurchID" name="vstrChurchID" value="{{ vstrChurchID }}">
+                    </div>
+                    <table id="DonatorsTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>DonatorID</td>
+                        <td>Names</td>
+                        <td>Surname</td>
+                        <td>ID Number</td>
+                        <td>Tel</td>
+                        <td>Cell</td>
+                        <td>Email</td>
+                        <td>Website</td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for thisDonator in thisDonatorsList %}
+                    <tr>
+                        <td><a href="/monetary/donators/{{ thisDonator.strDonatorID }}">{{ thisDonator.strDonatorID }}</a></td>
+                        <td>{{ thisDonator.strNames }}</td>
+                        <td>{{ thisDonator.strSurname }}</td>
+                        <td>{{ thisDonator.strIDNumber }}</td>
+                        <td>{{ thisDonator.strTel }}</td>
+                        <td>{{ thisDonator.strCell }}</td>
+                        <td>{{ thisDonator.strEmail }}</td>
+                        <td>{{ thisDonator.strWebsite }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>DonatorID</td>
+                        <td>Names</td>
+                        <td>Surname</td>
+                        <td>ID Number</td>
+                        <td>Tel</td>
+                        <td>Cell</td>
+                        <td>Email</td>
+                        <td>Website</td>
+                    </tr>
+                </tfoot>
+            </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="AddDonators">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Add Donators</h3>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="box box-profile">
+                            <div class="box box-header">
+                                <h3 class="box-title">Personal Info</h3>
+                            </div>
+                            <div class="form-group">
+                                <label for="strNames" class="col-sm-3 control-label pull-left">Names</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="strNames" name="vstrNames">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="strSurname" name="vstrSurname">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strIDNumber" class="col-sm-3 control-label pull-left">ID Number</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box box-profile">
+                            <div class="box box-header">
+                                <h3 class="box-title">Physical Address</h3>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPhyStandNumber" class="col-sm-3 control-label pull-left">Stand Number</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strPhyStandNumber" name="vstrPhyStandNumber">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPhyStreetName" class="col-sm-3 control-label pull-left">Street Name</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strPhyStreetName" name="vstrPhyStreetName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPhyCityTown" class="col-sm-3 control-label pull-left">City Town</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strPhyCityTown" name="vstrPhyCityTown">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPhyProvince" class="col-sm-3 control-label pull-left">Province</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strPhyProvince" name="vstrPhyProvince">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPhyCountry" class="col-sm-3 control-label pull-left">Country</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strPhyCountry" name="vstrPhyCountry">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPhyPostalCode" class="col-sm-3 control-label pull-left">Postal Code</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strPhyPostalCode" name="vstrPhyPostalCode">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box box-profile">
+                            <div class="box box-header">
+                                <h3 class="box-title">Postal Address</h3>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPosBoxNumber" class="col-sm-3 control-label pull-left">Box/Private Bag</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strPosBoxNumber" name="vstrPosBoxNumber">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPosCityTown" class="col-sm-3 control-label pull-left">City Town</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strPosCityTown" name="vstrPosCityTown">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPosProvince" class="col-sm-3 control-label pull-left">Province</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strPosProvince" name="vstrPosProvince">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPosCountry" class="col-sm-3 control-label pull-left">Country</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strPosCountry" name="vstrPosCountry">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strPosPostalCode" class="col-sm-3 control-label pull-left">Postal Code</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strPosPostalCode" name="vstrPosPostalCode">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box box-profile">
+                            <div class="box box-header">
+                                <h3 class="box-title">Contacts</h3>
+                            </div>
+                            <div class="form-group">
+                                <label for="strTel" class="col-sm-3 control-label pull-left">Tel</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strTel" name="vstrTel">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strCell" class="col-sm-3 control-label pull-left">Cell</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strCell" name="vstrCell">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strEmail" class="col-sm-3 control-label pull-left">Email</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strEmail" name="vstrEmail">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strWebsite" class="col-sm-3 control-label pull-left">Website</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control"  id="strWebsite" name="vstrWebsite">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box box-profile">
+                            <div class="form-group">
+                                <label  class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-primary btn-block" id="UploadDonatorButt"><strong><i class="fa fa-cloud"> </i> Upload Donator </strong></button>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label  class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <div id="UploadDonatorINFDIV"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/churches/branches/income/donators.js"></script>

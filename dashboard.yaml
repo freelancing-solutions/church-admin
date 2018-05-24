@@ -1,0 +1,31 @@
+
+handlers:
+- url: /dashboard
+  login: admin
+  secure: always
+  script: dashboard.app
+- url : /dashboard/adminrequests
+  login: admin
+  secure: always
+  script: dashboard.app
+- url: /dashboard/adminslist
+  login: admin
+  secure: always
+  script: dashboard.app
+- url: /dashboard/payments
+  login: admin
+  secure: always
+  script: dashboard.app
+- url: /dashboard/contacts
+  login: admin
+  secure: always
+  script: dashboard.app
+- url: /dashboard/bulksms
+  login: admin
+  secure: always
+  script: dashboard.app
+- url: /dashboard/thisadmins/.*
+  login: admin
+  secure: always
+  script: dashboard.app
+

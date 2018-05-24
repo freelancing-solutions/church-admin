@@ -1,0 +1,140 @@
+
+<header class="main-header">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>C</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Church</b> Admin</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          {% if vstrUsername %}
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-envelope-o"></i>
+              <span class="label label-success">{{ vstrTotalMessages }}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have {{ vstrTotalMessages }} messages</li>
+              <li class="footer"><a href="/inbox">See All Messages</a></li>
+            </ul>
+          </li>
+
+
+
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">{{ vstrTotalNotifications }}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have {{ vstrTotalNotifications }} notifications</li>
+
+              <li class="footer"><a href="/notifications">View all</a></li>
+            </ul>
+          </li>
+
+
+          <!-- Tasks: style can be found in dropdown.less -->
+          <li class="dropdown tasks-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-flag-o"></i>
+              <span class="label label-danger">{{ vstrTotalTasks }}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have {{ vstrTotalTasks }} tasks</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  {% for Task in TaskList %}
+                  <li><!-- Task item -->
+                    <a href="{{ Task.strTaskURL }}">
+                      <h3>
+                        {{ Task.strTaskNote }}
+                        <small class="pull-right">20%</small>
+                      </h3>
+                      <div class="progress xs">
+                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">20% Complete</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- end task item -->
+                  {% endfor %}
+
+                </ul>
+              </li>
+              <li class="footer">
+                <a href="/tasks">View all tasks</a>
+              </li>
+            </ul>
+          </li>
+
+
+
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="../../../static/dist/img/avatar04.png" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ vstrUsername }}</span>
+            </a>
+
+            <!-- DROP DOWN MENU -->
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="../../../static/dist/img/avatar04.png" class="img-circle" alt="User Image">
+
+                <p>
+                  {{ vstrUsername }} - {{ vstrDesignation }}
+                  <small>We care for you</small>
+                </p>
+              </li>
+
+              <!-- Menu Body -->
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="/forums">Forums</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="/accounts">Account</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="/admin">Admin</a>
+                  </div>
+                </div>
+                <!-- /.row -->
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="/accounts" class="btn btn-default btn-flat">Account</a>
+                </div>
+                <div class="pull-right">
+                  <a href="{{ vstrLogoutURL }}" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+           {% else %}
+          <li><a href="{{ vstrLoginURL }}" title="Please Sign In with Your Google Account">Sign In</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </header>

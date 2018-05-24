@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Church Admin-By Blue IT Marketing Pty LTD</title>
+  <meta name="google-site-verification" content="9CMRMPTCzEL_nLA_deGGFCsKSouKDl_6D_MVBqp5Y-g" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+   <div id="MainHeaderDiv"></div>
+  <div id="SideBarDiv"></div>
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Church Administration
+        <small>Church Administration App</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Home</li>
+      </ol>
+      <div id="ourmanna-verse">Loading...</div>
+      <script src="http://www.ourmanna.com/verses/api/js/" type="text/javascript"></script>
+    </section>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="box box-body with-border">
+            <div class="box box-header with-border">
+              <h3 class="box-title">Church Admin</h3>
+              <small>A Church Administration app, that really makes a difference</small>
+            </div>
+            <a href="#ChurchAdmin" type="button" class="btn btn-primary btn-block" data-toggle="tab"><strong><i class="fa fa-anchor"> </i> Church Admin </strong></a>
+            <a href="#About" type="button" class="btn btn-primary btn-block" data-toggle="tab"><strong><i class="fa fa-info"> </i> About </strong></a>
+            <a href="#Team" type="button" class="btn btn-primary btn-block" data-toggle="tab"><strong><i class="fa fa-users"> </i> Our Team </strong></a>
+            <a href="#Support" type="button" class="btn btn-primary btn-block" data-toggle="tab"><strong><i class="glyphicon glyphicon-wrench"> </i> Support </strong></a>
+            <a href="#Tutorials" type="button" class="btn btn-primary btn-block" data-toggle="tab"><strong><i class="glyphicon glyphicon-flash"> </i> Tutorials </strong></a>
+            <a href="#FAQ" type="button" class="btn btn-primary btn-block" data-toggle="tab"><strong><i class="fa fa-archive"> </i> FAQ </strong></a>
+              <div class="box box-footer pull-left with-border">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://church-admins.appspot.com" target="_blank" class="btn btn-block btn-social btn-facebook"><i class="fa fa-facebook"></i> Share on Facebook</a>
+                  <a href="https://plus.google.com/share?url=https://church-admins.appspot.com" target="_blank" class="btn btn-block btn-social btn-google"><i class="fa fa-google-plus"></i>Share on Google Plus </a>
+                  <a href="http://www.twitter.com/share?url=https://church-admins.appspot.com" target="_blank" class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter"></i> Share on Twitter</a>
+              </div>
+          </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Recent Events</h3>
+
+                          <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                          </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                          <ul class="products-list product-list-in-box">
+                           {% for thisEvent in thisEventList %}
+                            <li class="item">
+                              <div class="product-img">
+                                <img src="../static/dist/img/events.png" alt="Church Admin Events">
+                              </div>
+                              <div class="product-info">
+                                <a href="/events/public/{{ thisEvent.strEventID }}" class="product-title">{{ thisEvent.strEventName }}
+                                  <span class="label label-warning pull-right"></span></a>
+                                    <span class="product-description">
+                                      {{ thisEvent.strEventIntro }}
+                                    </span>
+                              </div>
+                            </li>
+                            {% endfor %}
+                            <!-- /.item -->
+                          </ul>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer text-center">
+                          <a href="/events" class="uppercase">View All Events</a>
+                        </div>
+                        <!-- /.box-footer -->
+                      </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Recent Forums</h3>
+
+                          <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                          </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                          <ul class="products-list product-list-in-box">
+                           {% for thisForum in thisLatestForumsList %}
+                            <li class="item">
+                              <div class="product-img">
+                                <img src="../static/dist/img/forum.jpg" alt="Church Admin Forums">
+                              </div>
+                              <div class="product-info">
+                                <a href="/forums/public/{{ thisForum.strForumID }}" class="product-title">{{ thisForum.strForumName }}
+                                  <span class="label label-warning pull-right"></span></a>
+                                    <span class="product-description">
+                                      {{ thisForum.strForumDescription }}
+                                    </span>
+                              </div>
+                            </li>
+                            {% endfor %}
+                            <!-- /.item -->
+                          </ul>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer text-center">
+                          <a href="/forums" class="uppercase">View All Forums</a>
+                        </div>
+                        <!-- /.box-footer -->
+                      </div>
+                    <!-- Forums -->
+
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Forums </h3>
+
+                          <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                          </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                          <ul class="products-list product-list-in-box">
+                           {% for thisForum in thisForumsList %}
+                            <li class="item">
+                              <div class="product-img">
+                                <img src="../static/dist/img/forum.jpg" alt="Church Admin Forums">
+                              </div>
+                              <div class="product-info">
+                                <a href="/forums/public/{{ thisForum.strForumID }}" class="product-title">{{ thisForum.strForumName }}
+                                  <span class="label label-warning pull-right"></span></a>
+                                    <span class="product-description">
+                                      {{ thisForum.strForumDescription }}
+                                    </span>
+                              </div>
+                            </li>
+                            {% endfor %}
+                            <!-- /.item -->
+                          </ul>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer text-center">
+                          <a href="/forums" class="uppercase">View All Forums</a>
+                        </div>
+                        <!-- /.box-footer -->
+                      </div>
+
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Open Newsletters</h3>
+
+                          <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                          </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                          <ul class="products-list product-list-in-box">
+
+                           {% for thisNewsletter in thisLettersList %}
+                            <li class="item">
+                              <div class="product-img">
+                                <img src="../static/dist/img/default-50x50.gif" alt="Church Admin Newsletters">
+                              </div>
+                              <div class="product-info">
+                                <a href="/newsletters/hosted/{{ thisNewsletter.strHostedLink }}" class="product-title">{{ thisNewsletter.strLetterHeading }}
+                                  <span class="label label-warning pull-right"></span></a>
+                                    <span class="product-description">
+                                      {{ thisNewsletter.strLetterHeading }}
+                                    </span>
+                              </div>
+                            </li>
+                            {% endfor %}
+                            <!-- /.item -->
+                          </ul>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer text-center">
+                          <a href="/newsletters/hosted" class="uppercase">View All Newsletters</a>
+                        </div>
+                        <!-- /.box-footer -->
+                    </div>
+
+
+
+        </div>
+        <div class="col-md-9">
+          <div class="box box-primary with-border">
+
+          </div>
+          <div class="box box-primary with-border">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                    </ul>
+                    <div class="tab-content">
+                      <div class="active tab-pane" id="ChurchAdmin">
+                        <div class="box box-primary with-border">
+                          <div class="box box-header with-border">
+                            <h3>Church Administration Web App</h3>
+                            <small>A Church Administration app, that really makes a difference</small>
+                          </div>
+                          <blockquote>A Church is a place of worship, and as such deserving of the best possible management tool
+                          available.</blockquote>
+
+                          <h3>Church Admin is that tool</h3>
+                          Church Admin Contain the following tools and modules.
+
+                          <blockquote>
+                              <ul class="list-group">
+                                <li class="list-group-item"><h4><strong><i class="glyphicon glyphicon-calendar"> </i> Event Management Module </strong></h4>
+                                Offers you the Ability to plan, manage, and promote your church events in a one easy to use module, which also contains
+                                Attendee Registrations, and preferences section.
+                                </li>
+                                <li class="list-group-item"><h4><strong><i class="fa fa-forumbee"> </i> Forums </strong></h4>
+                                A module allowing your church to host discussion forums based around church activities, and also
+                                  enabling your church to publish and promote church events, to a larger online community.
+                                  Our forums support video and audio uploading.
+                                </li>
+                                <li class="list-group-item"><h4><strong><i class="fa fa-leaf"> </i> Church Branch Management </strong></h4>
+                                  Easy access to all Branch Management Tasks, Including, Congregants, Employees, Suppliers, Donators, Service Providers and
+                                  Branch Finances and reporting.
+                                </li>
+                                <li class="list-group-item"><h4><strong><i class="glyphicon glyphicon-book"> </i>  Sermons</strong></h4>
+                                Church Sermons allows for the preparations of upcoming church sermons, and also the ability to go through previous
+                                Church Sermons, The Module contains an integrated KJV Bible, for easy access and preparations.
+                                </li>
+                                <li class="list-group-item"><h4><strong><i class="glyphicon glyphicon-bell"> </i> Meetings </strong></h4>
+                                The Meetings module allows for an easy way to Create, and Manage Church Meetings, Our Module also contains and inbuilt
+                                Meeting Reminder system that easily reminds Meeting Attendees of the Meeting Subject, Venue, Date and Time of Meeting.
+                                The Module also allows for meeting attendees an easy access to detailed meeting agenda through its inbuilt published
+                                Meeting Page, which is sent together with a meeting reminder.
+                                </li>
+                                <li class="list-group-item"><h4><strong><i class="glyphicon glyphicon-phone"> </i> Contacts Management Module</strong></h4>
+                                  General Contact Management and Messaging Module, allowing your church to manage contact details and also manage communications
+                                  with important church contacts such as community leaders, Committee members of other churches and organizations.
+
+                                  Our Contact and Messaging Module mean that you will always be able to keep in touch and never forget what was said in that important
+                                  communique.
+                                </li>
+                                <li class="list-group-item"><h4><strong><i class="glyphicon glyphicon-envelope"> </i> Newsletters </strong></h4>
+                                  An Easy to use module allowing for the creation of church publications and also the distribution of newsletters to various
+                                  members of the congregation, Newsletters can also be promoted amongst members of the general public and those from other
+                                  congregations.
+
+                                  Newsletters are more useful for purposes such as :
+                                    <ul class="list-group">
+                                      <li class="list-group-item">Job Newsletters, Geared towards the youth with materials such as job interview openings,
+                                      and how to properly conduct and interview</li>
+                                      <li class="list-group-item">Parenting, a newsletter geared towards parents offering education, tips and support to parents within the congregations</li>
+                                    </ul>
+                                  any member of the church can run a newsletter within Church Admin...
+                                </li>
+                                <li class="list-group-item"><h4><strong><i class="glyphicon glyphicon-calendar"> </i> Birthdays and Calendar Events </strong></h4>
+                                This Module allows for the creation of well wishing messages, to the members of the congregation, for important calendar events,
+                                  such as birthdays, Christmas Day, Good Friday, School Holidays, and Exam Periods...
+
+                                  The module can run automatically and communicates the right message to the right person without any other user intervention, except
+                                  setting the messages up of course.
+                                </li>
+                                <li class="list-group-item"><h4><strong><i class="glyphicon glyphicon-send"> </i> Bulk SMS Module </strong></h4>
+                                This module makes it easy to create general and special list of contants and send them messages in bulk,
+
+                                for example:
+                                <ul class="list-group">
+                                  <li class="list-group-item"><h5><strong><i class="fa fa-ambulance"> </i> Emergency Messages</strong></h5>
+                                    That concern the whole congregation can be easily distributed by making use of our <strong>Bulk SMS Module</strong>
+                                  </li>
+                                  <li class="list-group-item"><h5><strong><i class="fa fa-users"> </i> Church Committee Messages </strong></h5>
+                                  Another list can contain members of the church committee and important messages will then be sent to all church committee members
+                                    at the same time.
+                                  </li>
+                                </ul>
+                                <strong>Our Bulk Messaging Utility</strong> also contains a scheduling feature allowing you to easily create a message and then schedule that message to be sent later
+                                to its intended recipients.
+
+                                </li>
+
+                              </ul>
+                          </blockquote>
+
+                        </div>
+                      </div>
+                        <div class="tab-pane" id="About">
+                          <div class="box box-body with-border">
+                            <div class="box box-header with-border">
+                              <h3>About Church Admin</h3>
+                              <small>For more information on church admin please check the about section</small>
+                            </div>
+                            <blockquote>Church Admin About section contains detailed information on church admin and how certain
+                            sections can be useful in your church.</blockquote>
+                            <blockquote>
+                              """ Church Admin, a web application intended to simplify management tasks that are often encountered in Churches.
+                              Church Admin makes it possible for your congregation to function properly at all times, and for all members to
+                              be kept updated on anything that concerns them, their fellow congregants, and thereby enabling the whole congregation
+                              to function together as one family...."""
+                            </blockquote>
+                            <blockquote>
+                            <a href="/about" class="btn btn-app btn-block"><span class="badge bg-yellow"></span><i class="fa fa-info"></i> About</a>
+                              </blockquote>
+
+
+                          </div>
+                        </div>
+                        <div class="tab-pane" id="Team">
+                          <div class="box box-profile with-border">
+                            <div class="box box-header with-border">
+                                <h3>Church Admin Team</h3>
+                              <small><i class="glyphicon glyphicon-sound-stereo"> </i> Together we achieve that which no one can achieve alone</small>
+                            </div>
+
+                            Church Admin is a product of a dedicated Team of Blue IT Marketing Pty LTD employees,
+                            and here is a list of some of the individuals behind Church Admin.
+
+                            <ul class="list-group">
+                              <li class="list-group-item"><h4><strong><i class="fa fa-user"> </i> Justice Ndou </strong></h4>
+                                <ol class="list-group">
+                                  <li class="list-group-item">Position : Managing Director / Software Developer</li>
+                                  <li class="list-group-item">Cell     : +2779 047 1559   </li>
+                                  <li class="list-group-item">Email    : info@blueitmarketing.co.za / justice@blueitmarketing.co.za</li>
+                                </ol>
+                              </li>
+                            </ul>
+
+
+
+                          </div>
+
+                        </div>
+                        <div class="tab-pane" id="Support">
+                          <div class="box box-primary with-border">
+                            <div class="box box-header with-border">
+                              <h3>Support</h3>
+                            </div>
+
+                            <small>Coming Soon...</small>
+
+
+                          </div>
+                        </div>
+
+                        <div class="tab-pane" id="FAQ">
+                        </div>
+                        <div class="tab-pane" id="Tutorials">
+                        </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+ <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script type="text/javascript">$(document).ready(function(){$('#MainHeaderDiv').load("/navigation/header")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#SideBarDiv').load("/navigation/sidebar")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#FooterDiv').load("/navigation/footer")});</script>
+</body>
+</html>

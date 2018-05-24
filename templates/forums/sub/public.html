@@ -1,0 +1,110 @@
+<script src='/static/dist/js/tinymce/js/tinymce/jquery.tinymce.min.js'></script>
+<script src='/static/dist/js/tinymce/js/tinymce/tinymce.min.js?apiKey=9nuhnoc9qqt5wm8bulfvl903bs6yfpzjypc4jz7a6wwknww9'></script>
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Public Forums</h3>
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#Forums" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Forums</button></a></li>
+            <li><a href="#CreateForums" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Create Forums </button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="Forums">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Forums</h3>
+                    </div>
+
+                    <table id="ForumsTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Forum Name</td>
+                                <td>Description</td>
+                                <td>Status</td>
+                                <td>Subscriptions</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisForumKey in thisForumList %}
+                            <tr>
+                                <td><a href="/forums/public/{{ thisForumKey.strForumID }}">{{ thisForumKey.strForumName }}</a></td>
+                                <td>{{ thisForumKey.strForumDescription }}</td>
+                                <td>{{ thisForumKey.strForumStatus }}</td>
+                                <td>{{ thisForumKey.strForumSubscriptionStatus }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Forum Name</td>
+                                <td>Description</td>
+                                <td>Status</td>
+                                <td>Subscriptions</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+            <div class="tab-pane" id="CreateForums">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Create Forums</h3>
+                    </div>
+
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strForumName" class="col-sm-3 control-label pull-left">Forum Name</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-forumbee"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strForumName">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strForumDescription" class="col-sm-3 control-label pull-left">Forum Description</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-forumbee"> </i>
+                                    </div>
+                                    <textarea class="form-control" id="strForumDescription"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strForumLandingPage" class="col-sm-3 control-label pull-left">Page</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-forumbee"> </i>
+                                    </div>
+                                    <textarea class="form-control" id="strForumLandingPage"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-9">
+                                <button type="button" class="btn btn-primary btn-block" id="UploadForumButt"><strong><i class="fa fa-forumbee"> </i> Upload Forum </strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="UploadForumINFDIV"></div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/forums/public.js"></script>

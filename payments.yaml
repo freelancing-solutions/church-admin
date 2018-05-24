@@ -1,0 +1,7 @@
+
+handlers:
+
+- url: /accounts/payments
+  login: required
+  secure: always
+  script: payments.app

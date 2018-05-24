@@ -1,0 +1,51 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Contact Details</h3>
+    </div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="strCell" class="col-sm-3 control-label pull-left">Cell</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strCell" name="vstrCell" value="{{ thisContact.strCell }}">
+                <input type="hidden" class="hidden" id="strClientID" value="{{ strClientID }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strTel" class="col-sm-3 control-label pull-left">Tel</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strTel" name="vstrTel" value="{{ thisContact.strTel }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strFax" class="col-sm-3 control-label pull-left">Fax</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strFax" name="vstrFax" value="{{ thisContact.strFax }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strEmail" class="col-sm-3 control-label pull-left">Email</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strEmail" name="vstrEmail" value="{{ thisContact.strEmail }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="strWebsite" class="col-sm-3 control-label pull-left">Website</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="strWebsite" name="vstrWebsite" value="{{ thisContact.strWebsite }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left"></label>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="UpdateContactButt"><strong><i class="fa fa-cloud"> </i> Update Contact </strong></button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label pull-left"></label>
+            <div class="col-sm-6">
+                <div id="UpdateContactINFDIV"></div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="/static/dist/js/pages/admin/churches/branches/suppliers/clientcontact.js"></script>

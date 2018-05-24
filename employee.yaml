@@ -1,0 +1,8 @@
+
+
+handlers:
+
+- url: /employees/.*
+  login: required
+  secure: always
+  script: employees.app

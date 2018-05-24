@@ -1,0 +1,37 @@
+
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Payments</h3>
+    </div>
+    <div class="box box-body with-border">
+        <table id="PaymentsTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Product Name</td>
+                    <td>Total Payment</td>
+                    <td>Payment Received</td>
+                    <td>Balance</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for thisAccount in thisAccountsList %}
+                <tr>
+                    <td><a href="/accounts/details/{{ thisAccount.strReference }}">{{ thisAccount.strProductName }}</a></td>
+                    <td>{{ thisAccount.strFixedProductCost }}</td>
+                    <td>{{ thisAccount.strFixedPaymentReceived }}</td>
+                    <td>{{ thisAccount.strFixedBalance }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Product Name</td>
+                    <td>Total Payment</td>
+                    <td>Payment Received</td>
+                    <td>Balance</td>
+                </tr>
+
+            </tfoot>
+        </table>
+    </div>
+</div>

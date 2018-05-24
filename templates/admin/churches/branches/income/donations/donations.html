@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="../../../../../../static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Donations</h3>
+        <input type="hidden" id="strChurchID" value="{{ vstrChurchID }}">
+        <input type="hidden" id="strChurchBranchID" value="{{ vstrChurchBranchID }}">
+        <input type="hidden" id="strDonatorID" value="{{ vstrDonatorID }}">
+    </div>
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#DonationsHistory" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-tty"> </i> Donations History</button> </a></li>
+            <li><a href="#AddDonation" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-bank"> </i> Add Donation</button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="DonationsHistory">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Donations History</h3>
+                    </div>
+                    <table id="DonationsTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Donator ID</td>
+                                <td>Church ID</td>
+                                <td>Branch ID</td>
+                                <td>Donation Amount</td>
+                                <td>Date</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisDonation in thisDonationList %}
+                            <tr>
+                                <td>{{ thisDonation.strDonatorID }}</td>
+                                <td>{{ thisDonation.strChurchID }}</td>
+                                <td>{{ thisDonation.strChurchBranchID }}</td>
+                                <td>{{ thisDonation.strDonationAmount }}</td>
+                                <td>{{ thisDonation.strYear }}-{{ thisDonation.strMonth }}-{{ thisDonation.strDay }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Donator ID</td>
+                                <td>Church ID</td>
+                                <td>Branch ID</td>
+                                <td>Donation Amount</td>
+                                <td>Date</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="AddDonation">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Add Donation</h3>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strDonationAmount" class="col-sm-3 control-label pull-left" >Amount</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        R
+                                    </div>
+                                    <input type="text" class="form-control" id="strDonationAmount">
+                                    <div class="input-group-addon">
+                                        00
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strDate" class="col-sm-3 control-label pull-left">Date</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strDate" placeholder="2017-09-16">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="UploadDonationAmountButt"><strong><i class="fa fa-money"> </i> Donate </strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="UploadDonationAmountINFDIV"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DataTables -->
+<script src="../../../../../../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../../../../../static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="../../../../../../static/dist/js/pages/admin/churches/branches/income/donations/donations.js"></script>
+<script>$(function () {$('#DonationsTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>
+

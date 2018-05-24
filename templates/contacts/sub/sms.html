@@ -1,0 +1,119 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Contact Messaging (SMS)</h3>
+        <input type="hidden" class="form-control" id="strContactID" value="{{ thisContact.strContactID }}">
+        <input type="hidden" class="form-control" id="strCell" value="{{ thisContact.strCell }}">
+    </div>
+
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#Outbox" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-phone"> </i> Outbox</button></a></li>
+                <li><a href="#Inbox" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-map"> </i> Inbox</button> </a> </li>
+                <li><a href="#Create" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-map"> </i> Create Message</button> </a> </li>
+            </ul>
+            <div class="tab-content">
+                <div class="active tab-pane" id="Outbox">
+                    <div class="box box-primary with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Outbox</h3>
+                            <small>Messages sent to the Contact</small>
+                        </div>
+                        <table id="OutboxTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <td>Message</td>
+                                    <td>Sent</td>
+                                    <td>Date</td>
+                                    <td>Time</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for thisMessage in thisSMSOutBoxList %}
+                                <tr>
+                                    <td>{{ thisMessage.strMessage }}</td>
+                                    <td>{[ thisMessage.strIsSent }}</td>
+                                    <td>{{ thisMessage.strDateSent }}</td>
+                                    <td>{{ thisMessage.strTimeSent }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Message</td>
+                                    <td>Sent</td>
+                                    <td>Date</td>
+                                    <td>Time</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="tab-pane" id="Inbox">
+                    <div class="box box-primary with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Inbox</h3>
+                            <small>Message Responses from Contact</small>
+                        </div>
+                        <table id="InboxTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <td>Response</td>
+                                    <td>Date</td>
+                                    <td>Time</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for thisInbox in thisInBoxMessagesList %}
+                                <tr>
+                                    <td>{{ thisInbox.strResponse }}</td>
+                                    <td>{{ thisInbox.strDateReceived }}</td>
+                                    <td>{{ thisInbox.strTimeReceived }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Response</td>
+                                    <td>Date</td>
+                                    <td>Time</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="tab-pane" id="Create">
+                    <div class="box box-primary with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Create Message</h3>
+                            <small>Create a message and send to contact</small>
+                        </div>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="strMessage" class="col-sm-3 control-label pull-left" > Message </label>
+                                <div class="col-sm-6">
+                                    <textarea id="strMessage" class="form-control" onkeyup="countChar(this)"></textarea>
+                                    <label class="label label-info" id="charNum"></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-primary btn-block" id="SendMessageButt"><strong><i class="fa fa-comment"> </i> Send Message </strong></button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <div id="SMSMessageINfDIV"></div>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<script src="/static/dist/js/pages/admin/contacts/sms.js"></script>

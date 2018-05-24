@@ -1,0 +1,21 @@
+
+handlers:
+
+- url: /forums
+  secure: always
+  script: forums.app
+
+- url: /forums/public
+  secure: always
+  script: forums.app
+
+- url: /forums/public/.*
+  secure: always
+  script: forums.app
+
+- url: /forums/topic/.*
+  secure: always
+  script: forums.app
+
+
+

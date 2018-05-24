@@ -1,0 +1,96 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Church Details</h3>
+    </div>
+    <form class="form-horizontal">
+        <div class="box box-body with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title">Church Details</h3>
+            </div>
+                <div class="form-group">
+                    <label for="strChurchName" class="col-sm-3 control-label pull-left">Church Name</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strChurchName" name="vstrChurchName" value="{{ thisChurch.strChurchName }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strRegNumber" class="col-sm-3 control-label pull-left">Registration Number</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strRegNumber" name="vstrRegNumber" value="{{ thisChurch.strRegNumber}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strChurchMotto" class="col-sm-3 control-label pull-left">Church Motto</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strChurchMotto" name="vstrChurchMotto" value="{{ thisChurch.strChurchMotto }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strVision" class="col-sm-3 control-label pull-left">Church Vision</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strVision" name="vstrVision" value="{{ thisChurch.strVision }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strMission" class="col-sm-3 control-label pull-left">Church Mission</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strMission" name="vstrMission" value="{{ thisChurch.strMission }}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strPropheticWord" class="col-sm-3 control-label pull-left">Prophetic Word</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strPropheticWord" name="vstrPropheticWord" value="{{ thisChurch.strPropheticWords }}">
+                    </div>
+                </div>
+        </div>
+        <div class="box box-body with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title">Church Founder</h3>
+            </div>
+            <div class="form-group">
+                <label for="strFounderTitle" class="col-sm-3 control-label pull-left">Founder Title</label>
+                <div class="col-sm-6">
+                    <select id="strFounderTitle">
+                        <option value="MR">MR</option>
+                        <option value="MRS">MRS</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Evangelist">Evangelist</option>
+                        <option value="Doctor">Doctor</option>
+                        <option value="Deacon">Deacon</option>
+                        <option value="Prophet">Prophet</option>
+                        <option value="Pastor">Pastor</option>
+                        <option value="Priest">Priest</option>
+                        <option value="Priestess">Priestess</option>
+                        <option value="Prophet">Prophet</option>
+                        <option value="Prophetess">Prophetess</option>
+                        <option value="Apostle">Apostle</option>
+                        <option value="Bishop">Bishop</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strFounder" class="col-sm-3 control-label pull-left">Founder Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strFounder" name="vstrFounder" value="{{ thisChurch.strFounder }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strDateFounded" class="col-sm-3 control-label pull-left">Date Founded</label>
+                <div class="col-sm-6">
+                    <input type="date" class="form-control" id="strDateFounded" name="vstrDateFounded" value="{{ thisChurch.strDateFounded }}">
+                </div>
+            </div>
+        </div>
+        <div class="box box-footer with-border">
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block" id="SaveChurchButt"><i class="fa fa-save"> </i> Update Church Details</button>
+            </div>
+        </div>
+        <div class="box box-footer with-border">
+            <div id="UpdatedChurchDetailsINFDIV"></div>
+        </div>
+    </form>
+</div>
+<script src="/static/dist/js/pages/admin/churches/churchdetails.js"></script>

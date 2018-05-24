@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">SMS Delivery Reports</h3>
+    </div>
+    <table id="DeliveryReportTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Message ID</td>
+                <td>Group ID</td>
+                <td>Cell</td>
+                <td>Delivered</td>
+                <td>Date</td>
+                <td>Time</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for thisReport in thisDeliveryReportList %}
+            <tr>
+                <td>{{ thisReport.strMessageID }}</td>
+                <td>{{ thisReport.strGroupID }}</td>
+                <td>{{ thisReport.strCell }}</td>
+                <td>{{ thisReport.strDelivered }}</td>
+                <td>{{ thisReport.strDate }}</td>
+                <td>{{ thisReport.strTime}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Message ID</td>
+                <td>Group ID</td>
+                <td>Cell</td>
+                <td>Delivered</td>
+                <td>Date</td>
+                <td>Time</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>$(function () {$('#DeliveryReportTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>

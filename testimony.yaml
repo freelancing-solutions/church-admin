@@ -1,0 +1,9 @@
+
+handlers:
+
+- url: /admin/testimony
+  login: required
+  secure: always
+  script: testimony.app
+
+

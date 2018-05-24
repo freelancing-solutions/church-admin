@@ -1,0 +1,162 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Salaries &amp; Payslips</h3>
+        <input type="hidden" class="hidden" id="strIDNumber" value="{{ vstrIDNumber }}">
+        <input type="hidden" class="hidden" id="strEmployeeID" value="{{ vstrEmployeeID }}">
+    </div>
+    <div class="box box-footer with-border">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#Payslips" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Payslips</button></a></li>
+                <li><a href="#SalariesRecords" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Salaries Records </button> </a> </li>
+                <li><a href="#CreateRecord" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Create Records </button> </a> </li>
+            </ul>
+            <div class="tab-content">
+                <div class="active tab-pane" id="Payslips">
+                    <table id="PayslipsTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Date</td>
+                                <td>Employee ID</td>
+                                <td>Hours Worked</td>
+                                <td>Overtime Worked</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisSalary in thisSalariesList %}
+                            <tr>
+                                <td><a href="/employee/payslips/{{ thisSalary.strYear }}{{ thisSalary.strMonth }}{{ thisSalary.strEmployeeID }}">{{ thisSalary.strThisDate }}</a></td>
+                                <td>{{ thisSalary.strEmployeeID }}</td>
+                                <td>{{ thisSalary.strNormalHoursWorked }}</td>
+                                <td>{{ thisSalary.strOverTimeWorked }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Date</td>
+                                <td>Employee ID</td>
+                                <td>Hours Worked</td>
+                                <td>Overtime Worked</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="tab-pane" id="SalariesRecords">
+                    <div class="box box-body with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Salaries Records</h3>
+                        </div>
+                        <table id="SalariesRecordsTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Employee ID</td>
+                                    <td>ID Number</td>
+                                    <td>Normal Rate</td>
+                                    <td>Hours Worked</td>
+                                    <td>Basic Salary</td>
+                                    <td>OverTime Rate</td>
+                                    <td>OverTime Worked </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for thisSalary in thisSalariesList %}
+                                <tr>
+                                    <td><a href="/employee/salaryrecord/{{ thisSalary.strYear }}{{ thisSalary.strMonth }}{{ thisSalary.strEmployeeID }}">{{ thisSalary.strThisDate }}</a></td>
+                                    <td>{{ thisSalary.strEmployeeID }}</td>
+                                    <td>{{ thisSalary.strIDNumber }}</td>
+                                    <td>{{ thisSalary.strNormalRate }}</td>
+                                    <td>{{ thisSalary.strNormalHoursWorked }}</td>
+                                    <td>{{ thisSalary.strTotalBasicSalary }}</td>
+                                    <td>{{ thisSalary.strOverTimeRate }}</td>
+                                    <td>{{ thisSalary.strOverTimeWorked }}</td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Employee ID</td>
+                                    <td>ID Number</td>
+                                    <td>Normal Rate</td>
+                                    <td>Hours Worked</td>
+                                    <td>Basic Salary</td>
+                                    <td>OverTime Rate</td>
+                                    <td>OverTime Worked </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="CreateRecord">
+                    <div class="box box-body with-border">
+                        <div class="box box-header with-border">
+                            <h3 class="box-title">Create Salary Record</h3>
+                        </div>
+                        <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strNormalRate" class="col-sm-3 control-label pull-left" >Normal Rate</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-money"> </i>
+                                    </div>
+                                        <input type="text" class="form-control" id="strNormalRate" name="vstrNormalRate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strOverTimeRate" class="col-sm-3 control-label pull-left" >OverTime Rate</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strOverTimeRate">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strUIF" class="col-sm-3 control-label pull-left" >UIF</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strUIF">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strPaye" class="col-sm-3 control-label pull-left" >PAYE</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strPaye">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strOtherDeductions" class="col-sm-3 control-label pull-left" >Other Deductions</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strOtherDeductions">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strThisDate" class="col-sm-3 control-label pull-left" >This Date</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strThisDate">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left" ></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="UpdateSalaryRecordButt"><strong><i class="fa fa-cloud-update"> </i> Update Salary Record </strong></button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left" ></label>
+                            <div class="col-sm-6">
+                                <div id="UpdateSalaryRecordINFDIV"></div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/churches/employees/salariespayslips.js"></script>
+

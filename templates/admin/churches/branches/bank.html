@@ -1,0 +1,497 @@
+<!-- DataTables -->
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Bank</h3>
+        <input type="hidden" class="hidden" id="strChurchID" value="{{ vstrChurchID }}">
+        <input type="hidden" class="hidden" id="strChurchBranchID" value="{{ vstrChurchBranchID }}">
+    </div>
+
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#Bank" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-tty"> </i> Bank Transactions</button> </a></li>
+            <li><a href="#BankAccount" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-credit-card"> </i> Bank Account </button></a></li>
+            <li><a href="#Payments" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-money"> </i> Payments</button> </a> </li>
+            <li><a href="#Beneficiary" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-list-alt"> </i> Beneficiary List</button> </a> </li>
+            <li><a href="#Authorise" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-list-alt"> </i> Authorise Payments</button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="Bank">
+                <table id="BankTable" class="table table-bordered table-striped">
+                     <thead>
+                            <tr>
+                                <td><strong>Total Funds</strong></td>
+                                <td><strong>Bank</strong></td>
+                                <td><strong>Available</strong></td>
+                                <td><strong>Deposits</strong></td>
+                                <td><strong>Withdrawals</strong></td>
+                                <td><strong>Date</strong></td>
+                                <td><strong>Time</strong></td>
+                            </tr>
+                     </thead>
+                     <tbody>
+                     {% for thisBank in thisBankList %}
+                            <tr>
+                                <td>{{ thisBank.strTotalBalance }}</td>
+                                <td>{{ thisBank.strFundsInBank }}</td>
+                                <td>{{ thisBank.strFundsInBranch }}</td>
+                                <td>{{ thisBank.strBankDeposits }}</td>
+                                <td>{{ thisBank.strBankWithDrawals }}</td>
+                                <td>{{ thisBank.strYear }}-{{ thisBank.strMonth }}-{{ thisBank.strDay }}</td>
+                                <td>{{ thisBank.strTime }}</td>
+                            </tr>
+                     {% endfor %}
+                     </tbody>
+                     <tfoot>
+                            <tr>
+                                <td><strong>Total Funds</strong></td>
+                                <td><strong>Bank</strong></td>
+                                <td><strong>Available</strong></td>
+                                <td><strong>Deposits</strong></td>
+                                <td><strong>Withdrawals</strong></td>
+                                <td><strong>Date</strong></td>
+                                <td><strong>Time</strong></td>
+                            </tr>
+                     </tfoot>
+                 </table>
+           </div>
+            <div class="tab-pane" id="BankAccount">
+                <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#BankAccountsList" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-tty"> </i> Bank Accounts List</button> </a></li>
+                    <li><a href="#AddBankAccount" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-bank"> </i> Add Bank Account </button> </a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="active tab-pane" id="BankAccountsList">
+                        <div class="box box-primary with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Bank Account</h3>
+                    </div>
+                     <table id="BankAccountTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td>Account Holder</td>
+                            <td>Account Number</td>
+                            <td>Account Type</td>
+                            <td>Bank Name</td>
+                            <td>Branch Name</td>
+                            <td>Branch Code</td>
+                            <td>Routing</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for thisBankAccount in thisBankAccountList %}
+                        <tr>
+                            <td>{{ thisBankAccount.strAccountHolder }}</td>
+                            <td>{{ thisBankAccount.strAccountNumber }}</td>
+                            <td>{{ thisBankAccount.strAccountType }}</td>
+                            <td>{{ thisBankAccount.strBankName }}</td>
+                            <td>{{ thisBankAccount.strBranchName }}</td>
+                            <td>{{ thisBankAccount.strBranchCode }}</td>
+                            <td>{{ thisBankAccount.strRoutingNumber }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Account Holder</td>
+                            <td>Account Number</td>
+                            <td>Account Type</td>
+                            <td>Bank Name</td>
+                            <td>Branch Name</td>
+                            <td>Branch Code</td>
+                            <td>Routing</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                </div>
+                    </div>
+                    <div class="tab-pane" id="AddBankAccount">
+                        <div class="box box-primary with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Add Bank Account</h3>
+                    </div>
+                    <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="strAccountHolder" class="col-sm-3 control-label pull-left">Account Holder</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strAccountHolder" name="vstrAccountHolder">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strAccountNumber" class="col-sm-3 control-label pull-left">Account Number</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strAccountNumber" name="vstrAccountNumber">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strAccountType" class="col-sm-3 control-label pull-left">Account Type</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strAccountType" name="vstrAccountType">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strBankName" class="col-sm-3 control-label pull-left">Bank Name</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strBankName" name="vstrBankName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strBranchName" class="col-sm-3 control-label pull-left">Branch Name</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strBranchName" name="vstrBranchName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strBranchCode" class="col-sm-3 control-label pull-left">Branch Code</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strBranchCode" name="vstrBranchCode">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strRoutingNumber" class="col-sm-3 control-label pull-left">Routing Number</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strRoutingNumber" name="vstrRoutingNumber">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="AddAccountNumberButt"><strong><i class="fa fa-credit-card"> </i> Add Account Number</strong></button>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <div id="AddAccountINFDIV"></div>
+                        </div>
+                    </div>
+
+                </form>
+                </div>
+                    </div>
+                </div>
+
+                </div>
+           </div>
+            <div class="tab-pane" id="Payments">
+                <div class="nav nav-tabs">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#thisPayments" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-money"> </i> Payments</button> </a></li>
+                        <li><a href="#createPayment" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-users"> </i> Create Payment</button> </a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="active tab-pane" id="thisPayments">
+                            <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Payments</h3>
+                    </div>
+                     <table id="PaymentsTable" class="table table-bordered table-striped">
+                         <thead>
+                            <tr>
+                                <td>Index</td>
+                                <td>Payment By</td>
+                                <td>Type</td>
+                                <td>Amount</td>
+                                <td>Reason</td>
+                                <td>Date</td>
+                                <td>Time</td>
+                                <td>is Authorised</td>
+                                <td>AuthorisedBy</td>
+                            </tr>
+                         </thead>
+                         <tbody>
+                         {% for thisPayment in thisPaymentsList %}
+                            <tr>
+                                <td>{{ thisPayment.strPaymentIndex }}</td>
+                                <td>{{ thisPayment.strReference }}</td>
+                                <td>{{ thisPayment.strPaymentType }}</td>
+                                <td>{{ thisPayment.strPaymentAmount }}</td>
+                                <td>{{ thisPayment.strReasonForPayment }}</td>
+                                <td>{{ thisPayment.strYear }}-{{ thisPayment.strMonth }}-{{ thisPayment.strDay }}</td>
+                                <td>{{ thisPayment.strTimeOfPayment }}</td>
+                                <td>{{ thisPayment.strAuthorised }}</td>
+                                <td>{{ thisPayment.strAuthorisedBy }}</td>
+                            </tr>
+                         {% endfor %}
+                         </tbody>
+                         <tfoot>
+                            <tr>
+                                <td>Index</td>
+                                <td>Payment By</td>
+                                <td>Type</td>
+                                <td>Amount</td>
+                                <td>Reason</td>
+                                <td>Date</td>
+                                <td>Time</td>
+                                <td>is Authorised</td>
+                                <td>AuthorisedBy</td>
+                            </tr>
+                         </tfoot>
+                     </table>
+                </div>
+                        </div>
+                        <div class="tab-pane" id="createPayment">
+                            <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Create Payment</h3>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strPaymentType" class="col-sm-3 control-label pull-left">Payment Type</label>
+                            <div class="col-sm-6">
+                                <select id="strPaymentType" class="form-control select2" style="width: 100%;">
+                                    <option value="Cash">Cash</option>
+                                    <option value="EFT">EFT</option>
+                                    <option value="Bank Deposit">Bank Deposit</option>
+                                    <option value="Cheque">Cheque</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strPaymentAmount" class="col-sm-3 control-label pull-left">Payment Amount</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strPaymentAmount" name="vstrPaymentAmount">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strReasonForPayment" class="col-sm-3 control-label pull-left">Reason for Payment</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strReasonForPayment" name="vstrReasonForPayment">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strPayFrom" class="col-sm-3 control-label pull-left">Pay From</label>
+                            <div class="col-sm-6">
+                                <select id="strPayFrom" class="form-control select2" style="width: 100%;">
+                                        <option value="Branch Account"> Branch Account</option>
+                                        <option value="Church Account">Church Account</option>
+                                        <option value="Available Funds">Available Funds</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strPaidToClient" class="col-sm-3 control-label pull-left">Pay To</label>
+                            <div class="col-sm-6">
+                                <select id="strPaidToClient" class="form-control select2" style="width: 100%;">
+                                    {% for thisClient in thisClientList %}
+                                        <option value="{{ thisClient.strReference }}">{{ thisClient.strNames }}-{{ thisClient.strSurname }}-{{ thisClient.strIDNumber }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="AddPaymentButt"><strong><i class="fa fa-money"> </i> Add Payment Request</strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="AddPaymentINFDIV"></div>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="tab-pane" id="Beneficiary">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                          <li class="active"><a href="#thisBeneficiaryList" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-money"> </i> Beneficiary History</button> </a></li>
+                          <li><a href="#createBeneficiary" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-users"> </i> Create Beneficiary</button> </a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="acvtive tab-pane" id="thisBeneficiaryList">
+                            <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Beneficiary List</h3>
+                    </div>
+                    <table id="BeneficiaryTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Names</td>
+                                <td>Surname</td>
+                                <td>ID</td>
+                                <td>Company Name</td>
+                                <td>Company Reg</td>
+                                <td>Company VAT</td>
+                                <td>Recipient Type</td>
+                                <td>Notes</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisBeneficiary in thisClientList %}
+                            <tr>
+                                <td><a href="/monetary/beneficiaries/{{ thisBeneficiary.strBeneficiaryIndex }}">{{ thisBeneficiary.strNames }}</a></td>
+                                <td>{{ thisBeneficiary.strSurname }}</td>
+                                <td>{{ thisBeneficiary.strIDNumber }}</td>
+                                <td>{{ thisBeneficiary.strCompanyName }}</td>
+                                <td>{{ thisBeneficiary.strCompanyReg }}</td>
+                                <td>{{ thisBeneficiary.strCompanyVAT }}</td>
+                                <td>{{ thisBeneficiary.strRecipientType }}</td>
+                                <td>{{ thisBeneficiary.strNotes }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Names</td>
+                                <td>Surname</td>
+                                <td>ID</td>
+                                <td>Company Name</td>
+                                <td>Company Reg</td>
+                                <td>Company VAT</td>
+                                <td>Recipient Type</td>
+                                <td>Notes</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                        </div>
+                        <div class="tab-pane" id="createBeneficiary">
+                            <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Add Beneficiary</h3>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strNames" class="col-sm-3 control-label pull-left">Names</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strNames" name="vstrNames">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strSurname" name="vstrSurname">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strIDNumber" class="col-sm-3 control-label pull-left">ID Number</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strCompanyName" class="col-sm-3 control-label pull-left">Company Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strCompanyName" name="vstrCompanyName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strCompanyReg" class="col-sm-3 control-label pull-left">Company Reg</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strCompanyReg" name="vstrCompanyReg">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strCompanyVAT" class="col-sm-3 control-label pull-left">Company VAT</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strCompanyVAT" name="vstrCompanyVAT">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strRecipientType" class="col-sm-3 control-label pull-left">Recipient Type</label>
+                            <div class="col-sm-6">
+                                <select id="strRecipientType" class="form-control select2" style="width: 100%;">
+                                    <option value="Supplier">Supplier</option>
+                                    <option value="Client">Client</option>
+                                    <option value="Donation">Donation</option>
+                                    <option value="Member">Member</option>
+                                    <option value="General">General</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strNotes" class="col-sm-3 control-label pull-left">Notes</label>
+                            <div class="col-sm-6">
+                                <textarea id="strNotes" class="form-control select2" style="width: 100%;"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="UploadBeneficiaryButt"><strong><i class="fa fa-cloud"> </i> Upload Beneficiary </strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="UploadBeneficiaryINFDIV"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="tab-pane" id="Authorise">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Authorise Payments</h3>
+                    </div>
+                    <table id="AuthoriseTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Index</td>
+                                <td>Pay To</td>
+                                <td>Type</td>
+                                <td>Amount</td>
+                                <td>Reason</td>
+                                <td>Date</td>
+                                <td>Time</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for toAuthorise in thisAuthorisePaymentsList %}
+                            <tr>
+                                <td><a href="/monetary/payments/authorize/{{ toAuthorise.strPaymentIndex }}">{{ toAuthorise.strPaymentIndex }}</a></td>
+                                <td>{{ toAuthorise.strPaidToClient }}</td>
+                                <td>{{ toAuthorise.strPaymentType }}</td>
+                                <td>{{ toAuthorise.strPaymentAmount }}</td>
+                                <td>{{ toAuthorise.strReasonForPayment }}</td>
+                                <td>{{ toAuthorise.strYear }}-{{ toAuthorise.strMonth }}-{{ toAuthorise.strDay }}</td>
+                                <td>{{ toAuthorise.strTimeOfPayment }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Index</td>
+                                <td>Pay To</td>
+                                <td>Type</td>
+                                <td>Amount</td>
+                                <td>Reason</td>
+                                <td>Date</td>
+                                <td>Time</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/branches/bank.js"></script>
+<script>$(function () {$('#BankAccountTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>
+<script>$(function () {$('#BankTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>
+<script>$(function () {$('#PaymentsTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>
+<script>$(function () {$('#BeneficiaryTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>
+

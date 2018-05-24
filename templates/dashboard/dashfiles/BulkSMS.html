@@ -1,0 +1,489 @@
+  <link rel="stylesheet" href="../../../static/plugins/ionslider/ion.rangeSlider.css">
+  <link rel="stylesheet" href="../../../static/plugins/ionslider/ion.rangeSlider.skinNice.css">
+  <link rel="stylesheet" href="../../../static/plugins/bootstrap-slider/slider.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Bulk SMS System Accounts</h3>
+    </div>
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#VodacomPortal" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-server"> </i> Vodacom Portal</button></a></li>
+        <li><a href="#BudgetPortal" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-server"> </i> Budget Portal</button> </a> </li>
+        <li><a href="#CreditAccount" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-server"> </i> Credit Account</button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="VodacomPortal">
+            <div class="box box-body with-border">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Vodacom SMS Portal</h3>
+                    </div>
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#VodaPortalInfo" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-server"> </i> Portal Info</button></a></li>
+                            <li><a href="#VodaPortalEditor" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-server"> </i> Portal Editor</button> </a> </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="active tab-pane" id="VodaPortalInfo">
+                                <div class="box box-body with-border">
+                                    <div class="box box-header with-border">
+                                        <h3 class="box-title">Portal Information</h3>
+                                    </div>
+                                </div>
+
+                                <ul class="list-group">
+                                    <li class="list-group-item">Sender Address : {{ thisVodacomPortal.strSenderAddress }} </li>
+                                    <li class="list-group-item">Send To (Email) : {{ thisVodacomPortal.strEmailAddress }}</li>
+                                    <li class="list-group-item">Send To (CSV) : {{ thisVodacomPortal.strCSVEmail }}</li>
+                                    <li class="list-group-item">Size Limit : {{ thisVodacomPortal.strSMSSizeLimit }}</li>
+                                    <li class="list-group-item"></li>
+
+                                    <li class="list-group-item">Buy Rate : {{ thisVodacomPortal.strBuyRate }}</li>
+                                    <li class="list-group-item">Sell Rate : {{ thisVodacomPortal.strSellRate }}</li>
+                                    <li class="list-group-item">Profit : {{ thisVodacomPortal.strProfit }}</li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item">System Credit : {{ thisVodacomPortal.strSystemCredit }}</li>
+                                    <li class="list-group-item">Available Credit : {{ thisVodacomPortal.strAvailableCredit }}</li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item">Portal Address : <a href="{{ thisVodacomPortal.strPortalAddress }}"><strong> <i class="fa fa-link"> </i> {{ thisVodacomPortal.strPortalAddress }}</strong></a></li>
+                                    <li class="list-group-item">Login Name : {{ thisVodacomPortal.strPortalLogin }}</li>
+                                    <li class="list-group-item">Password : {{ thisVodacomPortal.strPortalPassword }}</li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" id="VodaPortalEditor">
+                                <div class="box box-body with-border">
+                                    <div class="box box-header with-border">
+                                        <h3 class="box-title">Portal Editor</h3>
+                                        <small>Note the changes made here will affect all churches using this application.</small>
+                                        <small>For instance if you allocate a System Credit of 50000 vodacom credits and only 50000 vodacom credits are available on the vodacom portal</small>
+                                        <small>It will mean that there is no SMS Credits available for other Apps, this means that Credit Allocation must be managed properly so as not to cause confusion</small>
+                                    </div>
+                                    <div class="box box-footer with-border">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="strSenderAddress" class="col-sm-3 control-label pull-left" >Sender Address</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-envelope"> </i>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="strSenderAddress" name="vstrSenderAddress" value="{{ thisVodacomPortal.strSenderAddress }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strEmailAddress" class="col-sm-3 control-label pull-left" >Email Address</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-envelope"> </i>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="strEmailAddress" name="vstrEmailAddress" value="{{ thisVodacomPortal.strEmailAddress }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strCSVEmail" class="col-sm-3 control-label pull-left" >CSV Email</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-file-code-o"> </i>
+                                                        </div>
+
+                                                        <input type="text" class="form-control" id="strCSVEmail" name="vstrCSVEmail" value="{{ thisVodacomPortal.strCSVEmail }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strSMSSizeLimit" class="col-sm-3 control-label pull-left" >SMS Size Limit</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control" id="strSMSSizeLimit" name="vstrSMSSizeLimit" value="{{ thisVodacomPortal.strSMSSizeLimit }}">
+                                                </div>
+                                            </div>
+                                            <div class="box box-primary with-border">
+                                            <div class="form-group">
+                                                <label for="strBuyRate" class="col-sm-3 control-label pull-left" >Buy Rate</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            Cents
+                                                        </div>
+                                                        <input type="text" class="form-control" id="strBuyRate" name="vstrBuyRate" value="{{ thisVodacomPortal.strBuyRate }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strSellRate" class="col-sm-3 control-label pull-left" >Sell Rate</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            Cents
+                                                        </div>
+                                                        <input type="text" class="form-control" id="strSellRate" name="vstrSellRate" value="{{ thisVodacomPortal.strSellRate }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strProfit" class="col-sm-3 control-label pull-left" >Profit</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            Cents
+                                                        </div>
+                                                        <input type="text" class="form-control" id="strProfit" name="vstrProfit" value="{{ thisVodacomPortal.strProfit }}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="box box-primary with-border">
+
+                                                <div class="form-group">
+                                                    <label for="strAvailableCredit" class="col-sm-3 control-label pull-left" >Available Credit</label>
+                                                    <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            Credits
+                                                        </div>
+                                                            <input type="text" class="form-control" id="strAvailableCredit" name="vstrAvailableCredit" value="{{ thisVodacomPortal.strAvailableCredit }}" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="strSystemCredit" class="col-sm-3 control-label pull-left" >System Credit</label>
+                                                    <div class="col-sm-6">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                                Credits
+                                                            </div>
+                                                            <input type="text" class="form-control" id="strSystemCredit" name="vstrSystemCredit" value="{{ thisVodacomPortal.strSystemCredit }}" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label pull-left" ></label>
+                                                    <div class="col-sm-6">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                                Credits :
+                                                            </div>
+                                                            <input id="strAdditionalCredit" type="text" name="strAdditionalCredit" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label pull-left" ></label>
+                                                    <div class="col-sm-6">
+                                                        <button type="button" class="btn btn-primary btn-block" id="AddSystemCreditsButt"><strong><i class="fa fa-add"> </i> Add System Credits </strong></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box box-primary with-border">
+                                                <div class="form-group">
+                                                    <label for="strPortalAddress" class="col-sm-3 control-label pull-left" >Portal Address</label>
+                                                    <div class="col-sm-6">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-link"> </i>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="strPortalAddress" name="vstrPortalAddress" value="{{ thisVodacomPortal.strPortalAddress }}" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="strPortalLogin" class="col-sm-3 control-label pull-left" >Login Name</label>
+                                                    <div class="col-sm-6">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-user"> </i>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="strPortalLogin" name="vstrPortalLogin" value="{{ thisVodacomPortal.strPortalLogin }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="strPortalPassword" class="col-sm-3 control-label pull-left" >Password</label>
+                                                    <div class="col-sm-6">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-key"> </i>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="strPortalPassword" name="vstrPortalPassword" value="{{ thisVodacomPortal.strPortalPassword }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label pull-left" ></label>
+                                                    <div class="col-sm-6">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-cloud-upload"> </i>
+                                                            </div>
+                                                            <button type="button" class="btn btn-primary btn-block" id="UpdateVodacomPortalButt"><strong> <i class="fa fa-server"> </i> Update Portal </strong></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label pull-left" ></label>
+                                                    <div class="col-sm-6">
+                                                        <div id="UpdateVodacomPortalINFDIV"></div>
+                                                    </div>
+
+                                                </div>
+
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="BudgetPortal">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Budget SMS Portal</h3>
+                </div>
+                <div class="box box-footer">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strSendHTTPS" class="col-sm-3 control-label pull-left" >Send HTTPS</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-link"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strSendHTTPS" name="vstrSendHTTPS" value="{{ thisBudgetPortal.strSendHTTPS }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strStatusHTTPS" class="col-sm-3 control-label pull-left" >Status HTTPS</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-link"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strStatusHTTPS" name="vstrStatusHTTPS" value="{{ thisBudgetPortal.strStatusHTTPS }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strRepliesHTTPS" class="col-sm-3 control-label pull-left" >Replies HTTPS</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-link"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strRepliesHTTPS" name="vstrRepliesHTTPS" value="{{ thisBudgetPortal.strRepliesHTTPS }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strCreditsHTTPS" class="col-sm-3 control-label pull-left" >Credit HTTPS</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-link"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strCreditsHTTPS" name="vstrCreditsHTTPS" value="{{ thisBudgetPortal.strCreditsHTTPS }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box box-primary with-border">
+                        <div class="form-group">
+                            <label for="strBudgetBuyRate" class="col-sm-3 control-label pull-left" >Buy Rate</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        Cents
+                                    </div>
+                                    <input type="text" class="form-control" id="strBudgetBuyRate" name="vstrBudgetBuyRate" value="{{ thisBudgetPortal.strBuyRate }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strBudgetSellRate" class="col-sm-3 control-label pull-left" >Sell Rate</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        Cents
+                                    </div>
+                                    <input type="text" class="form-control" id="strBudgetSellRate" name="vstrBudgetSellRate" value="{{ thisBudgetPortal.strSellRate }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strBudgetProfit" class="col-sm-3 control-label pull-left" >Profit</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        Cents
+                                    </div>
+                                    <input type="text" class="form-control" id="strBudgetProfit" name="vstrBudgetProfit" value="{{ thisBudgetPortal.strProfit }}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="box box-primary with-border">
+
+                            <div class="form-group">
+                                <label for="strBudgetAvailableCredit" class="col-sm-3 control-label pull-left" >Available Credit</label>
+                                <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        Credits
+                                    </div>
+                                        <input type="text" class="form-control" id="strBudgetAvailableCredit" name="vstrBudgetAvailableCredit" value="{{ thisBudgetPortal.strAvailableCredit }}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strBudgetSystemCredit" class="col-sm-3 control-label pull-left" >System Credit</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            Credits
+                                        </div>
+                                        <input type="text" class="form-control" id="strBudgetSystemCredit" name="vstrBudgetSystemCredit" value="{{ thisBudgetPortal.strSystemCredit }}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left" ></label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            Credits :
+                                        </div>
+                                        <input id="strBudgetAdditionalCredit" type="text" name="strBudgetAdditionalCredit" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left" ></label>
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-primary btn-block" id="AddBudgetSystemCreditsButt"><strong><i class="fa fa-add"> </i> Add System Credits </strong></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box box-primary with-border">
+                            <div class="form-group">
+                                <label for="strBudgetPortalAddress" class="col-sm-3 control-label pull-left" >Portal Address</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-link"> </i>
+                                        </div>
+                                        <input type="text" class="form-control" id="strBudgetPortalAddress" name="vstrBudgetPortalAddress" value="{{ thisBudgetPortal.strPortalAddress }}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strBudgetPortalLogin" class="col-sm-3 control-label pull-left" >Login Name</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-user"> </i>
+                                        </div>
+                                        <input type="text" class="form-control" id="strBudgetPortalLogin" name="vstrBudgetPortalLogin" value="{{ thisBudgetPortal.strLoginName }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strBudgetPortalPassword" class="col-sm-3 control-label pull-left" >Password</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-key"> </i>
+                                        </div>
+                                        <input type="text" class="form-control" id="strBudgetPortalPassword" name="vstrBudgetPortalPassword" value="{{ thisBudgetPortal.strPassword }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left" ></label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-cloud-upload"> </i>
+                                        </div>
+                                        <button type="button" class="btn btn-primary btn-block" id="UpdateBudgetPortalButt"><strong> <i class="fa fa-server"> </i> Update Portal </strong></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left" ></label>
+                                <div class="col-sm-6">
+                                    <div id="UpdateBudgetPortalINFDIV"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class="tab-pane" id="CreditAccount">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Credit Account</h3>
+                </div>
+                <table id="SMSAccounts" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td>Church ID</td>
+                            <td>Available Credit</td>
+                            <td>Using Portal</td>
+                            <td>Update</td>
+                            <td>Response</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for thisSMSAccount in thisSMSAccountList %}
+                        <tr>
+                            <td>{{ thisSMSAccount.strChurchID }}</td>
+                            <td>{{ thisSMSAccount.strTotalSMS }}</td>
+                            <td>{{ thisSMSAccount.strUsePortal }}</td>
+                            <td>
+                            <div class="form-group">
+                            <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <input type="text" id="text{{ thisSMSAccount.strChurchID }}">
+                                </div>
+                                <button type="button" class="btn btn-primary btn-block" name="{{ thisSMSAccount.strChurchID }}" id="{{ thisSMSAccount.strChurchID }}" onclick="UpdateAccount(this.id)"><strong><i class="fa fa-cloud"> </i> Update Account </strong></button>
+                            </div>
+                           </div>
+                           </div>
+
+                            </td>
+                            <td>
+                                <div id="Response{{ thisSMSAccount.strChurchID }}"></div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Church ID</td>
+                            <td>Available Credit</td>
+                            <td>Using Portal</td>
+                            <td>Update</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/static/plugins/ionslider/ion.rangeSlider.min.js"></script>
+<script src="/static/plugins/bootstrap-slider/bootstrap-slider.js"></script>
+<script src="/static/dist/js/pages/admin/dashboard/bulksms.js"></script>
+<script>$(function () {$('.slider').slider();$("#strAdditionalCredit").ionRangeSlider({min: 500,max: 10000, from: 500, to: 10000, type: 'single', step: 500, prefix: "C ", prettify: true, hasGrid: true});});</script>
+<script>$(function () {$('.slider').slider();$("#strBudgetAdditionalCredit").ionRangeSlider({min: 1000, max: 100000, from: 1000, to: 100000, type: 'single', step: 1000, prefix: "C ", prettify: true, hasGrid: true});});</script>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Church Admin-{{ thisForumSEO.strSEOTitle }}</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="{{ thisForumSEO.strGoogleWebmasterMetaTag }}" />
+  <meta name="description" content="{{ thisForumSEO.strForumSEODescription }}"/>
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!-- jQuery 2.2.3 -->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <!-- Main Header -->
+   <div id="MainHeaderDiv"></div>
+  <!-- Left side column. contains the logo and sidebar -->
+  <div id="SideBarDiv"></div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Church Administration
+        <small>Church Administration App</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Forums</li>
+      </ol>
+      <div id="ourmanna-verse">Loading...</div>
+      <script src="http://www.ourmanna.com/verses/api/js/" type="text/javascript"></script>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box box-primary">
+                    <div class="box-body box-profile">
+                      <img class="profile-user-img img-responsive img-circle" src="../../../static/dist/img/forum.jpg" alt="{{ thisForumSEO.strForumSEODescription }}">
+                      <h3 class="profile-username text-center">{{ thisForum.strForumName }}</h3>
+                      <p class="text-muted text-center">{{ thisForum.strForumDescription }}</p>
+
+
+                      <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item">
+                          <b>Status</b> <a class="pull-right">{{ thisForum.strForumStatus }}</a>
+                        </li>
+                        <li class="list-group-item">
+                          <b>Subscriptions</b> <a class="pull-right">{{ thisForum.strForumSubscriptionStatus }}</a>
+                        </li>
+                        <li class="list-group-item">
+                          <b>Subscribers </b> <a class="pull-right">{{ thisForum.strSubscriptions }}</a>
+                        </li>
+                         <li class="list-group-item">
+                          <b>Likes </b> <a class="pull-right">{{ thisForum.strLikes }}</a>
+                        </li>
+
+                         <li class="list-group-item">
+                          <b>Shares </b> <a class="pull-right">{{ thisForum.strShares }}</a>
+                        </li>
+
+                      </ul>
+                        <input type="hidden" class="hidden" id="strForumID" value="{{ thisForum.strForumID }}">
+                        <div class="box box-footer with-border">
+                            <a href="/forums/public/{{ thisForum.strForumID }}" type="button" class="btn btn-primary btn-block"><string><i class="fa fa-forumbee"> </i> Reload </string></a>
+                            <a href="/forums" type="button" class="btn btn-primary btn-block margin-bottom"><string><i class="fa fa-forumbee"> </i> Forums Home</string></a>
+                            <button type="button" class="btn btn-primary btn-block" id="TopicsButt"><string><i class="fa  fa-file-text-o"> </i> Topics &amp; Articles Manager</string></button>
+
+                        </div>
+                        <div class="box box-footer with-border">
+                            <button type="button" class="btn btn-primary btn-block" id="SubscribeButt"><string><i class="fa fa-heart"> </i> Subscribe </string></button>
+                            <button type="button" class="btn btn-primary btn-block" id="ShareButt"><string><i class="fa fa-share-alt"> </i> Share </string></button>
+                            <button type="button" class="btn btn-primary btn-block" id="LikeButt"><string><i class="fa fa-thumbs-o-up"> </i> Like </string></button>
+                            <div id="SubscribeINFDIV"></div>
+                        </div>
+                         <div class="box box-primary">
+                            <div class="box-header with-border">
+                              <h3 class="box-title">Topics</h3>
+
+                              <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                              </div>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                              <ul class="products-list product-list-in-box">
+                               {% for thisTopic in thisTopicList %}
+                                <li class="item">
+                                  <div class="product-img">
+                                    <img src="/static/dist/img/forum.jpg" alt="Church Admin Forums">
+                                  </div>
+                                  <div class="product-info">
+                                    <a href="/forums/public/{{ thisTopic.strForumID }}/{{ thisTopic.strTopicID }}" class="product-title">{{ thisTopic.strTopicName}}
+                                      <span class="label label-warning pull-right"></span></a>
+                                        <span class="product-description">
+                                          {{ thisTopic.strTopicDescription }}
+                                        </span>
+                                  </div>
+                                </li>
+                                {% endfor %}
+                                <!-- /.item -->
+                              </ul>
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer text-center">
+                              <a href="/forums" class="uppercase">Refresh Topics</a>
+                            </div>
+                            <!-- /.box-footer -->
+                          </div>
+                      <div class="box box-footer pull-left with-border">
+                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://church-admins.appspot.com/forums/public/{{ thisForum.strForumID }}" target="_blank" class="btn btn-block btn-social btn-facebook"><i class="fa fa-facebook"></i> Share on Facebook</a>
+                          <a href="https://plus.google.com/share?url=https://church-admins.appspot.com/forums/public/{{ thisForum.strForumID }}" target="_blank" class="btn btn-block btn-social btn-google"><i class="fa fa-google-plus"></i>Share on Google Plus </a>
+                          <a href="http://www.twitter.com/share?url=https://church-admins.appspot.com/forums/public/{{ thisForum.strForumID }}" target="_blank" class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter"></i> Share on Twitter</a>
+                      </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="box box-body with-border">
+                    <div class="box box-footer with-border">
+                        <h3 class="box-title">{{ thisForum.strForumName }}</h3>
+                    </div>
+                    <blockquote>
+                    {{ thisForum.strForumDescription }}
+
+                    </blockquote>
+                    <div class="col-xs-12">
+                        {{ thisForum.strPage }}
+                    </div>
+              <div class="text-center pull-left">
+                <a class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+                <a class="btn btn-social-icon btn-google"><i class="fa fa-google-plus"></i></a>
+                <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+              </div>
+                </div>
+                <div class="box box-footer with-border" id="ForumDIVINF">
+                    <div class="box box-header with-border">
+                        <h3><i class="fa  fa-file-text-o"> </i> Topics</h3>
+                    </div>
+                    <ul class="list-group">
+                        {% for thisTopic in thisTopicList %}
+                        <li class="list-group-item"><span class="pull-left"><strong> <a href="/forums/public/{{ thisTopic.strForumID }}/{{ thisTopic.strTopicID }}"> <i class="fa  fa-file-text-o"> </i> {{ thisTopic.strTopicName }}</a>  </strong></span>,<span class="pull-right"><i class="fa fa-calendar"> </i> {{ thisTopic.strDate }}, <i class="glyphicon glyphicon-time"> </i> {{ thisTopic.strTime }}</span>
+                        <blockquote>
+                            {{ thisTopic.strTopicDescription }}
+                        </blockquote>
+                            <blockquote>
+                                <a href="/forums/public/{{ thisTopic.strForumID }}/{{ thisTopic.strTopicID }}"> <span class="pull-left" title="click here to read articles under this topic"> articles {{ thisTopic.strTotalArticle }}...</span> </a>
+                            </blockquote>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+ <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/dist/js/pages/admin/forums/forum.js"></script>
+<script type="text/javascript">$(document).ready(function(){$('#MainHeaderDiv').load("/navigation/header")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#SideBarDiv').load("/navigation/sidebar")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#FooterDiv').load("/navigation/footer")});</script>
+</body>
+</html>
+

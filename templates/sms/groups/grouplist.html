@@ -1,0 +1,111 @@
+
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">SMS Groups </h3>
+        <input type="hidden" class="hidden" id="strMemberID" name="vstrMemberID" value="{{ vstrMemberID }}">
+    </div>
+
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#MySMSGroups" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> My SMS Groups</button></a></li>
+        <li><a href="#AvailableGroups" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Available Groups </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="MySMSGroups">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">My SMS Groups</h3>
+                </div>
+                    <table id="MyGroupsTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Group ID</td>
+                <td>Branch ID</td>
+                <td>Group Name</td>
+                <td>Description</td>
+                <td>Total Members</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for thisGroup in thisMyGroupList %}
+            <tr>
+                <td>{{ thisGroup.strGroupID }}</td>
+                <td>{{ thisGroup.strChurchBranchID }}</td>
+                <td>{{ thisGroup.strGroupName }}</td>
+                <td>{{ thisGroup.strGroupDescription }}</td>
+                <td>{{ thisGroup.strTotalNumbers }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Group ID</td>
+                <td>Branch ID</td>
+                <td>Group Name</td>
+                <td>Description</td>
+                <td>Total Members</td>
+            </tr>
+        </tfoot>
+    </table>
+            </div>
+        </div>
+        <div class="tab-pane" id="AvailableGroups">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Available SMS Groups</h3>
+                </div>
+                <table id="AvailableTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td>Group ID</td>
+                            <td>Branch ID</td>
+                            <td>Group Name</td>
+                            <td>Description</td>
+                            <td>Total Members</td>
+                            <td>Make Member</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for thisGroup in thisGroupsList %}
+                        <tr>
+                            <td>{{ thisGroup.strGroupID }}</td>
+                            <td>{{ thisGroup.strChurchBranchID }}</td>
+                            <td>{{ thisGroup.strGroupName }}</td>
+                            <td>{{ thisGroup.strGroupDescription }}</td>
+                            <td>{{ thisGroup.strTotalNumbers }}</td>
+                            <td><input type="checkbox" id="{{ thisGroup.strGroupID }}" onclick="GetGroup(this.id)"> </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Group ID</td>
+                            <td>Branch ID</td>
+                            <td>Group Name</td>
+                            <td>Description</td>
+                            <td>Total Members</td>
+                            <td>Make Member</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <div class="box box-footer with-border">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="JoinGroupsButt"><strong><i class="fa fa-cloud"> </i> Process Membership </strong></button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label pull-left"></label>
+                        <div class="col-sm-6">
+                            <div id="ProcessMembershipINFDIV"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/static/dist/js/pages/admin/sms/grouplist.js"></script>

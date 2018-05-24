@@ -1,0 +1,117 @@
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Send SMS</h3>
+        <input type="hidden" class="hidden" id="strGroupID" name="vstrGroupID" value="{{ thisGroup.strGroupID }}">
+    </div>
+    <div class="bav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#SMSMessage" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-pencil"> </i> SMS Message</button></a></li>
+            <li><a href="#ToContacts" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-phone"> </i> Contacts List </button> </a> </li>
+            <li><a href="#SendMessage" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-send"> </i> Send SMS </button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="SMSMessage">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">SMS Message</h3>
+                    </div>
+                    <div class="box box-footer with-border">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="strMessageID" class="col-sm-3 control-label pull-left" >Message ID </label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-key"> </i>
+                                        </div>
+                                        <input type="text" class="form-control" id="strMessageID" name="vstrMessageID" value="{{ thisMessage.strMessageID }}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="strMessage" class="col-sm-3 control-label pull-left"><i class="fa fa-envelope"> </i> Message</label>
+                                <div class="col-sm-6">
+                                    <textarea id="strMessage" class="form-control" readonly>{{ thisMessage.strMessage }}</textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="ToContacts">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Contacts</h3>
+                    </div>
+                    <div class="box box-body with-border">
+                        <ul class="list-group">
+                            <li class="list-group-item">Group Name : {{ thisGroup.strGroupName }}</li>
+                            <li class="list-group-item">Total Contacts : {{ thisGroup.strTotalNumbers }}</li>
+                        </ul>
+                    </div>
+                    <div class="box box-footer with-border">
+                        <table id="ContactsTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <td>Member ID</td>
+                                    <td>Names</td>
+                                    <td>Surname</td>
+                                    <td>Cell</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for thisContact in thisSMSContactsList %}
+                                <tr>
+                                    <td>{{ thisContact.strMemberID }}</td>
+                                    <td>{{ thisContact.strNames }}</td>
+                                    <td>{{ thisContact.strSurname }}</td>
+                                    <td>{{ thisContact.strCellNumber }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Member ID</td>
+                                    <td>Names</td>
+                                    <td>Surname</td>
+                                    <td>Cell</td>
+                                </tr>
+                            </tfoot>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="SendMessage">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Send Message</h3>
+                    </div>
+                    <div class="box box-body with-border">
+                        <ul class="list-group">
+                            <li class="list-group-item">Credits Available : {{ thisSMSAccount.strTotalSMS }}</li>
+                            <li class="list-group-item">Total Messages to Send : {{ thisGroup.strTotalNumbers }}</li>
+                        </ul>
+                    </div>
+                    <div class="box box-footer with-border">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-primary btn-block" id="SendMessageButt"><i class="glyphicon glyphicon-send"> </i> Send Now </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label pull-left"></label>
+                                <div class="col-sm-6">
+                                    <div id="SendNowINFDIV"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/admin/sms/sendsms.js"></script>

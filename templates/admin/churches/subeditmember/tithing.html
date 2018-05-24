@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#TithingList" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Tithing History</button></a></li>
+        <li><a href="#AddTithe" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> Add Tithe </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="DonationList">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3 class="box-title">Tithing History</h3>
+                    <input type="hidden" class="hidden" id="strMemberID" value="{{ vstrMemberID }}">
+                </div>
+
+                <table id="TithingTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td>Transaction Code</td>
+                            <td>Tithing Amount</td>
+                            <td>Date</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for thisTithe in thisTithingList %}
+                        <tr>
+                            <td>{{ thisTithe.strTransactionCode }}</td>
+                            <td>{{ thisTithe.strTithingAmount }}</td>
+                            <td>{{ thisTithe.strYear }}-{{ thisTithe.strMonth }}-{{ thisTithe.strDay }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                    <tfoot>
+                            <td>Transaction Code</td>
+                            <td>Tithing Amount</td>
+                            <td>Date</td>
+                    </tfoot>
+
+                </table>
+
+            </div>
+        </div>
+
+        <div class="tab-pane" id="AddTithe">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Add Tithe</h3>
+                    </div>
+
+                    <form class="form-horizontal">
+
+                        <div class="form-group">
+                            <label for="strTithingAmount" class="col-sm-3 control-label pull-left" >Tithing Amount</label>
+                            <div class="col-sm-6">
+                                  <div class="input-group">
+                                    <span class="input-group-addon">R </span>
+                                    <input type="text" class="form-control" id="strTithingAmount">
+                                    <span class="input-group-addon">.00</span>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strDate" class="col-sm-3 control-label pull-left" >Date</label>
+                            <div class="col-sm-6">
+                                  <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"> </i>
+                                    </div>
+                                    <input type="text" class="form-control" id="strDate" placeholder="2017-09-15">
+
+                                  </div>
+                            </div>
+                        </div>
+
+                           <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left" ></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-bitbucket btn-block" id="AddTithingButt"><strong> <i class="fa fa-money"> </i> Add Tithing </strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left" ></label>
+                            <div class="col-sm-6">
+                                <div id="AddTithingStatusINFDIV"></div>
+                            </div>
+                        </div>
+
+                     </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/churches/subedit/tithing.js"></script>
+<script>$(function () {$('#TithingTable').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>

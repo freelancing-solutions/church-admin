@@ -1,0 +1,23 @@
+
+handlers:
+
+- url: /admin/mysms
+  login: required
+  secure: always
+  script: mysms.app
+
+- url: /admin/sms/groups
+  login: required
+  secure: always
+  script: mysms.app
+
+- url: /sms/groupman/.*
+  login: required
+  secure: always
+  script: mysms.app
+
+- url: /sms/manage/.*
+  login: required
+  secure: always
+  script: mysms.app
+

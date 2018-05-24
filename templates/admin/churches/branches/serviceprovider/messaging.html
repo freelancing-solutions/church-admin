@@ -1,0 +1,101 @@
+
+
+<!--TODO This file loads in TheClient.html founds inside suppliers -->
+
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Messaging</h3>
+    </div>
+
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#MessagesTAB" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Messages</button></a></li>
+        <li><a href="#SendMessageTAB" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-send"> </i> Send </button> </a> </li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="MessagesTAB">
+            <table id="MessagesTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>Message</td>
+                        <td>Date Sent</td>
+                        <td>Time</td>
+                        <td>Response</td>
+                        <td>Date Response</td>
+                        <td>Time</td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for thisMessage in thisClientMessagingList %}
+                    <tr>
+                        <td>{{ thisMessage.strMessage }}</td>
+                        <td>{{ thisMessage.strDateSent}}</td>
+                        <td>{{ thisMessage.strTimeSent }}</td>
+                        <td>{{ thisMessage.strResponse }}</td>
+                        <td>{{ thisMessage.strDateResponse }}</td>
+                        <td>{{ thisMessage.strTimeResponse }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Message</td>
+                        <td>Date Sent</td>
+                        <td>Time</td>
+                        <td>Response</td>
+                        <td>Date Response</td>
+                        <td>Time</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="tab-pane" id="SendMessageTAB">
+            <div class="box box-body with-border">
+                <div class="box box-header with-border">
+                    <h3>Send Messages</h3>
+                </div>
+                <form class="form-horizontal">
+                        <div class="form-group">
+                            <input type="hidden" class="hidden" id="strClientID" value="{{ thisClient.strClientID }}">
+                            <label for="strCell" class="col-sm-3 control-label pull-left" >Cell</label>
+                            <div class="col-sm-6">
+                                  <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-phone-alt"> </i>
+                                    </div>
+                                        <input type="text" class="form-control" id="strCell" value="{{ thisClient.strCell }}" readonly>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="strMessage" class="col-sm-3 control-label pull-left" >Message</label>
+                            <div class="col-sm-6">
+                                  <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-envelope"> </i>
+                                    </div>
+                                        <textarea id="strMessage" class="form-control"></textarea>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="SendMessageButt"><strong><i class="glyphicon glyphicon-phone"> </i> Send Message </strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="SendMessageINFDIV"></div>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="/static/dist/js/pages/admin/churches/branches/serviceprovider/messaging.js"></script>

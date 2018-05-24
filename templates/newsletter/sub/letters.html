@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Articles</h3>
+        <input type="hidden"class="hidden" id="strListID" value="{{ vstrListID }}">
+    </div>
+
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#PreviousNewsLetters" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> <strong>Articles</strong></button></a></li>
+            <li><a href="#CreateNewsLetter" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-export"> </i> <strong>Create Articles</strong> </button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="PreviousNewsLetters">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title"> Article Manager</h3>
+                        <br><small>Click on <strong>Article Heading</strong> to edit article, add images, videos, and audio, or <strong>Click on Hosted</strong> to check how the article will appear to the public</small>
+                    </div>
+                    <table id="PreviousNewsLettersTAB" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Heading</td>
+                                <td>Body</td>
+                                <td>Hosted</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for thisLetter in thisLettersList %}
+                            <tr>
+                                <td><a href="/newsletters/editor/{{ thisLetter.strArticleID }}"> {{ thisLetter.strLetterHeading }}</a></td>
+                                <td>{{ thisLetter.strLetterBody }}</td>
+                                <td><a href="/newsletters/hosted/{{ thisLetter.strHostedLink }}">{{ thisLetter.strHostedLink }}</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Heading</td>
+                                <td>Body</td>
+                                <td>Hosted</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="CreateNewsLetter">
+                <div class="box box-primary with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Create Articles</h3>
+                        <br><small>Note that after you created an article here you can continue editing the article by clicking its heading
+                     on the articles list window</small>
+                    </div>
+
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="strLetterHeading" class="col-sm-3 control-label pull-left" >Heading</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strLetterHeading" name="vstrLetterHeading">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strLetterBody" class="col-sm-3 control-label pull-left">Body</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control" id="strLetterBody" name="vstrLetterBody"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block" id="UploadLetterButt"><strong><i class="fa fa-cloud"> </i> Upload Newsletter </strong></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label pull-left"></label>
+                            <div class="col-sm-6">
+                                <div id="UploadLetterINFDIV"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/dist/js/pages/admin/newsletters/letters.js"></script>
+<script>$(function () {$('#PreviousNewsLettersTAB').DataTable({"paging": true, "lengthChange": true, "searching": true, "ordering": true, "info": true, "autoWidth": true});});</script>
+

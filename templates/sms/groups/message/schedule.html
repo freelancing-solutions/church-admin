@@ -1,0 +1,151 @@
+<link rel="stylesheet" href="/static/dist/css/slider.css">
+<link rel="stylesheet" href="/static/plugins/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" href="/static/plugins/datepicker/datepicker3.css">
+<link rel="stylesheet" href="/static/plugins/timepicker/bootstrap-timepicker.min.css">
+<link rel="stylesheet" href="/static/plugins/select2/select2.min.css">
+
+    <div class="bav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#ActiveSchedule" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Active Schedule</button></a></li>
+            <li><a href="#CreateSchedule" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="glyphicon glyphicon-th-list"> </i> Create Schedule </button> </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="active tab-pane" id="ActiveSchedule">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Active Schedule</h3>
+                    </div>
+
+                    <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">SMS Schedules</h3>
+
+              <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tr>
+                  <th>Member ID</th>
+                  <th>Message ID</th>
+                  <th>Start Date/Time</th>
+                  <td>End Date/Time</td>
+                  <th>Status</th>
+                  <th>Notify on Start</th>
+                  <th>Notify on End</th>
+                </tr>
+                <tr>
+                  <td>{{ thisMessageSchedule.strMemberID }}</td>
+                  <td>{{ thisMessageSchedule.strMessageID }}</td>
+                  <td>{{ thisMessageSchedule.strStartDate }} {{ thisMessageSchedule.strStartTime }}</td>
+                  <td>{{ thisMessageSchedule.strEndDate }} {{ thisMessageSchedule.strEndTime }} </td>
+                  {% if thisMessageSchedule.strStatus == "Scheduled" %}
+                  <td><span class="label label-success">{{ thisMessageSchedule.strStatus }}</span></td>
+                  {% elif thisMessageSchedule.strStatus == "Running" %}
+                  <td><span class="label label-primary">{{ thisMessageSchedule.strStatus }}</span></td>
+                  {% else %}
+                  <td><span class="label label-info">{{ thisMessageSchedule.strStatus }}</span></td>
+                  {% endif %}
+                  <td>{{ thisMessageSchedule.strNotifyOnStart }}</td>
+                  <td>{{ thisMessageSchedule.strNotifyonEnd }}</td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="CreateSchedule">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">SMS Schedule</h3>
+                          <span>Once the schedule is set you dont have to do anything and the sms messages will begin sending as soon as the Set Schedule is met.</span><br>
+                          <span>Once the Schedule is executing there is no way to change the set time on the schedule</span>
+
+                        <input type="hidden" class="hidden" id="strGroupID" value="{{ vstrGroupID }}">
+                        <input type="hidden" class="hidden" id="strMessageID" value="{{ vstrMessageID }}">
+                    </div>
+                    <div class="box box-footer with-border">
+                        <form class="form-horizontal">
+                              <!-- Date and time range -->
+                              <div class="form-group">
+                                <label for="strScheduleTime" class="col-sm-3 control-label pull-left" > Schedule Date Time </label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                  <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                  </div>
+                                  <input type="text" class="form-control pull-right" id="strScheduleTime">
+                                  <div class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                  </div>
+                                </div>
+                                </div>
+                                <!-- /.input group -->
+                              </div>
+                               <div class="form-group">
+                                <label for="strNotifyOnStart" class="col-sm-3 control-label pull-left" > Notify on Start</label>
+                                <div class="col-sm-6">
+                                    <label class="switch">
+                                      <input type="checkbox" id="strNotifyOnStart" checked>
+                                      <div class="slider round"></div>
+                                    </label>
+                                </div>
+                               </div>
+                               <div class="form-group">
+                                <label for="strNotifyOnEnd" class="col-sm-3 control-label pull-left" > Notify on End</label>
+                                <div class="col-sm-6">
+                                    <label class="switch">
+                                      <input type="checkbox" id="strNotifyOnEnd" checked>
+                                      <div class="slider round"></div>
+                                    </label>
+                                </div>
+                               </div>
+
+                              <div class="form-group">
+                                  <label class="col-sm-3 control-label pull-left"></label>
+                                  <div class="col-sm-6">
+                                      <button type="button" class="btn btn-primary btn-block" id="SetScheduleButt"><strong><i class="fa fa-calendar"> </i> Set Schedule </strong></button>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="col-sm-3 control-label pull-left"></label>
+                                  <div class="col-sm-6">
+                                      <div id="SetScheduleINFDIV"></div>
+                                  </div>
+                              </div>
+                              <!-- /.form group -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/plugins/select2/select2.full.min.js"></script>
+<script src="/static/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="/static/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="/static/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<script src="/static/dist/js/moment.min.js"></script>
+<script src="/static/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="/static/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="/static/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<script src="/static/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/iCheck/icheck.min.js"></script>
+<script src="/static/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="/static/dist/js/pages/admin/sms/schedule.js"></script>
+<script>$(function () {$('#strScheduleTime').daterangepicker({timePicker: true, timePicker24Hour: true, timePickerIncrement: 30, locale: { format: 'MM/DD/YYYY H:mm'}});});</script>
+

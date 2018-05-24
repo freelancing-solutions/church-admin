@@ -1,0 +1,13 @@
+handlers:
+
+- url: /navigation/header
+  secure: always
+  script: navigation.app
+- url: /navigation/sidebar
+  secure: always
+  script: navigation.app
+- url: /navigation/footer
+  secure: always
+  script: navigation.app
+
+

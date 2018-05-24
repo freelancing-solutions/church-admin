@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="rkt7iLTBYZuRLjY_Sxg4uDDNusOJnuhHCDIGPwAahtk" />
+  <title>Church Admin - Blue IT Marketing Pty LTD</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../../../../static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../../../../static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../../../../../static/dist/css/skins/skin-blue.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<script src="../../../../../static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+   <div id="MainHeaderDiv"></div>
+  <!-- Left side column. contains the logo and sidebar -->
+  <div id="SideBarDiv"></div>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Church Administration
+        <small>Church Administration App</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Authorise Payments</li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+          <div class="col-md-3">
+              <div class="box box-body with-border">
+                  <div class="box box-header with-border">
+                      <h3 class="box-title">Beneficiary</h3>
+                  </div>
+                  <ul class="list-group">
+                      <li class="list-group-item">Names : {{ thisBeneficiary.strNames }}</li>
+                      <li class="list-group-item">Surname : {{ thisBeneficiary.strSurname }}</li>
+                      <li class="list-group-item">ID Number : {{ thisBeneficiary.strIDNumber }}</li>
+                      <li class="list-group-item">Recipient Type : {{ thisBeneficiary.strRecipientType }}</li>
+                      <li class="list-group-item"><hr></li>
+                      <li class="list-group-item">Company Name : {{ thisBeneficiary.strCompanyName }}</li>
+                      <li class="list-group-item">Company Reg : {{ thisBeneficiary.strCompanyReg }}</li>
+                      <li class="list-group-item">VAT : {{ thisBeneficiary.strCompanyVAT }}</li>
+                  </ul>
+
+              </div>
+
+          </div>
+          <div class="col-md-9">
+              <div class="box box-body with-border">
+                  <div class="box box-header with-border">
+                      <h3 class="box-title">Beneficiary</h3>
+                  </div>
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#BeneficiaryDetails" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-tty"> </i> Beneficiary Details</button> </a></li>
+                            <li><a href="#BenBank" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-bank"> </i> Bank Details </button> </a> </li>
+                            <li><a href="#PayBeneficiary" data-toggle="tab"><button type="button" class="btn btn-bitbucket btn-block"> <i class="fa fa-credit-card"> </i> Pay Beneficiary </button></a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="active tab-pane" id="BeneficiaryDetails">
+                                <div class="box box-body with-border">
+                                    <div class="box box-header with-border">
+                                        <h3 class="box-title">Beneficiary Details</h3>
+                                    </div>
+                                    <form class="form-horizontal">
+                                        <div class="box box-body with-border">
+                                            <div class="box box-header with-border">
+                                                <h3 class="box-title">Personal Information</h3>
+                                            </div>
+                                            <input type="hidden" class="hidden" id="strBeneficiaryIndex" value="{{ thisBeneficiary.strBeneficiaryIndex }}">
+                                            <div class="form-group">
+                                                <label for="strNames" class="col-sm-3 control-label pull-left">Names</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control" id="strNames" name="vstrNames" value="{{ thisBeneficiary.strNames }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strSurname" class="col-sm-3 control-label pull-left">Surname</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control" id="strSurname" name="vstrSurname" value="{{ thisBeneficiary.strSurname }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strIDNumber" class="col-sm-3 control-label pull-left">ID Number</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber" value="{{ thisBeneficiary.strIDNumber }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="box box-body with-border">
+                                            <div class="box box-header with-border">
+                                                <h3 class="box-title">Company Information</h3>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strCompanyName" class="col-sm-3 control-label pull-left">Company Name</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control" id="strCompanyName" name="vstrCompanyName" value="{{ thisBeneficiary.strCompanyName }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strCompanyReg" class="col-sm-3 control-label pull-left">Company Reg</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control" id="strCompanyReg" name="vstrCompanyReg" value="{{ thisBeneficiary.strCompanyReg }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strCompanyVAT" class="col-sm-3 control-label pull-left">Company VAT</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control" id="strCompanyVAT" name="vstrCompanyVAT" value="{{ thisBeneficiary.strCompanyVAT }}">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="box box-body with-border">
+                                            <div class="box box-header with-border">
+                                                <h3 class="box-title">Extended Information</h3>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="strNotes" class="col-sm-3 control-label pull-left">Notes</label>
+                                                <div class="col-sm-6">
+                                                    <textarea id="strNotes" class="form-control select2" style="width: 100%;">{{ thisBeneficiary.strNotes }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label pull-left"></label>
+                                                <div class="col-sm-6">
+                                                    <button type="button" class="btn btn-primary btn-block" id="UpdateBeneficiaryButt"><strong> <i class="fa fa-user"> </i> Update Beneficiary </strong></button>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label pull-left"></label>
+                                                <div class="col-sm-6">
+                                                    <div id="UpdateBeneficiaryINFDIV"></div>
+                                                </div>
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="BenBank">
+                                <div class="box box-body with-border">
+                                    <div class="box box-header with-border">
+                                        <h3 class="box-title">Beneficiary Bank</h3>
+                                    </div>
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="strAccountHolder" class="col-sm-3 control-label pull-left">Account Holder</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="strAccountHolder" name="vstrAccountHolder" value="{{ thisBenBank.strAccountHolder }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="strAccountNumber" class="col-sm-3 control-label pull-left">Account Number</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="strAccountNumber" name="vstrAccountNumber" value="{{ thisBenBank.strAccountNumber }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="strAccountType" class="col-sm-3 control-label pull-left">Account Type</label>
+                                            <div class="col-sm-6">
+                                                <select id="strAccountType" class="form-control select2" style="width: 100%;">
+                                                    <option value="Savings">Savings</option>
+                                                    <option value="Cheque">Cheque</option>
+                                                    <option value="Transmission">Transmission</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="strBankName" class="col-sm-3 control-label pull-left">Bank Name</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="strBankName" name="vstrBankName" value="{{ thisBenBank.strBankName }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="strBranchName" class="col-sm-3 control-label pull-left">Branch Name</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="strBranchName" name="vstrBranchName" value="{{ thisBenBank.strBranchName }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="strBranchCode" class="col-sm-3 control-label pull-left">Branch Code</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="strBranchCode" name="vstrBranchCode" value="{{ thisBenBank.strBranchCode }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="strRoutingNumber" class="col-sm-3 control-label pull-left">Routing Number</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="strRoutingNumber" name="vstrRoutingNumber" value="{{ thisBenBank.strRoutingNumber }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label pull-left"></label>
+                                            <div class="col-sm-6">
+                                                <button type="button" class="btn btn-primary btn-block" id="UpdateBenBankButt"><strong> <i class="fa fa-bank"> </i> Update Beneficiary Bank </strong></button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label pull-left"></label>
+                                            <div class="col-sm-6">
+                                                <div id="UpdateBenBankINFDIV"></div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane" id="PayBeneficiary">
+
+                            </div>
+                        </div>
+                    </div>
+              </div>
+
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+ <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="../../../../../static/bootstrap/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../../../../static/dist/js/app.min.js"></script>
+<script src="../../../../../static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="../../../../../static/plugins/fastclick/fastclick.min.js"></script>
+<script src="../../../../../static/dist/js/pages/admin/churches/branches/bank/beneficiary.js"></script>
+
+<script type="text/javascript">$(document).ready(function(){$('#MainHeaderDiv').load("/navigation/header")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#SideBarDiv').load("/navigation/sidebar")});</script>
+<script type="text/javascript">$(document).ready(function(){$('#FooterDiv').load("/navigation/footer")});</script>
+</body>
+</html>
